@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DASGRILL</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            font-family: Arial, sans-serif;
+            font-size: 48px; /* Tamaño ajustado para mayor resolución vertical */
+            color: #333;
+            margin-bottom: 40px; /* Espacio entre el título y el slider */
+        }
+
+        .slider-container {
+            width: 80%; /* Usar porcentaje para adaptarse a diferentes anchos de pantalla */
+            height: 100px; /* Altura del slider adecuada para pantallas verticales */
+            background-color: #ddd;
+            border-radius: 50px; /* Mantener la forma redondeada */
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slider-button {
+            width: 100px; /* Tamaño del botón ajustado */
+            height: 100px; /* Tamaño del botón ajustado */
+            background-color: #555;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: pointer;
+            transition: left 0.3s;
+        }
+
+        .slider-container.active .slider-button {
+            left: calc(100% - 100px); /* Ajuste de la posición final del botón */
+        }
+
+        .slider-text {
+            font-family: Arial, sans-serif;
+            font-size: 24px; /* Tamaño del texto ajustado */
+            color: #333;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>DASGRILL</h1>
+    <div class="slider-container" id="slider">
+        <span class="slider-text">slide to continue</span>
+        <div class="slider-button" id="sliderButton"></div>
+    </div>
+
+    <script>
+        const slider = document.getElementById('slider');
+        const sliderButton = document.getElementById('sliderButton');
+
+        sliderButton.addEventListener('mousedown', function(e) {
+            const sliderRect = slider.getBoundingClientRect();
+            const maxLeft = sliderRect.width - sliderButton.offsetWidth;
+
+            function onMouseMove(e) {
+                let newLeft = e.clientX - sliderRect.left - sliderButton.offsetWidth / 2;
+
+                if (newLeft < 0) {
+                    newLeft = 0;
+                }
+                if (newLeft > maxLeft) {
+                    newLeft = maxLeft;
+                }
+
+                sliderButton.style.left = newLeft + 'px';
+            }
+
+            function onMouseUp(e) {
+                if (parseInt(sliderButton.style.left) >= maxLeft) {
+                    slider.classList.add('active');
+                    // Redirige al documento HTML deseado
+                    window.location.href = "file:///C:/Users/joaco/Desktop/lista%20redes.html";
+                } else {
+                    sliderButton.style.left = '0px';
+                }
+                document.removeEventListener('mousemove', onMouseMove);
+                document.removeEventListener('mouseup', onMouseUp);
+            }
+
+            document.addEventListener('mousemove', onMouseMove);
+            document.addEventListener('mouseup', onMouseUp);
+        });
+    </script>
+</body>
+</html>

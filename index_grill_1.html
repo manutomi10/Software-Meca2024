@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles_3.css">
 </head>
 <body>
- <hoja_2>
+ <div>
     
     <div class="container_2">
         <div class="screen_2">
@@ -15,17 +15,28 @@
             </div>       
             
         </div>
-
+    <div style="display: flex;">   
     <div class="flechas">
-        <div class="arrow-container">
-            <div class="arrow prev" onclick="changeImageGroup1(-1)">
-                &#10094;
+            <div class="arrow-container">
+                <div class="arrow prev" onclick="changeImageGroup1(-1)">
+                    &#10094;
+                </div>
+                <img src="images/png/carne.png" alt="Carne" class="middle-image" id="displayedImageGroup1">
+                <div class="arrow next" onclick="changeImageGroup1(1)">
+                    &#10095;
+                </div>
             </div>
-            <img src="images/png/carne.png" alt="Carne" class="middle-image" id="displayedImageGroup1">
-            <div class="arrow next" onclick="changeImageGroup1(1)">
-                &#10095;
+
+            <div class="barra">
+                <form style="--min: 0; --max: 100; --val: 25;">
+                    <input id="puntoCoccion" type="range" min="0" max="100" value="33.33" list="l" step="33.33">
+                    <datalist id="l">
+                        <option label="min" value="0"></option>
+                        <option label="max" value="100"></option>
+                    </datalist>
+                </form>
             </div>
-        </div>
+        </div> 
         <div class="arrow-container second">
             <div class="arrow prev" onclick="changeImageGroup2(-1)">
                 &#10094;
@@ -35,6 +46,7 @@
                 &#10095;
             </div>
         </div>
+        
     </div>
     
     <div class="image-static">
@@ -70,17 +82,9 @@
     <button class="back-button" onclick="Volver('index_5.html')">VOLVER</button>
 </div>
 
-<div class="barra">
-<form style="--min: 0; --max: 100; --val: 25;">
-    <input id="puntoCoccion" type="range" min="0" max="100" value="33.33" list="l" step="33.33">
-    <datalist id="l">
-        <option label="min" value="0"></option>
-        <option label="max" value="100"></option>
-    </datalist>
-</form>
-</div>
+
 <img src="images/png/holtersyahk.png" alt="ahkyholters" class="ahkyholters">
- </hoja_2>
+</div>
     <script src="scripts_3 copy.js"></script>
 
 </body>

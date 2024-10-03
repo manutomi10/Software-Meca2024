@@ -6,7 +6,6 @@
 body, html {
     margin: 0;
     padding: 0;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,8 +14,8 @@ body, html {
 }
 
 .container_2 {
-    width: 300px;
-    height: 500px;
+    width: 600px;
+    height: 1000px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -302,21 +301,22 @@ datalist::after {
 }
 
 .barra {
-margin-top: -60%;
+margin-top: -50%;
 margin-left: 53%;
 }
+
 
 .conti {
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute; /* Puedes ajustar esto si necesitas que el botón esté en una posición específica */
-    bottom: -20px; /* Ajusta esta distancia según necesites */
-    left: 635px; /* Ajusta esta distancia según necesites */
+    bottom: -37px; /* Ajusta esta distancia según necesites */
+    left: 560px; /* Ajusta esta distancia según necesites */
 }
 
 .conti button {
-    background-color: #c2ff5f;
+    background-color: #968f8f;
     color: rgb(0, 0, 0);
     font-size: 10px; /* Puedes ajustar el tamaño de la fuente si es necesario */
     border-radius: 100px; /* Ajusta el borde si es necesario */
@@ -327,5 +327,5 @@ margin-left: 53%;
 }
 
 .conti button:hover {
-    background-color: #5b7c26; /* Color al pasar el cursor */
+    background-color: #07369c; /* Color al pasar el cursor */
 }

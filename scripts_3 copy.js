@@ -112,13 +112,13 @@ function GuardarCorte(numeroCorte){
         return;
     }
 
-    window.location.href = "index_grill_" + (numeroCorte + 1) + ".html";
+    window.location.href = "index_prueba_" + (numeroCorte + 1) + ".html";
 }
 
 function enviarCorte(numeroCorte){
 
     // Definir la URL a la que se enviará el POST
-    const url = 'http://127.0.0.1:1880/recibirDatoCorte' + numeroCorte;
+    const url = 'http://192.168.0.19:1880/recibirDatoCorte' + numeroCorte;
 
     console.log(localStorage.getItem("Corte" + numeroCorte));
 
@@ -149,7 +149,7 @@ function enviarCortes(){
 function Continuari(){
     window.location.href = "index_9.html";
  }
- 
+
  function Ajuste(){
     window.location.href = "index_6.html";
  }
@@ -157,3 +157,4 @@ function Continuari(){
  function Volver(donde_volver){
     window.location.href = donde_volver;
  }
+
