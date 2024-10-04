@@ -96,7 +96,11 @@ body, html {
 
 .myButton-first{
     display: flex;
+<<<<<<< HEAD
     gap: 20px; /* Espacio entre los botones */
+=======
+    gap: 13px; /* Espacio entre los botones */
+>>>>>>> b57ba0ee461492fdfe875fc4442b841d5434d4d5
     
 }
 
@@ -104,8 +108,13 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
+<<<<<<< HEAD
     width: 100px;
     height: 50px;
+=======
+    width: 20px;
+    height: 20px;
+>>>>>>> b57ba0ee461492fdfe875fc4442b841d5434d4d5
     background-color: #00000023;
     color: rgb(0, 0, 0);
     font-size: 22px;
