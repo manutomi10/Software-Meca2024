@@ -1,0 +1,275 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DASGRILL Home AI</title>
+    <link rel="stylesheet" href="styles_4.css">
+</head>
+<body>
+ <hoja_2>
+    
+    <div class="container_2">
+        <div class="screen_2">
+            <div class="title_2">RESUMEN</div>
+            </div>       
+            
+        </div>
+
+        <div class="meat">
+            <img src="images/png/carne.png" alt="Carne" class="middle-image" id="displayedImageGroup1">
+        </div>
+    
+    <div class="image-static">
+        <div class="image-item">
+            <img src="images/png/sal-removebg-preview.png" alt="Sal" class="static-image">
+            <span id="valueSal">0</span>
+        </div>
+        <div class="image-item">
+            <img src="images/png/chimi-removebg-preview.png" alt="Chimi" class="static-image">
+            <span id="valueChimi">0</span>
+        </div>
+        <div class="image-item">
+            <img src="images/png/SMOKE-removebg-preview.png" alt="Smoke" class="static-image">
+            <span id="valueSmoke">0</span>
+        </div>
+    </div>
+
+    <div class="settings-item">
+ <button onclick="TermocuplasSI()">✓ TERMOCUPLAS</button>   
+<button onclick="enviarCortes()">CONTINUAR</button> 
+<button onclick="Volver('index_prueba_3.html')">VOLVER</button> 
+</div>
+
+<img src="images/png/holtersyahk.png" alt="ahkyholters" class="ahkyholters">
+ </hoja_2>
+    <script src="scripts_3 copy.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DASGRILL Home AI</title>
+    <style>
+        :root {
+            --primary-color: #b3b3b3;
+            --secondary-color: #f0f0f0;
+            --accent-color: #ff6b6b;
+            --text-color: #333;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--secondary-color);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background-color: var(--primary-color);
+            color: rgb(0, 0, 0);
+            text-align: center;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .module {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+        }
+        
+        .module-title {
+            font-size: 1.5rem;
+            color: rgb(0, 0, 0);
+            margin-bottom: 1rem;
+        }
+        
+        .meat-display {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .meat-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        
+        .ingredients {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        
+        .ingredient-item {
+            display: flex;
+            align-items: center;
+            margin: 0.5rem;
+            background-color: var(--secondary-color);
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+        
+        .ingredient-image {
+            width: 30px;
+            height: 30px;
+            margin-right: 0.5rem;
+        }
+        
+        .ingredient-value {
+            font-weight: bold;
+        }
+        
+        .settings {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: #b3b3b3;
+            color: rgb(0, 0, 0);
+        }
+        
+        .btn-secondary {
+            background-color: #b3b3b3;
+            color: rgb(0, 0, 0);
+        }
+        
+        .btn:hover {
+            opacity: 0.9;
+        }
+        
+        .ahkyholters {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            width: 80px;
+            height: auto;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .module {
+                padding: 1rem;
+            }
+            
+            .settings {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>DASGRILL Home AI</h1>
+    </header>
+    
+    <main class="container">
+        <section class="module">
+            <h2 class="module-title">Módulo 1</h2>
+            <div class="meat-display">
+                <img src="images/png/carne.png" alt="Corte de carne seleccionado" class="meat-image" id="displayedImageGroup1">
+            </div>
+            <div class="ingredients">
+                <div class="ingredient-item">
+                    <img src="images/png/sal-removebg-preview.png" alt="Sal" class="ingredient-image">
+                    <span class="ingredient-value" id="valueSal1">0</span>
+                </div>
+                <div class="ingredient-item">
+                    <img src="images/png/chimi-removebg-preview.png" alt="Chimichurri" class="ingredient-image">
+                    <span class="ingredient-value" id="valueChimi1">0</span>
+                </div>
+                <div class="ingredient-item">
+                    <img src="images/png/SMOKE-removebg-preview.png" alt="Ahumado" class="ingredient-image">
+                    <span class="ingredient-value" id="valueSmoke1">0</span>
+                </div>
+            </div>
+        </section>
+        
+        <section class="module">
+            <h2 class="module-title">Módulo 2</h2>
+            <div class="meat-display">
+                <img src="images/png/carne.png" alt="Corte de carne seleccionado" class="meat-image" id="displayedImageGroup2">
+            </div>
+            <div class="ingredients">
+                <div class="ingredient-item">
+                    <img src="images/png/sal-removebg-preview.png" alt="Sal" class="ingredient-image">
+                    <span class="ingredient-value" id="valueSal2">0</span>
+                </div>
+                <div class="ingredient-item">
+                    <img src="images/png/chimi-removebg-preview.png" alt="Chimichurri" class="ingredient-image">
+                    <span class="ingredient-value" id="valueChimi2">0</span>
+                </div>
+                <div class="ingredient-item">
+                    <img src="images/png/SMOKE-removebg-preview.png" alt="Ahumado" class="ingredient-image">
+                    <span class="ingredient-value" id="valueSmoke2">0</span>
+                </div>
+            </div>
+        </section>
+        
+        <section class="module">
+            <h2 class="module-title">Módulo 3</h2>
+            <div class="meat-display">
+                <img src="images/png/carne.png" alt="Corte de carne seleccionado" class="meat-image" id="displayedImageGroup3">
+            </div>
+            <div class="ingredients">
+                <div class="ingredient-item">
+                    <img src="images/png/sal-removebg-preview.png" alt="Sal" class="ingredient-image">
+                    <span class="ingredient-value" id="valueSal3">0</span>
+                </div>
+                <div class="ingredient-item">
+                    <img src="images/png/chimi-removebg-preview.png" alt="Chimichurri" class="ingredient-image">
+                    <span class="ingredient-value" id="valueChimi3">0</span>
+                </div>
+                <div class="ingredient-item">
+                    <img src="images/png/SMOKE-removebg-preview.png" alt="Ahumado" class="ingredient-image">
+                    <span class="ingredient-value" id="valueSmoke3">0</span>
+                </div>
+            </div>
+        </section>
+        
+        <section class="settings">
+            <button class="btn btn-primary" onclick="TermocuplasSI()">✓ TERMOCUPLAS</button>   
+            <button class="btn btn-primary" onclick="enviarCortes()">CONTINUAR</button> 
+            <button class="btn btn-secondary" onclick="Volver('index_prueba_3.html')">VOLVER</button> 
+        </section>
+    </main>
+
+    <img src="images/png/holtersyahk.png" alt="ahkyholters" class="ahkyholters">
+    
+    <script src="scripts_3 copy.js"></script>
+</body>
+</html>
