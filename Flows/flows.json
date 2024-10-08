@@ -1,0 +1,669 @@
+[
+    {
+        "id": "820d7444c5bb8457",
+        "type": "tab",
+        "label": "Flow Principal",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d42db3e01109d4dc",
+        "type": "group",
+        "z": "820d7444c5bb8457",
+        "name": "modulo3  ",
+        "style": {
+            "fill": "#ffC000",
+            "label": true,
+            "color": "#000000"
+        },
+        "nodes": [
+            "4341e810da798add",
+            "6538994654ec30d5",
+            "ee55c3983b6c5d20",
+            "0b0546abd9643d45",
+            "99a942d865b562d5"
+        ],
+        "x": 214,
+        "y": 799,
+        "w": 972,
+        "h": 202
+    },
+    {
+        "id": "f5c96243c540fd2e",
+        "type": "group",
+        "z": "820d7444c5bb8457",
+        "name": "",
+        "style": {
+            "fill": "#92d04f",
+            "label": true
+        },
+        "nodes": [
+            "011d48df16e5fc8d",
+            "e31fe8504923127c",
+            "1a62653999a065ae",
+            "dd1a24b5140f2458",
+            "928f4c1127442b2f"
+        ],
+        "x": 154,
+        "y": 579,
+        "w": 972,
+        "h": 162
+    },
+    {
+        "id": "f10fef7063b9dcb1",
+        "type": "group",
+        "z": "820d7444c5bb8457",
+        "name": "",
+        "style": {
+            "fill": "#0070c0",
+            "label": true
+        },
+        "nodes": [
+            "999afe21987635b5",
+            "ea660290c3e97b3d",
+            "26f6a364b16376e4",
+            "1a34b8edcdf91bbf",
+            "ac57343cb1e15a7f"
+        ],
+        "x": 274,
+        "y": 319,
+        "w": 852,
+        "h": 142
+    },
+    {
+        "id": "256a7c5215cf895c",
+        "type": "group",
+        "z": "820d7444c5bb8457",
+        "name": "Recepción Datoa PIC",
+        "style": {
+            "fill": "#ff0000",
+            "label": true,
+            "color": "#ffffff",
+            "fill-opacity": "0.64"
+        },
+        "nodes": [
+            "09c6c8719635a3b1",
+            "ddcff31f73e1965a",
+            "b3fdb3d086e2de5d"
+        ],
+        "x": 194,
+        "y": 1039,
+        "w": 892,
+        "h": 82
+    },
+    {
+        "id": "b2c62b13ac4b5848",
+        "type": "group",
+        "z": "820d7444c5bb8457",
+        "name": "",
+        "style": {
+            "fill": "#9363b7",
+            "label": true
+        },
+        "nodes": [
+            "479d685fc00fd24b",
+            "f756570c3ece7d26",
+            "ef3a607c06615e2f",
+            "58d33a98517abf91",
+            "f406308bf90282d2"
+        ],
+        "x": 334,
+        "y": 99,
+        "w": 652,
+        "h": 162
+    },
+    {
+        "id": "df4b5c15aa69d33a",
+        "type": "websocket-listener",
+        "path": "/ws/temperatura",
+        "wholemsg": "false"
+    },
+    {
+        "id": "42e44742403d9a1a",
+        "type": "serial-port",
+        "name": "COM3",
+        "serialport": "COM3",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "100",
+        "bin": "false",
+        "out": "time",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "15143698c0d11e19",
+        "type": "MySQLdatabase",
+        "name": "meca",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "meca",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "999afe21987635b5",
+        "type": "http in",
+        "z": "820d7444c5bb8457",
+        "g": "f10fef7063b9dcb1",
+        "name": "",
+        "url": "/recibirDatoCorte1",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 410,
+        "y": 420,
+        "wires": [
+            [
+                "26f6a364b16376e4",
+                "ea660290c3e97b3d",
+                "6eef4d21fc2b89ba"
+            ]
+        ]
+    },
+    {
+        "id": "26f6a364b16376e4",
+        "type": "function",
+        "z": "820d7444c5bb8457",
+        "g": "f10fef7063b9dcb1",
+        "name": "String a SELECT M1",
+        "func": "msg.payload = [msg.payload.corte, msg.payload.puntoCoccion,msg.payload.sal,msg.payload.chimi,msg.payload.smoke];\nmsg.topic = \"SELECT tempDarVuelta, tempFinal FROM coccion WHERE corte = ? AND punto = ?\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 360,
+        "wires": [
+            [
+                "1a34b8edcdf91bbf"
+            ]
+        ]
+    },
+    {
+        "id": "ac57343cb1e15a7f",
+        "type": "function",
+        "z": "820d7444c5bb8457",
+        "g": "f10fef7063b9dcb1",
+        "name": "Select a Serie M1",
+        "func": "let Csal = msg.payload[0].sal;\nlet Cchimi = msg.payload[0].chimi;\nlet Chumo = msg.payload[0].smoke;\nlet tempDarVuelta = msg.payload[1][0].tempDarVuelta;\nlet tempFinal = msg.payload[1][0].tempFinal;\nlet msgEnvio = \"*m1\" + \"t\" + tempDarVuelta + \"v\" + tempFinal + \"c\" + Csal.toString() + Cchimi.toString() + Chumo.toString()\nmsg.payload = msgEnvio;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1010,
+        "y": 420,
+        "wires": [
+            [
+                "b9b812348bed2d19"
+            ]
+        ]
+    },
+    {
+        "id": "ea660290c3e97b3d",
+        "type": "join",
+        "z": "820d7444c5bb8457",
+        "g": "f10fef7063b9dcb1",
+        "name": "JOIN M1",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 720,
+        "y": 420,
+        "wires": [
+            [
+                "ac57343cb1e15a7f"
+            ]
+        ]
+    },
+    {
+        "id": "011d48df16e5fc8d",
+        "type": "http in",
+        "z": "820d7444c5bb8457",
+        "g": "f5c96243c540fd2e",
+        "name": "",
+        "url": "/recibirDatoCorte2",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 290,
+        "y": 700,
+        "wires": [
+            [
+                "e31fe8504923127c",
+                "1a62653999a065ae",
+                "6eef4d21fc2b89ba"
+            ]
+        ]
+    },
+    {
+        "id": "62a73ed8fae2b102",
+        "type": "http response",
+        "z": "820d7444c5bb8457",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 1540,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "e31fe8504923127c",
+        "type": "function",
+        "z": "820d7444c5bb8457",
+        "g": "f5c96243c540fd2e",
+        "name": "String a SELECT M2",
+        "func": "msg.payload = [msg.payload.corte, msg.payload.puntoCoccion,msg.payload.sal,msg.payload.chimi,msg.payload.smoke];\nmsg.topic = \"SELECT tempDarVuelta, tempFinal FROM coccion WHERE corte = ? AND punto = ?\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 620,
+        "wires": [
+            [
+                "dd1a24b5140f2458"
+            ]
+        ]
+    },
+    {
+        "id": "928f4c1127442b2f",
+        "type": "function",
+        "z": "820d7444c5bb8457",
+        "g": "f5c96243c540fd2e",
+        "name": "Select a Serie M2",
+        "func": "let Csal = msg.payload[0].sal;\nlet Cchimi = msg.payload[0].chimi;\nlet Chumo = msg.payload[0].smoke;\nlet tempDarVuelta = msg.payload[1][0].tempDarVuelta;\nlet tempFinal = msg.payload[1][0].tempFinal;\nlet msgEnvio = \"m2\" + \"t\" + tempDarVuelta + \"v\" + tempFinal + \"c\" + Csal.toString() + Cchimi.toString() + Chumo.toString()\nmsg.payload = msgEnvio;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1010,
+        "y": 700,
+        "wires": [
+            [
+                "b9b812348bed2d19"
+            ]
+        ]
+    },
+    {
+        "id": "1a62653999a065ae",
+        "type": "join",
+        "z": "820d7444c5bb8457",
+        "g": "f5c96243c540fd2e",
+        "name": "JOIN M2",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 800,
+        "y": 700,
+        "wires": [
+            [
+                "928f4c1127442b2f"
+            ]
+        ]
+    },
+    {
+        "id": "4341e810da798add",
+        "type": "http in",
+        "z": "820d7444c5bb8457",
+        "g": "d42db3e01109d4dc",
+        "name": "",
+        "url": "/recibirDatoCorte3",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 350,
+        "y": 880,
+        "wires": [
+            [
+                "6538994654ec30d5",
+                "ee55c3983b6c5d20",
+                "6eef4d21fc2b89ba"
+            ]
+        ]
+    },
+    {
+        "id": "6538994654ec30d5",
+        "type": "function",
+        "z": "820d7444c5bb8457",
+        "g": "d42db3e01109d4dc",
+        "name": "String a SELECT M3",
+        "func": "msg.payload = [msg.payload.corte, msg.payload.puntoCoccion,msg.payload.sal,msg.payload.chimi,msg.payload.smoke];\nmsg.topic = \"SELECT tempDarVuelta, tempFinal FROM coccion WHERE corte = ? AND punto = ?\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 840,
+        "wires": [
+            [
+                "99a942d865b562d5"
+            ]
+        ]
+    },
+    {
+        "id": "0b0546abd9643d45",
+        "type": "function",
+        "z": "820d7444c5bb8457",
+        "g": "d42db3e01109d4dc",
+        "name": "Select a Serie M3",
+        "func": "let Csal = msg.payload[0].sal;\nlet Cchimi = msg.payload[0].chimi;\nlet Chumo = msg.payload[0].smoke;\nlet tempDarVuelta = msg.payload[1][0].tempDarVuelta;\nlet tempFinal = msg.payload[1][0].tempFinal;\nlet msgEnvio = \"m3\" + \"t\" + tempDarVuelta + \"v\" + tempFinal + \"c\" + Csal.toString() + Cchimi.toString() + Chumo.toString() + \"*\"\nmsg.payload = msgEnvio;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1070,
+        "y": 960,
+        "wires": [
+            [
+                "b9b812348bed2d19"
+            ]
+        ]
+    },
+    {
+        "id": "ee55c3983b6c5d20",
+        "type": "join",
+        "z": "820d7444c5bb8457",
+        "g": "d42db3e01109d4dc",
+        "name": "JOIN M3",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 860,
+        "y": 960,
+        "wires": [
+            [
+                "0b0546abd9643d45"
+            ]
+        ]
+    },
+    {
+        "id": "b9b812348bed2d19",
+        "type": "join",
+        "z": "820d7444c5bb8457",
+        "name": "",
+        "mode": "custom",
+        "build": "string",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "3",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 1350,
+        "y": 640,
+        "wires": [
+            [
+                "14678a1a748ae201"
+            ]
+        ]
+    },
+    {
+        "id": "6eef4d21fc2b89ba",
+        "type": "link out",
+        "z": "820d7444c5bb8457",
+        "name": "link out 1",
+        "mode": "link",
+        "links": [
+            "56a4fd014f48283a"
+        ],
+        "x": 565,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "56a4fd014f48283a",
+        "type": "link in",
+        "z": "820d7444c5bb8457",
+        "name": "link in 1",
+        "links": [
+            "6eef4d21fc2b89ba"
+        ],
+        "x": 1395,
+        "y": 540,
+        "wires": [
+            [
+                "62a73ed8fae2b102"
+            ]
+        ]
+    },
+    {
+        "id": "09c6c8719635a3b1",
+        "type": "websocket out",
+        "z": "820d7444c5bb8457",
+        "g": "256a7c5215cf895c",
+        "name": "",
+        "server": "df4b5c15aa69d33a",
+        "client": "",
+        "x": 960,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "b3fdb3d086e2de5d",
+        "type": "function",
+        "z": "820d7444c5bb8457",
+        "g": "256a7c5215cf895c",
+        "name": "Stream Serie a JSON",
+        "func": "function generarJSON(entrada) {\n    // Usamos una expresión regular para extraer las temperaturas\n    const temperaturas = entrada.match(/T(\\d+)/g).map(t => parseInt(t.substring(1)));\n\n    // Creamos el objeto JSON\n    const resultado = {\n        temperatura1: temperaturas[0],\n        temperatura2: temperaturas[1]\n    };\n\n    return JSON.stringify(resultado);\n}\n\n\nconst jsonResultado = generarJSON(msg.payload);\nmsg.payload = jsonResultado\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 1080,
+        "wires": [
+            [
+                "09c6c8719635a3b1"
+            ]
+        ]
+    },
+    {
+        "id": "ddcff31f73e1965a",
+        "type": "serial in",
+        "z": "820d7444c5bb8457",
+        "name": "",
+        "serial": "42e44742403d9a1a",
+        "x": 310,
+        "y": 1080,
+        "wires": [
+            [
+                "b3fdb3d086e2de5d"
+            ]
+        ]
+    },
+    {
+        "id": "14678a1a748ae201",
+        "type": "serial out",
+        "z": "820d7444c5bb8457",
+        "name": "",
+        "serial": "42e44742403d9a1a",
+        "x": 1530,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "1a34b8edcdf91bbf",
+        "type": "mysql",
+        "z": "820d7444c5bb8457",
+        "mydb": "15143698c0d11e19",
+        "name": "",
+        "x": 930,
+        "y": 360,
+        "wires": [
+            [
+                "ea660290c3e97b3d"
+            ]
+        ]
+    },
+    {
+        "id": "dd1a24b5140f2458",
+        "type": "mysql",
+        "z": "820d7444c5bb8457",
+        "mydb": "15143698c0d11e19",
+        "name": "",
+        "x": 890,
+        "y": 620,
+        "wires": [
+            [
+                "1a62653999a065ae"
+            ]
+        ]
+    },
+    {
+        "id": "99a942d865b562d5",
+        "type": "mysql",
+        "z": "820d7444c5bb8457",
+        "mydb": "15143698c0d11e19",
+        "name": "",
+        "x": 990,
+        "y": 840,
+        "wires": [
+            [
+                "ee55c3983b6c5d20"
+            ]
+        ]
+    },
+    {
+        "id": "479d685fc00fd24b",
+        "type": "http in",
+        "z": "820d7444c5bb8457",
+        "g": "b2c62b13ac4b5848",
+        "name": "",
+        "url": "/enviar",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 430,
+        "y": 200,
+        "wires": [
+            [
+                "f756570c3ece7d26"
+            ]
+        ]
+    },
+    {
+        "id": "f756570c3ece7d26",
+        "type": "json",
+        "z": "820d7444c5bb8457",
+        "g": "b2c62b13ac4b5848",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 570,
+        "y": 140,
+        "wires": [
+            [
+                "ef3a607c06615e2f"
+            ]
+        ]
+    },
+    {
+        "id": "ef3a607c06615e2f",
+        "type": "function",
+        "z": "820d7444c5bb8457",
+        "g": "b2c62b13ac4b5848",
+        "name": "function 1",
+        "func": "msg.payload = msg.payload.letra; // Extrae la letra \"J\" o \"j\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 180,
+        "wires": [
+            [
+                "58d33a98517abf91",
+                "f406308bf90282d2"
+            ]
+        ]
+    },
+    {
+        "id": "58d33a98517abf91",
+        "type": "serial out",
+        "z": "820d7444c5bb8457",
+        "g": "b2c62b13ac4b5848",
+        "name": "",
+        "serial": "42e44742403d9a1a",
+        "x": 870,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "f406308bf90282d2",
+        "type": "debug",
+        "z": "820d7444c5bb8457",
+        "g": "b2c62b13ac4b5848",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 220,
+        "wires": []
+    }
+]

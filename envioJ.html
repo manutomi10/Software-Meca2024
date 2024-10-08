@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar Datos</title>
+</head>
+<body>
+    <button id="sendButtonUpper">Enviar "J"</button>
+    <button id="sendButtonLower">Enviar "j"</button>
+
+    <script>
+        document.getElementById('sendButtonUpper').addEventListener('click', function() {
+            fetch('http://localhost:1880/enviar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ letra: 'J' })
+            })
+            .then(response => response.json())
+            .then(data => console.log('Éxito:', data))
+            .catch((error) => console.error('Error:', error));
+        });
+
+        document.getElementById('sendButtonLower').addEventListener('click', function() {
+            fetch('http://localhost:1880/enviar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ letra: 'j' })
+            })
+            .then(response => response.json())
+            .then(data => console.log('Éxito:', data))
+            .catch((error) => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
