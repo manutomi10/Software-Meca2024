@@ -1,4 +1,7 @@
+<<<<<<< Updated upstream
 <<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
 body, html {
     margin: 0;
     padding: 0;
@@ -175,6 +178,7 @@ button:focus {
     outline: none;
     box-shadow: 0 0 0 3px rgba(156, 156, 156, 0.5);
 }
+<<<<<<< Updated upstream
 =======
 body, html {
     margin: 0;
@@ -321,3 +325,5 @@ input[type="text"], input[type="tel"] {
     border-radius: 6px;  /* Opcional: redondea las esquinas de los campos de entrada */
 }
 >>>>>>> b57ba0ee461492fdfe875fc4442b841d5434d4d5
+=======
+>>>>>>> Stashed changes

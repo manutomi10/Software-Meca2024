@@ -1,4 +1,7 @@
+<<<<<<< Updated upstream
 <<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
 // Grupo 1: Pollo, Carne, Cerdo
 let imagesGroup1 = ["images/png/carne.png", "images/png/pollo-removebg-preview.png", "images/png/cerdo-removebg-preview.png"];
 let tipoCorte = ["carne","pollo","cerdo"];
@@ -134,6 +137,7 @@ function Volver(){
 
  function Volver2(){
     window.location.href = "index_10.html";
+<<<<<<< Updated upstream
 =======
 // Grupo 1: Pollo, Carne, Cerdo
 let imagesGroup1 = ["images/png/carne.png", "images/png/pollo-removebg-preview.png", "images/png/cerdo-removebg-preview.png"];
@@ -271,4 +275,6 @@ function Volver(){
  function Volver2(){
     window.location.href = "index_10.html";
 >>>>>>> b57ba0ee461492fdfe875fc4442b841d5434d4d5
+=======
+>>>>>>> Stashed changes
  }

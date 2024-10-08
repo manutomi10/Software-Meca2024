@@ -1,4 +1,7 @@
-
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
 const slider = document.querySelector('.slider');
 const sliderText = document.querySelector('.slider-text');
 
@@ -78,7 +81,8 @@ function Continuamo() {
 
 function Continuanaremo() {
     window.location.href = "index_prueba_1.html";
-
+<<<<<<< Updated upstream
+=======
 const slider = document.querySelector('.slider');
 const sliderText = document.querySelector('.slider-text');
 
@@ -158,5 +162,7 @@ function Continuamo() {
 
 function Continuanaremo() {
     window.location.href = "index_grill_1.html";
-
+>>>>>>> b57ba0ee461492fdfe875fc4442b841d5434d4d5
+=======
+>>>>>>> Stashed changes
 }
