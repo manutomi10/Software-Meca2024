@@ -11,7 +11,7 @@
 
     <script>
         document.getElementById('sendButtonUpper').addEventListener('click', function() {
-            fetch('http://localhost:1880/enviar', {
+            fetch('http://192.168.3.5:1880/enviar', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -24,7 +24,7 @@
         });
 
         document.getElementById('sendButtonLower').addEventListener('click', function() {
-            fetch('http://localhost:1880/enviar', {
+            fetch('http://192.168.3.5:1880/enviar', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
