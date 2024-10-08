@@ -118,7 +118,7 @@ function GuardarCorte(numeroCorte){
 function enviarCorte(numeroCorte){
 
     // Definir la URL a la que se enviará el POST
-    const url = 'http://192.168.0.19:1880/recibirDatoCorte' + numeroCorte;
+    const url = 'http://192.168.3.5:1880/recibirDatoCorte' + numeroCorte;
 
     console.log(localStorage.getItem("Corte" + numeroCorte));
 
