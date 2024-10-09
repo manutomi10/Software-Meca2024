@@ -12,7 +12,7 @@ let currentIndexGroup2 = 0;
 
 let isEnabled = false; // Variable de estado
 
-        const socket = new WebSocket('ws://127.0.0.1:1880/ws/temperatura'); // Cambia esto
+        const socket = new WebSocket('ws://127.0.0.1:1880/ws/f'); // Cambia esto
 
         socket.onopen = () => {
             console.log('Conectado al servidor WebSocket');
