@@ -12,7 +12,7 @@ let currentIndexGroup2 = 0;
 
 let isEnabled = false; // Variable de estado
 
-        const socket = new WebSocket('ws://192.168.3.5:1880/ws/temperatura'); // Cambia esto
+        const socket = new WebSocket('ws://192.168.3.5:1880/ws/f'); // Cambia esto
 
         socket.onopen = () => {
             console.log('Conectado al servidor WebSocket');
@@ -20,6 +20,7 @@ let isEnabled = false; // Variable de estado
 
         socket.onmessage = (event) => {
             const data = event.data;
+			console.log(event.data);
             // Verificamos si el mensaje contiene "f"
             if (data.includes("f")) {
                 isEnabled = true; // Habilitamos el envío
