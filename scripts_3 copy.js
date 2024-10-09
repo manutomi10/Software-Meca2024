@@ -10,6 +10,32 @@ let currentIndexGroup1 = 0;
 let imagesGroup2 = ["images/png/sal-removebg-preview.png", "images/png/chimi-removebg-preview.png", "images/png/SMOKE-removebg-preview.png"];
 let currentIndexGroup2 = 0;
 
+let isEnabled = false; // Variable de estado
+
+        const socket = new WebSocket('ws://127.0.0.1:1880/ws/temperatura'); // Cambia esto
+
+        socket.onopen = () => {
+            console.log('Conectado al servidor WebSocket');
+        };
+
+        socket.onmessage = (event) => {
+            const data = event.data;
+            // Verificamos si el mensaje contiene "f"
+            if (data.includes("f")) {
+                isEnabled = true; // Habilitamos el envío
+                console.log("Envío habilitado");
+            }
+        };
+
+        socket.onclose = () => {
+            console.log('Desconectado del servidor WebSocket');
+        };
+
+        socket.onerror = (error) => {
+            console.error('Error en WebSocket:', error);
+        };
+
+
 function changeImageGroup1(direction) {
     currentIndexGroup1 += direction;
     
@@ -139,11 +165,15 @@ function enviarCorte(numeroCorte){
     });
 }
 
-function enviarCortes(){
+function enviarCortes() {
+    if (!isEnabled) {
+        alert("El envío no está habilitado. Espera a recibir 'f'.");
+        return; // No permite enviar si no está habilitado
+    }
     enviarCorte(1);
     enviarCorte(2);
     enviarCorte(3);
-   window.location.href = "index_9.html";
+    window.location.href = "index_9.html";
 }
 
 function Continuari(){
