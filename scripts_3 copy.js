@@ -12,7 +12,7 @@ let currentIndexGroup2 = 0;
 
 let isEnabled = false; // Variable de estado
 
-        const socket = new WebSocket('ws://127.0.0.1:1880/ws/f'); // Cambia esto
+        const socket = new WebSocket('ws://192.168.3.5:1880/ws/f'); // Cambia esto
 
         socket.onopen = () => {
             console.log('Conectado al servidor WebSocket');
@@ -162,7 +162,7 @@ function GuardarCorte(numeroCorte){
 function enviarCorte(numeroCorte){
 
     // Definir la URL a la que se enviará el POST
-    const url = 'http://127.0.0.1:1880/recibirDatoCorte' + numeroCorte;
+    const url = 'http://192.168.3.5:1880/recibirDatoCorte' + numeroCorte;
 
     console.log(localStorage.getItem("Corte" + numeroCorte));
 
