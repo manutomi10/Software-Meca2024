@@ -12,7 +12,7 @@ let currentIndexGroup2 = 0;
 
 let isEnabled = false; // Variable de estado
 
-        const socket = new WebSocket('ws://192.168.3.5:1880/ws/f'); // Cambia esto
+        const socket = new WebSocket('ws://127.0.0.1:1880/ws/f'); // Cambia esto
 
         socket.onopen = () => {
             console.log('Conectado al servidor WebSocket');
@@ -25,6 +25,7 @@ let isEnabled = false; // Variable de estado
             if (data.includes("f")) {
                 isEnabled = true; // Habilitamos el envío
                 console.log("Envío habilitado");
+                localStorage.setItem('confirmacion_f', 'true'); // Guardamos la confimacion f
             }
         };
 
@@ -35,6 +36,22 @@ let isEnabled = false; // Variable de estado
         socket.onerror = (error) => {
             console.error('Error en WebSocket:', error);
         };
+
+ // Verifico si lleego la confirmación previa en el localStorage
+
+window.onload = function() {
+ // Verifico si la confirmación esta guardada
+
+    if(localStorage.getItem('confirmacion_f') == 'true')
+
+    {
+    isEnabled = true;
+    console.log("confirmación previa f. Envió detectado");
+    }
+
+};
+
+
 
 
 function changeImageGroup1(direction) {
@@ -145,7 +162,7 @@ function GuardarCorte(numeroCorte){
 function enviarCorte(numeroCorte){
 
     // Definir la URL a la que se enviará el POST
-    const url = 'http://192.168.3.5:1880/recibirDatoCorte' + numeroCorte;
+    const url = 'http://127.0.0.1:1880/recibirDatoCorte' + numeroCorte;
 
     console.log(localStorage.getItem("Corte" + numeroCorte));
 
@@ -174,6 +191,15 @@ function enviarCortes() {
             enviarCorte(1);
             enviarCorte(2);
             enviarCorte(3);
+
+            //Una vez enviado los datos, limpio el localStorage
+
+            localStorage.removeItem('confirmacion_f');
+            
+            isEnabled = false; // Necesito nuevamente una "f" para enviar datos de nuevo
+
+            console.log("Confirmación 'f' elimnada. Enviar nuevamente señal 'f' ");
+
             window.location.href = "index_9.html";
         }
 
