@@ -5,6 +5,9 @@ let tipoCorte = ["carne","pollo","cerdo"];
 let corteSeleccionado = "carne";
 let puntoCoccion;
 let currentIndexGroup1 = 0;
+let urlBase;
+
+
 
 // Grupo 2: Sal, Chimi, Humo
 let imagesGroup2 = ["images/png/sal-removebg-preview.png", "images/png/chimi-removebg-preview.png", "images/png/SMOKE-removebg-preview.png"];
@@ -12,7 +15,9 @@ let currentIndexGroup2 = 0;
 
 let isEnabled = false; // Variable de estado
 
-        const socket = new WebSocket('ws://192.168.3.5:1880/ws/f'); // Cambia esto
+        urlBase = window.location.host;
+
+        const socket = new WebSocket('ws://' +  urlBase + '/ws/f'); // Cambia esto
 
         socket.onopen = () => {
             console.log('Conectado al servidor WebSocket');
@@ -162,7 +167,7 @@ function GuardarCorte(numeroCorte){
 function enviarCorte(numeroCorte){
 
     // Definir la URL a la que se enviará el POST
-    const url = 'http://192.168.3.5:1880/recibirDatoCorte' + numeroCorte;
+    const url = 'http://' + urlBase + '/recibirDatoCorte' + numeroCorte;
 
     console.log(localStorage.getItem("Corte" + numeroCorte));
 
