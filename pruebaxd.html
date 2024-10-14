@@ -193,29 +193,31 @@
             console.log('Conectado al servidor WebSocket de letras');
         };
 
-        socketLetras.onmessage = (event) => {
-            const command = event.data;
+    socketLetras.onmessage = (event) => {
+            const data = JSON.parse(event.data); // Parseamos el mensaje
+            const command = data.payload; // Extraemos el comando
 
-            switch (command) {
-                case 'A':
-                    document.getElementById('temp1').textContent = "FINALIZADO";
-                    break;
-                case 'B':
-                    document.getElementById('temp2').textContent = "FINALIZADO";
-                    break;
-                case 'C':
-                    document.getElementById('temp3').textContent = "FINALIZADO";
-                    break;
-                case 'D':
-                    document.getElementById('finishButton').style.display = 'block'; // Mostrar botón
-                    break;
-                case 'L':
-                    // Lógica para pausar si es necesario
-                    break;
-                default:
-                    console.log('Comando no reconocido:', command);
-            }
-        };
+    switch (command) {
+        case 'A':
+            document.getElementById('temp1').textContent = "FINALIZADO";
+            break;
+        case 'B':
+            document.getElementById('temp2').textContent = "FINALIZADO";
+            break;
+        case 'C':
+            document.getElementById('temp3').textContent = "FINALIZADO";
+            break;
+        case 'D':
+            document.getElementById('finishButton').style.display = 'block'; // Mostrar botón
+            break;
+        case 'L':
+            // Lógica para pausar si es necesario
+            break;
+        default:
+            console.log('Comando no reconocido:', command);
+        }
+    };
+
 
         socketLetras.onclose = () => {
             console.log('Desconectado del servidor WebSocket de letras');
