@@ -192,28 +192,6 @@
                 margin-bottom: 0.5rem;
             }
         }
-
-        #myModal {
-            display: none; /* Oculto por defecto */
-            position: fixed;
-            z-index: 1000; /* Asegurarse de que esté sobre otros elementos */
-            left: 0;
-            top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Habilitar desplazamiento si es necesario */
-            background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con transparencia */
-        }
-
-        .modal-content {
-            background-color: #fff;
-            margin: 15% auto; /* 15% desde el top y centrado */
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%; /* Ancho del modal */
-            text-align: center; /* Centrar texto */
-        }
-
     </style>
 </head>
 <body>
@@ -225,19 +203,20 @@
         <section class="module">
             <h2 class="module-title">Módulo 1</h2>
             <div class="meat-display">
-                <img src="images/png/carne.png" alt="Corte de carne seleccionado" class="meat-image" id="displayedImageGroup1">
+                <img src="images/png/CARNEBUENA.png" alt="Corte de carne seleccionado" class="meat-image" id="displayedImageGroup1"
+                style="width: 100px; height: auto;">
             </div>
             <div class="ingredients">
                 <div class="ingredient-item">
-                    <img src="images/png/sal-removebg-preview.png" alt="Sal" class="ingredient-image">
+                    <img src="images/png/SALBUENA.png" alt="Sal" class="ingredient-image">
                     <span class="ingredient-value" id="valueSal1">0</span>
                 </div>
                 <div class="ingredient-item">
-                    <img src="images/png/chimi-removebg-preview.png" alt="Chimichurri" class="ingredient-image">
+                    <img src="images/png/CHIMIBUENO.png" alt="Chimichurri" class="ingredient-image">
                     <span class="ingredient-value" id="valueChimi1">0</span>
                 </div>
                 <div class="ingredient-item">
-                    <img src="images/png/SMOKE-removebg-preview.png" alt="Ahumado" class="ingredient-image">
+                    <img src="images/png/HUMOBUENO.png" alt="Ahumado" class="ingredient-image">
                     <span class="ingredient-value" id="valueSmoke1">0</span>
                 </div>
             </div>
@@ -246,19 +225,20 @@
         <section class="module">
             <h2 class="module-title">Módulo 2</h2>
             <div class="meat-display">
-                <img src="images/png/carne.png" alt="Corte de carne seleccionado" class="meat-image" id="displayedImageGroup2">
+                <img src="images/png/CARNEBUENA.png" alt="Corte de carne seleccionado" class="meat-image" id="displayedImageGroup2"
+                style="width: 100px; height: auto;">
             </div>
             <div class="ingredients">
                 <div class="ingredient-item">
-                    <img src="images/png/sal-removebg-preview.png" alt="Sal" class="ingredient-image">
+                    <img src="images/png/SALBUENA.png" alt="Sal" class="ingredient-image">
                     <span class="ingredient-value" id="valueSal2">0</span>
                 </div>
                 <div class="ingredient-item">
-                    <img src="images/png/chimi-removebg-preview.png" alt="Chimichurri" class="ingredient-image">
+                    <img src="images/png/CHIMIBUENO.png" alt="Chimichurri" class="ingredient-image">
                     <span class="ingredient-value" id="valueChimi2">0</span>
                 </div>
                 <div class="ingredient-item">
-                    <img src="images/png/SMOKE-removebg-preview.png" alt="Ahumado" class="ingredient-image">
+                    <img src="images/png/HUMOBUENO.png" alt="Ahumado" class="ingredient-image">
                     <span class="ingredient-value" id="valueSmoke2">0</span>
                 </div>
             </div>
@@ -267,19 +247,20 @@
         <section class="module">
             <h2 class="module-title">Módulo 3</h2>
             <div class="meat-display">
-                <img src="images/png/carne.png" alt="Corte de carne seleccionado" class="meat-image" id="displayedImageGroup3">
+                <img src="images/png/CARNEBUENA.png" alt="Corte de carne seleccionado" class="meat-image" id="displayedImageGroup3"
+                style="width: 100px; height: auto;">
             </div>
             <div class="ingredients">
                 <div class="ingredient-item">
-                    <img src="images/png/sal-removebg-preview.png" alt="Sal" class="ingredient-image">
+                    <img src="images/png/SALBUENA.png" alt="Sal" class="ingredient-image">
                     <span class="ingredient-value" id="valueSal3">0</span>
                 </div>
                 <div class="ingredient-item">
-                    <img src="images/png/chimi-removebg-preview.png" alt="Chimichurri" class="ingredient-image">
+                    <img src="images/png/CHIMIBUENO.png" alt="Chimichurri" class="ingredient-image">
                     <span class="ingredient-value" id="valueChimi3">0</span>
                 </div>
                 <div class="ingredient-item">
-                    <img src="images/png/SMOKE-removebg-preview.png" alt="Ahumado" class="ingredient-image">
+                    <img src="images/png/HUMOBUENO.png" alt="Ahumado" class="ingredient-image">
                     <span class="ingredient-value" id="valueSmoke3">0</span>
                 </div>
             </div>
@@ -295,18 +276,5 @@
     <img src="images/png/holtersyahk.png" alt="ahkyholters" class="ahkyholters">
     
     <script src="scripts_3 copy.js"></script>
-
-    <button onclick="openModal()">Abrir Modal</button>
-
-    <!-- El Modal -->
-    <div id="myModal">
-        <div class="modal-content">
-            <span onclick="closeModal()" style="cursor:pointer; float:right;">&times;</span>
-            <h2>Recuerde de pinchar la carne con un termómetro antes de darle a continuar</h2>
-            <button class="button" onclick="continuar_modal()">Continuar</button>
-            <button class="button" onclick="closeModal()">Cerrar</button>
-        </div>
-    </div>
-
 </body>
 </html>

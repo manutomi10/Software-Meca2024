@@ -58,6 +58,17 @@ window.onload = function() {
 
 };
 
+function ValoresCondimento1() {
+
+    data = localStorage.getItem("chimi");
+    data = localStorage.getItem("sal");
+    data = localStorage.getItem("smoke");
+    document.getElementById("valueChimi1").innerHTML = data.chimi
+    document.getElementById("valueSal1").innerHTML = data.sal
+    document.getElementById("valueSmoke1").innerHTML = data.smoke
+
+
+}
 
 
 
@@ -223,24 +234,3 @@ function Continuari(){
     window.location.href = donde_volver;
  }
 
- function openModal() {
-    document.getElementById('myModal').style.display = 'block';
-}
-
-function closeModal() {
-    document.getElementById('myModal').style.display = 'none';
-}
-
-function continuar_modal() {
-    // Aquí puedes agregar la lógica que deseas ejecutar al hacer clic en "Continuar"
-    alert("Continuar haciendo la acción...");
-    closeModal(); // Cierra el modal
-}
-
-// Cerrar el modal si se hace clic fuera del contenido
-window.onclick = function(event) {
-    const modal = document.getElementById('myModal');
-    if (event.target === modal) {
-        closeModal();
-    }
-};
