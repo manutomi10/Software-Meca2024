@@ -98,6 +98,17 @@
             background-color: #ffcc00; /* Color diferente para el botón de pausa */
         }
 
+        #pauseMessage {
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem; /* Tamaño grande */
+            color: rgba(255, 0, 0, 0.7); /* Color rojo transparente */
+            z-index: 1000; /* Asegurarse de que esté sobre otros elementos */
+        }
+
         @media (min-width: 768px) {
             .screen_2 {
                 padding: 3rem;
@@ -154,6 +165,7 @@
 
         <button id="finishButton" class="button">FINALIZAR</button>
         <button id="pauseButton" class="button" onclick="pausar()">PAUSAR</button> <!-- Botón de pausa -->
+        <div id="pauseMessage">PAUSADO</div>
 
     </div>
 
@@ -227,10 +239,18 @@
         }
     };
 
-    function pausar() {
-            socketLetras.send(JSON.stringify({ payload: 'L' })); // Enviar 'L' al WebSocket
-            console.log('Enviando pausa (L) al puerto serie');
-        }
+    let isPaused = false; // Variable para rastrear el estado de pausa
+
+function pausar() {
+    if (!isPaused) {
+        socketLetras.send(JSON.stringify({ payload: 'L' })); // Enviar 'L' al WebSocket
+        console.log('Enviando pausa (L) al puerto serie');
+        document.getElementById('pauseMessage').style.display = 'block'; // Mostrar mensaje de pausa
+    } else {
+        document.getElementById('pauseMessage').style.display = 'none'; // Ocultar mensaje de pausa
+    }
+    isPaused = !isPaused; // Alternar estado de pausa
+}
 
         socketLetras.onclose = () => {
             console.log('Desconectado del servidor WebSocket de letras');
