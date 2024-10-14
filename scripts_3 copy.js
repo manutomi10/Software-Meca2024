@@ -1,6 +1,6 @@
 
 // Grupo 1: Pollo, Carne, Cerdo
-let imagesGroup1 = ["images/png/carne.png", "images/png/pollo-removebg-preview.png", "images/png/cerdo-removebg-preview.png"];
+let imagesGroup1 = ["images/png/CARNEBUENA.png", "images/png/POLLOBUENO.png", "images/png/CERDOBUENO.png"];
 let tipoCorte = ["carne","pollo","cerdo"];
 let corteSeleccionado = "carne";
 let puntoCoccion;
@@ -11,7 +11,7 @@ let urlPort;
 
 
 // Grupo 2: Sal, Chimi, Humo
-let imagesGroup2 = ["images/png/sal-removebg-preview.png", "images/png/chimi-removebg-preview.png", "images/png/SMOKE-removebg-preview.png"];
+let imagesGroup2 = ["images/png/SALBUENA.png", "images/png/CHIMIBUENO.png", "images/png/HUMOBUENO.png"];
 let currentIndexGroup2 = 0;
 
 let isEnabled = false; // Variable de estado
