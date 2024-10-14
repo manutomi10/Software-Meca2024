@@ -192,6 +192,28 @@
                 margin-bottom: 0.5rem;
             }
         }
+
+        #myModal {
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            z-index: 1000; /* Asegurarse de que esté sobre otros elementos */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Habilitar desplazamiento si es necesario */
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con transparencia */
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto; /* 15% desde el top y centrado */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Ancho del modal */
+            text-align: center; /* Centrar texto */
+        }
+
     </style>
 </head>
 <body>
@@ -273,5 +295,18 @@
     <img src="images/png/holtersyahk.png" alt="ahkyholters" class="ahkyholters">
     
     <script src="scripts_3 copy.js"></script>
+
+    <button onclick="openModal()">Abrir Modal</button>
+
+    <!-- El Modal -->
+    <div id="myModal">
+        <div class="modal-content">
+            <span onclick="closeModal()" style="cursor:pointer; float:right;">&times;</span>
+            <h2>Recuerde de pinchar la carne con un termómetro antes de darle a continuar</h2>
+            <button class="button" onclick="continuar_modal()">Continuar</button>
+            <button class="button" onclick="closeModal()">Cerrar</button>
+        </div>
+    </div>
+
 </body>
 </html>
