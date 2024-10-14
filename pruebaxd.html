@@ -93,6 +93,11 @@
             display: none; /* Oculto por defecto */
         }
 
+        #pauseButton {
+            display: block; /* Siempre visible */
+            background-color: #ffcc00; /* Color diferente para el botón de pausa */
+        }
+
         @media (min-width: 768px) {
             .screen_2 {
                 padding: 3rem;
@@ -135,19 +140,21 @@
         <div class="temperatures">
             <div class="temperature-item">
                 <span class="temperature-label">TEMPERATURA 1</span>
-                <span id="temp1">-</span> °C
+                <span id="temp1">-</span>
             </div>
             <div class="temperature-item">
                 <span class="temperature-label">TEMPERATURA 2</span>
-                <span id="temp2">-</span> °C
+                <span id="temp2">-</span> 
             </div>
             <div class="temperature-item">
                 <span class="temperature-label">TEMPERATURA 3</span>
-                <span id="temp3">-</span> °C
+                <span id="temp3">-</span>
             </div>
         </div>
 
         <button id="finishButton" class="button">FINALIZAR</button>
+        <button id="pauseButton" class="button" onclick="pausar()">PAUSAR</button> <!-- Botón de pausa -->
+
     </div>
 
     <audio id="audioElement" src="audios/fabriMalo.mp3" preload="auto"></audio>
@@ -212,12 +219,17 @@
             break;
         case 'L':
             // Lógica para pausar si es necesario
+            console.log("recibida L entrando/saliendo de pausa");
             break;
         default:
             console.log('Comando no reconocido:', command);
         }
     };
 
+    function pausar() {
+            socketLetras.send(JSON.stringify({ payload: 'L' })); // Enviar 'L' al WebSocket
+            console.log('Enviando pausa (L) al puerto serie');
+        }
 
         socketLetras.onclose = () => {
             console.log('Desconectado del servidor WebSocket de letras');
