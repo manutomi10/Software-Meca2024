@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DASGRILL - Cocción en Progreso</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #c7c7c7;
+            --secondary-color: #ffffff;
+            --accent-color: #17bebb;
+            --background-color: #f7f7f7;
+            --text-color: #333;
+            --light-text: #000000;
+            --border-radius: 10px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: url('https://images.unsplash.com/photo-1604079628040-94301bb21b91?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: auto;
+            color: var(--light-text);
+            height: 100%;
+        }
+
+        .container_2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .screen_2 {
+            background-color: var(--primary-color);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+            animation: pulse 2s infinite;
+        }
+
+        .title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .temperatures {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 8rem;
+        }
+
+        .temperature-item {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--light-text);
+            
+        }
+
+        .temperature-label {
+            font-weight: 800;
+            color: var(--accent-color);
+            box-shadow: var(--box-shadow);
+            background-color: var(--primary-color);
+            border-radius: var(--border-radius);
+            padding: 0.5rem;
+            display: block;
+        }
+
+        @media (min-width: 768px) {
+            .screen_2 {
+                padding: 3rem;
+            }
+
+            .title {
+                font-size: 4rem;
+            }
+
+            .subtitle {
+                font-size: 2rem;
+            }
+
+            .temperature-item {
+                font-size: 2rem;
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container_2">
+        <div class="screen_2">
+            <div class="title">DASGRILL</div>
+            <div class="subtitle">ESTÁ COCINANDO</div>
+        </div>
+
+        <!-- Sección para mostrar las temperaturas -->
+        <div class="temperatures">
+            <div class="temperature-item">
+                <span class="temperature-label">TEMPERATURA 1</span>
+                <span id="temp1">-</span> °C
+            </div>
+            <div class="temperature-item">
+                <span class="temperature-label">TEMPERATURA 2</span>
+                <span id="temp2">-</span> °C
+            </div>
+            <div class="temperature-item">
+                <span class="temperature-label">TEMPERATURA 3</span>
+                <span id="temp3">-</span> °C
+            </div>
+        </div>
+    </div>
+
+    <audio id="audioElement" src="audios/fabriMalo.mp3" preload="auto"></audio>
+
+    <script>
+        document.body.addEventListener('click', function() {
+            var audio = document.getElementById('audioElement');
+            if (audio) {
+                audio.play().catch(function(error) {
+                    console.error('Error al reproducir el audio:', error);
+                });
+            } else {
+                console.error('Elemento de audio no encontrado.');
+            }
+        });
+
+        // Código del WebSocket para recibir las temperaturas
+        const socket = new WebSocket('ws://192.168.3.5:1880/ws/temperatura'); // Cambia esto
+
+        socket.onopen = () => {
+            console.log('Conectado al servidor WebSocket');
+        };
+
+        socket.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            document.getElementById('temp1').textContent = `${data.temperatura1}`;
+            document.getElementById('temp2').textContent = `${data.temperatura2}`;
+            document.getElementById('temp3').textContent = `${data.temperatura3}`;
+        };
+
+        socket.onclose = () => {
+            console.log('Desconectado del servidor WebSocket');
+        };
+
+        socket.onerror = (error) => {
+            console.error('Error en WebSocket:', error);
+        };
+    </script>
+</body>
+</html>
