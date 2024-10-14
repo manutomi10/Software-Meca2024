@@ -58,14 +58,16 @@ window.onload = function() {
 
 };
 
-function ValoresCondimento1() {
+window.onload = function ValoresCondimento1() {
 
-    data = localStorage.getItem("chimi");
-    data = localStorage.getItem("sal");
-    data = localStorage.getItem("smoke");
-    document.getElementById("valueChimi1").innerHTML = data.chimi
-    document.getElementById("valueSal1").innerHTML = data.sal
-    document.getElementById("valueSmoke1").innerHTML = data.smoke
+    let c1 = localStorage.getItem("Corte1.corte");
+    let c2 = localStorage.getItem("Corte1.sal");
+    let c3 = localStorage.getItem("Corte1.chimi");
+    let c4 = localStorage.getItem("Corte1.smoke");
+
+    document.getElementById("valueChimi1").innerHTML = c3;
+    document.getElementById("valueSal1").innerHTML = c2;
+    document.getElementById("valueSmoke1").innerHTML = c4;
 
 
 }
