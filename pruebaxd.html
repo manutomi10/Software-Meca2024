@@ -165,17 +165,38 @@
         });
 
         // Código del WebSocket para recibir las temperaturas
-        const socket = new WebSocket('ws://192.168.3.5:1880/ws/temperatura'); // Cambia esto
+        const socketTemperaturas = new WebSocket('ws://192.168.3.5:1880/ws/temperatura');
 
-        socket.onopen = () => {
-            console.log('Conectado al servidor WebSocket');
+        socketTemperaturas.onopen = () => {
+            console.log('Conectado al servidor WebSocket de temperaturas');
         };
 
-        socket.onmessage = (event) => {
+        socketTemperaturas.onmessage = (event) => {
             const data = JSON.parse(event.data);
+            document.getElementById('temp1').textContent = `${data.temperatura1}`;
+            document.getElementById('temp2').textContent = `${data.temperatura2}`;
+            document.getElementById('temp3').textContent = `${data.temperatura3}`;
+        };
 
-            // Actualizar temperaturas o mostrar "FINALIZADO"
-            switch (data.command) {
+        socketTemperaturas.onclose = () => {
+            console.log('Desconectado del servidor WebSocket de temperaturas');
+        };
+
+        socketTemperaturas.onerror = (error) => {
+            console.error('Error en WebSocket de temperaturas:', error);
+        };
+
+        // Código del WebSocket para recibir letras
+        const socketLetras = new WebSocket('ws://192.168.3.5:1880/ws/f');
+
+        socketLetras.onopen = () => {
+            console.log('Conectado al servidor WebSocket de letras');
+        };
+
+        socketLetras.onmessage = (event) => {
+            const command = event.data;
+
+            switch (command) {
                 case 'A':
                     document.getElementById('temp1').textContent = "FINALIZADO";
                     break;
@@ -189,22 +210,19 @@
                     document.getElementById('finishButton').style.display = 'block'; // Mostrar botón
                     break;
                 case 'L':
-                    // Aquí puedes implementar la lógica para pausar si es necesario
+                    // Lógica para pausar si es necesario
                     break;
                 default:
-                    // Si se reciben temperaturas
-                    document.getElementById('temp1').textContent = `${data.temperatura1}`;
-                    document.getElementById('temp2').textContent = `${data.temperatura2}`;
-                    document.getElementById('temp3').textContent = `${data.temperatura3}`;
+                    console.log('Comando no reconocido:', command);
             }
         };
 
-        socket.onclose = () => {
-            console.log('Desconectado del servidor WebSocket');
+        socketLetras.onclose = () => {
+            console.log('Desconectado del servidor WebSocket de letras');
         };
 
-        socket.onerror = (error) => {
-            console.error('Error en WebSocket:', error);
+        socketLetras.onerror = (error) => {
+            console.error('Error en WebSocket de letras:', error);
         };
     </script>
 </body>
