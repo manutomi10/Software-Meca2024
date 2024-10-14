@@ -69,7 +69,6 @@
             font-size: 1.5rem;
             font-weight: 600;
             color: var(--light-text);
-            
         }
 
         .temperature-label {
@@ -80,6 +79,18 @@
             border-radius: var(--border-radius);
             padding: 0.5rem;
             display: block;
+        }
+
+        .button {
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            background-color: var(--accent-color);
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            display: none; /* Oculto por defecto */
         }
 
         @media (min-width: 768px) {
@@ -135,6 +146,8 @@
                 <span id="temp3">-</span> °C
             </div>
         </div>
+
+        <button id="finishButton" class="button">FINALIZAR</button>
     </div>
 
     <audio id="audioElement" src="audios/fabriMalo.mp3" preload="auto"></audio>
@@ -160,9 +173,30 @@
 
         socket.onmessage = (event) => {
             const data = JSON.parse(event.data);
-            document.getElementById('temp1').textContent = `${data.temperatura1}`;
-            document.getElementById('temp2').textContent = `${data.temperatura2}`;
-            document.getElementById('temp3').textContent = `${data.temperatura3}`;
+
+            // Actualizar temperaturas o mostrar "FINALIZADO"
+            switch (data.command) {
+                case 'A':
+                    document.getElementById('temp1').textContent = "FINALIZADO";
+                    break;
+                case 'B':
+                    document.getElementById('temp2').textContent = "FINALIZADO";
+                    break;
+                case 'C':
+                    document.getElementById('temp3').textContent = "FINALIZADO";
+                    break;
+                case 'D':
+                    document.getElementById('finishButton').style.display = 'block'; // Mostrar botón
+                    break;
+                case 'L':
+                    // Aquí puedes implementar la lógica para pausar si es necesario
+                    break;
+                default:
+                    // Si se reciben temperaturas
+                    document.getElementById('temp1').textContent = `${data.temperatura1}`;
+                    document.getElementById('temp2').textContent = `${data.temperatura2}`;
+                    document.getElementById('temp3').textContent = `${data.temperatura3}`;
+            }
         };
 
         socket.onclose = () => {
