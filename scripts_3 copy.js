@@ -11,7 +11,7 @@ let urlPort;
 
 
 // Grupo 2: Sal, Chimi, Humo
-let imagesGroup2 = ["images/png/SALBUENA.png", "images/png/CHIMIBUENO.png", "images/png/HUMOBUENO.png"];
+let imagesGroup2 = ["images/png/SALBUENA.png", "images/png/LIMONBUENO.png", "images/png/HUMOBUENO.png"];
 let currentIndexGroup2 = 0;
 
 let isEnabled = false; // Variable de estado
