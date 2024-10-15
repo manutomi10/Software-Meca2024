@@ -10,6 +10,19 @@ body, html {
     width: 100%;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+.title_2 {
+    font-family: 'Poppins', sans-serif; /* Usa Roboto para el título */
+    font-size: 3rem; /* Ajusta el tamaño según tus necesidades */
+    color: #ec0000; /* Color del texto */
+    margin: 20px 0; /* Margen para separarlo del resto del contenido */
+    text-align: center; /* Asegura que el texto esté centrado */
+
+}
+
+
+
+
 .container_2 {
     width: 600px;
     height: 1000px;
