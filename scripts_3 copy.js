@@ -8,7 +8,7 @@ let currentIndexGroup1 = 0;
 let urlBase;
 let urlPort;
 
-const termo = 0;
+let termo = false;
 
 // Grupo 2: Sal, Chimi, Humo
 let imagesGroup2 = ["images/png/SALBUENA.png", "images/png/LIMONBUENO.png", "images/png/HUMOBUENO.png"];
@@ -219,10 +219,11 @@ function enviarCortes() {
             isEnabled = false; // Necesito nuevamente una "f" para enviar datos de nuevo
 
             console.log("Confirmación 'f' elimnada. Enviar nuevamente señal 'f' ");
-            if (termo==1){
+            
+            if (termo==true){
                 window.location.href = "index_9.html";
                 }
-                if (termo==0){
+                if (!termo){
                     alert("Recuerde Confirmar las termocuplas");
                 }
         }
@@ -256,7 +257,7 @@ function closeModal() {
 function confirmarTermocuplas() {
     const button = document.querySelector('.TermoButton');
     button.classList.toggle('active'); // Cambia el estado del botón
-    termo = 1;
+    termo = true;
     // Lógica para confirmar la activación de las termocuplas
     alert("Termocuplas activadas.");
     closeModal(); // Cierra el modal después de confirmar
