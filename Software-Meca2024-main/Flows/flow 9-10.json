@@ -1,0 +1,676 @@
+[
+    {
+        "id": "c7a0a810e419fb7f",
+        "type": "tab",
+        "label": "Flow Principal",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d38578220387fba7",
+        "type": "group",
+        "z": "c7a0a810e419fb7f",
+        "name": "modulo3  ",
+        "style": {
+            "fill": "#ffC000",
+            "label": true,
+            "color": "#000000"
+        },
+        "nodes": [
+            "bba52bb687c044f5",
+            "76f75f4254200ef7",
+            "d9cb42e8fc4dbcea",
+            "da3ccc0b87255030",
+            "4a2e7e31db4e2f65"
+        ],
+        "x": 214,
+        "y": 799,
+        "w": 972,
+        "h": 202
+    },
+    {
+        "id": "c825ee6ef1636823",
+        "type": "group",
+        "z": "c7a0a810e419fb7f",
+        "name": "",
+        "style": {
+            "fill": "#92d04f",
+            "label": true
+        },
+        "nodes": [
+            "67fbfd1ee5f4ee01",
+            "59062373cd29553f",
+            "94fb1d8711c70228",
+            "1fea5c9c5294bd90",
+            "b2baf65b5fae2ac3"
+        ],
+        "x": 154,
+        "y": 579,
+        "w": 972,
+        "h": 162
+    },
+    {
+        "id": "37792ed5dfb1ffa8",
+        "type": "group",
+        "z": "c7a0a810e419fb7f",
+        "name": "",
+        "style": {
+            "fill": "#0070c0",
+            "label": true
+        },
+        "nodes": [
+            "84a619cc4dd06b20",
+            "08001ffdd61497f9",
+            "96a709d76d07fdcd",
+            "4f902801529f7c68",
+            "c76bd162487ab7ca"
+        ],
+        "x": 274,
+        "y": 319,
+        "w": 852,
+        "h": 142
+    },
+    {
+        "id": "8b4a97a520df5535",
+        "type": "group",
+        "z": "c7a0a810e419fb7f",
+        "name": "Recepción Datoa PIC",
+        "style": {
+            "fill": "#ff0000",
+            "label": true,
+            "color": "#ffffff",
+            "fill-opacity": "0.64"
+        },
+        "nodes": [
+            "237714cbc7ba9815",
+            "d12830b5eb275c6a"
+        ],
+        "x": 514,
+        "y": 1039,
+        "w": 572,
+        "h": 82
+    },
+    {
+        "id": "049bced1d0b1cf3f",
+        "type": "group",
+        "z": "c7a0a810e419fb7f",
+        "name": "",
+        "style": {
+            "fill": "#9363b7",
+            "label": true
+        },
+        "nodes": [
+            "9ac6a1fb07467212",
+            "122e68c1e1953263",
+            "948df47f9d2147ab"
+        ],
+        "x": 334,
+        "y": 139,
+        "w": 622,
+        "h": 102
+    },
+    {
+        "id": "84a619cc4dd06b20",
+        "type": "http in",
+        "z": "c7a0a810e419fb7f",
+        "g": "37792ed5dfb1ffa8",
+        "name": "",
+        "url": "/recibirDatoCorte1",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 410,
+        "y": 420,
+        "wires": [
+            [
+                "96a709d76d07fdcd",
+                "08001ffdd61497f9",
+                "69cb97b6c6748826"
+            ]
+        ]
+    },
+    {
+        "id": "96a709d76d07fdcd",
+        "type": "function",
+        "z": "c7a0a810e419fb7f",
+        "g": "37792ed5dfb1ffa8",
+        "name": "String a SELECT M1",
+        "func": "msg.payload = [msg.payload.corte, msg.payload.puntoCoccion,msg.payload.sal,msg.payload.chimi,msg.payload.smoke];\nmsg.topic = \"SELECT tempDarVuelta, tempFinal FROM coccion WHERE corte = ? AND punto = ?\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 360,
+        "wires": [
+            [
+                "4f902801529f7c68"
+            ]
+        ]
+    },
+    {
+        "id": "c76bd162487ab7ca",
+        "type": "function",
+        "z": "c7a0a810e419fb7f",
+        "g": "37792ed5dfb1ffa8",
+        "name": "Select a Serie M1",
+        "func": "let Csal = msg.payload[0].sal;\nlet Cchimi = msg.payload[0].chimi;\nlet Chumo = msg.payload[0].smoke;\nlet tempDarVuelta = msg.payload[1][0].tempDarVuelta;\nlet tempFinal = msg.payload[1][0].tempFinal;\nlet msgEnvio = \"*m1\" + \"v\" + tempDarVuelta + \"f\" + tempFinal + \"c\" + Csal.toString() + Cchimi.toString() + Chumo.toString()\nmsg.payload = msgEnvio;\nmsg.order = 1;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1010,
+        "y": 420,
+        "wires": [
+            [
+                "80c07edca48c0f97"
+            ]
+        ]
+    },
+    {
+        "id": "08001ffdd61497f9",
+        "type": "join",
+        "z": "c7a0a810e419fb7f",
+        "g": "37792ed5dfb1ffa8",
+        "name": "JOIN M1",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 720,
+        "y": 420,
+        "wires": [
+            [
+                "c76bd162487ab7ca"
+            ]
+        ]
+    },
+    {
+        "id": "67fbfd1ee5f4ee01",
+        "type": "http in",
+        "z": "c7a0a810e419fb7f",
+        "g": "c825ee6ef1636823",
+        "name": "",
+        "url": "/recibirDatoCorte2",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 290,
+        "y": 700,
+        "wires": [
+            [
+                "59062373cd29553f",
+                "94fb1d8711c70228",
+                "69cb97b6c6748826"
+            ]
+        ]
+    },
+    {
+        "id": "e855276edaaceae5",
+        "type": "http response",
+        "z": "c7a0a810e419fb7f",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 1540,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "59062373cd29553f",
+        "type": "function",
+        "z": "c7a0a810e419fb7f",
+        "g": "c825ee6ef1636823",
+        "name": "String a SELECT M2",
+        "func": "msg.payload = [msg.payload.corte, msg.payload.puntoCoccion,msg.payload.sal,msg.payload.chimi,msg.payload.smoke];\nmsg.topic = \"SELECT tempDarVuelta, tempFinal FROM coccion WHERE corte = ? AND punto = ?\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 620,
+        "wires": [
+            [
+                "1fea5c9c5294bd90"
+            ]
+        ]
+    },
+    {
+        "id": "b2baf65b5fae2ac3",
+        "type": "function",
+        "z": "c7a0a810e419fb7f",
+        "g": "c825ee6ef1636823",
+        "name": "Select a Serie M2",
+        "func": "let Csal = msg.payload[0].sal;\nlet Cchimi = msg.payload[0].chimi;\nlet Chumo = msg.payload[0].smoke;\nlet tempDarVuelta = msg.payload[1][0].tempDarVuelta;\nlet tempFinal = msg.payload[1][0].tempFinal;\nlet msgEnvio = \"m2\" + \"v\" + tempDarVuelta + \"f\" + tempFinal + \"c\" + Csal.toString() + Cchimi.toString() + Chumo.toString()\nmsg.payload = msgEnvio;\nmsg.order = 2;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1010,
+        "y": 700,
+        "wires": [
+            [
+                "80c07edca48c0f97"
+            ]
+        ]
+    },
+    {
+        "id": "94fb1d8711c70228",
+        "type": "join",
+        "z": "c7a0a810e419fb7f",
+        "g": "c825ee6ef1636823",
+        "name": "JOIN M2",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 800,
+        "y": 700,
+        "wires": [
+            [
+                "b2baf65b5fae2ac3"
+            ]
+        ]
+    },
+    {
+        "id": "bba52bb687c044f5",
+        "type": "http in",
+        "z": "c7a0a810e419fb7f",
+        "g": "d38578220387fba7",
+        "name": "",
+        "url": "/recibirDatoCorte3",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 350,
+        "y": 880,
+        "wires": [
+            [
+                "76f75f4254200ef7",
+                "d9cb42e8fc4dbcea",
+                "69cb97b6c6748826"
+            ]
+        ]
+    },
+    {
+        "id": "76f75f4254200ef7",
+        "type": "function",
+        "z": "c7a0a810e419fb7f",
+        "g": "d38578220387fba7",
+        "name": "String a SELECT M3",
+        "func": "msg.payload = [msg.payload.corte, msg.payload.puntoCoccion,msg.payload.sal,msg.payload.chimi,msg.payload.smoke];\nmsg.topic = \"SELECT tempDarVuelta, tempFinal FROM coccion WHERE corte = ? AND punto = ?\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 840,
+        "wires": [
+            [
+                "4a2e7e31db4e2f65"
+            ]
+        ]
+    },
+    {
+        "id": "da3ccc0b87255030",
+        "type": "function",
+        "z": "c7a0a810e419fb7f",
+        "g": "d38578220387fba7",
+        "name": "Select a Serie M3",
+        "func": "let Csal = msg.payload[0].sal;\nlet Cchimi = msg.payload[0].chimi;\nlet Chumo = msg.payload[0].smoke;\nlet tempDarVuelta = msg.payload[1][0].tempDarVuelta;\nlet tempFinal = msg.payload[1][0].tempFinal;\nlet msgEnvio = \"m3\" + \"v\" + tempDarVuelta + \"f\" + tempFinal + \"c\" + Csal.toString() + Cchimi.toString() + Chumo.toString() + \"*\"\nmsg.payload = msgEnvio;\nmsg.order = 3;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1070,
+        "y": 960,
+        "wires": [
+            [
+                "80c07edca48c0f97"
+            ]
+        ]
+    },
+    {
+        "id": "d9cb42e8fc4dbcea",
+        "type": "join",
+        "z": "c7a0a810e419fb7f",
+        "g": "d38578220387fba7",
+        "name": "JOIN M3",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 860,
+        "y": 960,
+        "wires": [
+            [
+                "da3ccc0b87255030"
+            ]
+        ]
+    },
+    {
+        "id": "80c07edca48c0f97",
+        "type": "join",
+        "z": "c7a0a810e419fb7f",
+        "name": "",
+        "mode": "custom",
+        "build": "array",
+        "property": "",
+        "propertyType": "full",
+        "key": "topic",
+        "joiner": "",
+        "joinerType": "str",
+        "useparts": true,
+        "accumulate": false,
+        "timeout": "",
+        "count": "3",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 1270,
+        "y": 600,
+        "wires": [
+            [
+                "c79d7fe1e112b90e"
+            ]
+        ]
+    },
+    {
+        "id": "69cb97b6c6748826",
+        "type": "link out",
+        "z": "c7a0a810e419fb7f",
+        "name": "link out 1",
+        "mode": "link",
+        "links": [
+            "6ffda9df54129e2a"
+        ],
+        "x": 565,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "6ffda9df54129e2a",
+        "type": "link in",
+        "z": "c7a0a810e419fb7f",
+        "name": "link in 1",
+        "links": [
+            "69cb97b6c6748826"
+        ],
+        "x": 1395,
+        "y": 540,
+        "wires": [
+            [
+                "e855276edaaceae5"
+            ]
+        ]
+    },
+    {
+        "id": "237714cbc7ba9815",
+        "type": "websocket out",
+        "z": "c7a0a810e419fb7f",
+        "g": "8b4a97a520df5535",
+        "name": "",
+        "server": "5d10c8a9b297233e",
+        "client": "",
+        "x": 960,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "d12830b5eb275c6a",
+        "type": "function",
+        "z": "c7a0a810e419fb7f",
+        "g": "8b4a97a520df5535",
+        "name": "Stream Serie a JSON",
+        "func": "function generarJSON(entrada) {\n    // Usamos una expresión regular para extraer las temperaturas\n    const temperaturas = entrada.match(/T(\\d+)/g).map(t => parseInt(t.substring(1)));\n\n    // Creamos el objeto JSON\n    const resultado = {\n        temperatura1: temperaturas[0],\n        temperatura2: temperaturas[1]\n    };\n\n    return JSON.stringify(resultado);\n}\n\n\nconst jsonResultado = generarJSON(msg.payload);\nmsg.payload = jsonResultado\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 1080,
+        "wires": [
+            [
+                "237714cbc7ba9815"
+            ]
+        ]
+    },
+    {
+        "id": "df0d738acab18eb6",
+        "type": "serial out",
+        "z": "c7a0a810e419fb7f",
+        "name": "",
+        "serial": "42e44742403d9a1a",
+        "x": 1660,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "4f902801529f7c68",
+        "type": "mysql",
+        "z": "c7a0a810e419fb7f",
+        "g": "37792ed5dfb1ffa8",
+        "mydb": "15143698c0d11e19",
+        "name": "",
+        "x": 930,
+        "y": 360,
+        "wires": [
+            [
+                "08001ffdd61497f9"
+            ]
+        ]
+    },
+    {
+        "id": "1fea5c9c5294bd90",
+        "type": "mysql",
+        "z": "c7a0a810e419fb7f",
+        "g": "c825ee6ef1636823",
+        "mydb": "15143698c0d11e19",
+        "name": "",
+        "x": 890,
+        "y": 620,
+        "wires": [
+            [
+                "94fb1d8711c70228"
+            ]
+        ]
+    },
+    {
+        "id": "4a2e7e31db4e2f65",
+        "type": "mysql",
+        "z": "c7a0a810e419fb7f",
+        "g": "d38578220387fba7",
+        "mydb": "15143698c0d11e19",
+        "name": "",
+        "x": 990,
+        "y": 840,
+        "wires": [
+            [
+                "d9cb42e8fc4dbcea"
+            ]
+        ]
+    },
+    {
+        "id": "9ac6a1fb07467212",
+        "type": "http in",
+        "z": "c7a0a810e419fb7f",
+        "g": "049bced1d0b1cf3f",
+        "name": "",
+        "url": "/enviar",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 430,
+        "y": 200,
+        "wires": [
+            [
+                "122e68c1e1953263"
+            ]
+        ]
+    },
+    {
+        "id": "122e68c1e1953263",
+        "type": "function",
+        "z": "c7a0a810e419fb7f",
+        "g": "049bced1d0b1cf3f",
+        "name": "function 1",
+        "func": "if (msg.payload && msg.payload.letra) {\n    msg.payload = msg.payload.letra; // Extrae solo la letra\n} else {\n    node.error(\"Payload no definido o sin propiedad 'letra'\", msg);\n    return null; // Detiene el flujo si hay un error\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 180,
+        "wires": [
+            [
+                "948df47f9d2147ab"
+            ]
+        ]
+    },
+    {
+        "id": "948df47f9d2147ab",
+        "type": "serial out",
+        "z": "c7a0a810e419fb7f",
+        "g": "049bced1d0b1cf3f",
+        "name": "",
+        "serial": "42e44742403d9a1a",
+        "x": 870,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "16bd9b5070f8d4f1",
+        "type": "debug",
+        "z": "c7a0a810e419fb7f",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1660,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "c79d7fe1e112b90e",
+        "type": "function",
+        "z": "c7a0a810e419fb7f",
+        "name": "function 2",
+        "func": "msg.payload.sort((a, b) => a.order - b.order);\nmsg.payload = msg.payload[0].payload + msg.payload[1].payload + msg.payload[2].payload;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1440,
+        "y": 600,
+        "wires": [
+            [
+                "16bd9b5070f8d4f1",
+                "df0d738acab18eb6"
+            ]
+        ]
+    },
+    {
+        "id": "7ac2a7bdf006be52",
+        "type": "serial in",
+        "z": "c7a0a810e419fb7f",
+        "name": "",
+        "serial": "42e44742403d9a1a",
+        "x": 340,
+        "y": 1180,
+        "wires": [
+            [
+                "d12830b5eb275c6a"
+            ]
+        ]
+    },
+    {
+        "id": "5d10c8a9b297233e",
+        "type": "websocket-listener",
+        "path": "/ws/temperatura",
+        "wholemsg": "false"
+    },
+    {
+        "id": "42e44742403d9a1a",
+        "type": "serial-port",
+        "name": "",
+        "serialport": "/dev/ttyS0",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "waitfor": "",
+        "dtr": "none",
+        "rts": "none",
+        "cts": "none",
+        "dsr": "none",
+        "newline": "100",
+        "bin": "false",
+        "out": "time",
+        "addchar": "",
+        "responsetimeout": "10000"
+    },
+    {
+        "id": "15143698c0d11e19",
+        "type": "MySQLdatabase",
+        "name": "meca",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "meca",
+        "tz": "",
+        "charset": "UTF8"
+    }
+]

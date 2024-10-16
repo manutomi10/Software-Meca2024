@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DASGRILL Home AI</title>
+    <link rel="stylesheet" href="styles_3.css">
+</head>
+<body>
+ <hoja_2>
+    
+    <div class="container_2">
+        <div class="screen_2">
+            <div class="title_2">3º GRILL</div>
+            </div>       
+            
+        </div>
+
+    <div class="flechas">
+        <div class="arrow-container">
+            <div class="arrow prev" onclick="changeImageGroup1(-1)">
+                &#10094;
+            </div>
+            <img src="images/png/carne.png" alt="Carne" class="middle-image" id="displayedImageGroup1">
+            <div class="arrow next" onclick="changeImageGroup1(1)">
+                &#10095;
+            </div>
+        </div>
+        <div class="arrow-container second">
+            <div class="arrow prev" onclick="changeImageGroup2(-1)">
+                &#10094;
+            </div>
+            <img src="images/png/sal-removebg-preview.png" alt="Sal" class="middle-image" id="displayedImageGroup2">
+            <div class="arrow next" onclick="changeImageGroup2(1)">
+                &#10095;
+            </div>
+        </div>
+    </div>
+    
+    <div class="image-static">
+        <div class="image-item">
+            <img src="images/png/sal-removebg-preview.png" alt="Sal" class="static-image">
+            <span id="valueSal">0</span>
+        </div>
+        <div class="image-item">
+            <img src="images/png/chimi-removebg-preview.png" alt="Chimi" class="static-image">
+            <span id="valueChimi">0</span>
+        </div>
+        <div class="image-item">
+            <img src="images/png/SMOKE-removebg-preview.png" alt="Smoke" class="static-image">
+            <span id="valueSmoke">0</span>
+        </div>
+    </div>
+    
+    
+    <div class="botones">
+        <div class="myButton-first">
+            <div class="myButton" onclick="updateStaticImageValue(-1)">
+                −
+            </div>
+            <div class="myButton" onclick="updateStaticImageValue(1)">
+                +
+            </div>
+        </div>
+    </div>
+
+
+<div class="conti">
+    <button onclick="GuardarCorte(3)"><strong>CONTINUAR</strong></button>
+    <button class="back-button" onclick="Volver('index_grill_2.html')">VOLVER</button>
+
+</div>
+
+<div class="barra">
+<form style="--min: 0; --max: 100; --val: 25;">
+    <input id="puntoCoccion" type="range" min="0" max="100" value="33.33" list="l" step="33.33">
+    <datalist id="l">
+        <option label="min" value="0"></option>
+        <option label="max" value="100"></option>
+    </datalist>
+</form>
+</div>
+<img src="images/png/holtersyahk.png" alt="ahkyholters" class="ahkyholters">
+ </hoja_2>
+    <script src="scripts_3 copy.js"></script>
+</body>
+</html>

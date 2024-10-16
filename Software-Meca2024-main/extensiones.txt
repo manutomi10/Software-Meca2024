@@ -1,0 +1,11 @@
+https://kinsta.com/es/blog/extensiones-vscode/
+
+Aquí tienes algunas extensiones que te ayudarán a aumentar tu productividad:
+Live Server.
+Auto Rename Tag.
+SVG Preview.
+HTML CSS Support.
+IntelliSense for CSS class names.
+CSS Peek.
+GitLens.
+

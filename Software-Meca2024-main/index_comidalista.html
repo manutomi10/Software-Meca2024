@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DASGRILL - Cocción en Progreso</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #a3bd97;
+            --secondary-color: #ffffff;
+            --accent-color: #17bebb;
+            --background-color: #f7f7f7;
+            --text-color: #333;
+            --light-text: #000000;
+            --border-radius: 10px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--secondary-color);
+            color: var(--light-text);
+            height: 100%;
+        }
+
+        .container_2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .screen_2 {
+            background-color: var(--primary-color);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+        }
+
+        .title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+
+        @media (min-width: 768px) {
+            .screen_2 {
+                padding: 3rem;
+            }
+
+            .title {
+                font-size: 4rem;
+            }
+
+            .subtitle {
+                font-size: 2rem;
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .screen_2 {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container_2">
+        <div class="screen_2">
+            <div class="title">SU COMIDA</div>
+            <div class="subtitle">ESTÁ LISTA</div>
+        </div>
+    </div>
+
+    <audio id="audioElement" src="audios/fabriMalo.mp3" preload="auto"></audio>
+
+    <script>
+        document.body.addEventListener('click', function() {
+            var audio = document.getElementById('audioElement');
+            if (audio) {
+                audio.play().catch(function(error) {
+                    console.error('Error al reproducir el audio:', error);
+                });
+            } else {
+                console.error('Elemento de audio no encontrado.');
+            }
+        });
+    </script>
+</body>
+</html>
