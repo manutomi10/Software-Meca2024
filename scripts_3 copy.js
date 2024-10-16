@@ -1,6 +1,6 @@
 
 // Grupo 1: Pollo, Carne, Cerdo
-let imagesGroup1 = ["images/png/CARNEBUENA.png", "images/png/POLLOBUENO.png", "images/png/CERDOBUENO.png"];
+let imagesGroup1 = ["images/CARNEBUENA.png", "images/POLLOBUENO.png", "images/CERDOBUENO.png"];
 let tipoCorte = ["carne","pollo","cerdo"];
 let corteSeleccionado = "carne";
 let puntoCoccion;
@@ -11,7 +11,7 @@ let urlPort;
 let termo = false;
 
 // Grupo 2: Sal, Chimi, Humo
-let imagesGroup2 = ["images/png/SALBUENA.png", "images/png/LIMONBUENO.png", "images/png/HUMOBUENO.png"];
+let imagesGroup2 = ["images/SALBUENA.png", "images/LIMONBUENO.png", "images/HUMOBUENO.png"];
 let currentIndexGroup2 = 0;
 
 let isEnabled = false; // Variable de estado
@@ -59,18 +59,99 @@ window.onload = function() {
 };
 
 window.onload = function ValoresCondimento1() {
+    
+    const paqueteJSON = localStorage.getItem("Corte1");
+    let paquete = null;
 
-    let c1 = localStorage.getItem("Corte1.corte");
-    let c2 = localStorage.getItem("Corte1.sal");
-    let c3 = localStorage.getItem("Corte1.chimi");
-    let c4 = localStorage.getItem("Corte1.smoke");
+    if (paqueteJSON) {
+        // Convertir la cadena JSON en un objeto JavaScript
+        const paquete = JSON.parse(paqueteJSON);
 
-    document.getElementById("valueChimi1").innerHTML = c3;
-    document.getElementById("valueSal1").innerHTML = c2;
-    document.getElementById("valueSmoke1").innerHTML = c4;
+        // Ahora puedes acceder a las propiedades del objeto
+        console.log("Corte1: " + paquete.corte);
+        console.log("Punto de Cocción1: " + paquete.puntoCoccion);
+        console.log("Sal1: " + paquete.sal);
+        console.log("Chimi1: " + paquete.chimi);
+        console.log("Smoked1: " + paquete.smoke);
+
+        document.getElementById("valueSal1").innerHTML = paquete.sal;
+        document.getElementById("valueChimi1").innerHTML = paquete.chimi;
+        document.getElementById("valueSmoke1").innerHTML = paquete.smoke;
+    } else {
+        console.log("No se encontró el valor para 'Corte1' en el localStorage.");
+    }
+
+    const dospaqueteJSON = localStorage.getItem("Corte2");
+    let paquetedos = null;
+
+    if (dospaqueteJSON) {
+        // Convertir la cadena JSON en un objeto JavaScript
+        const paquetedos = JSON.parse(dospaqueteJSON);
+
+        // Ahora puedes acceder a las propiedades del objeto
+        console.log("Corte2: " + paquetedos.corte);
+        console.log("Punto de Cocción2: " + paquetedos.puntoCoccion);
+        console.log("Sal2: " + paquetedos.sal);
+        console.log("Chimi2: " + paquetedos.chimi);
+        console.log("Smoked2: " + paquetedos.smoke);
+
+        document.getElementById("valueSal2").innerHTML = paquetedos.sal;
+        document.getElementById("valueChimi2").innerHTML = paquetedos.chimi;
+        document.getElementById("valueSmoke2").innerHTML = paquetedos.smoke;
+    } else {
+        console.log("No se encontró el valor para 'Corte2' en el localStorage.");
+    }
+
+    const trespaqueteJSON = localStorage.getItem("Corte2");
+    let paquetetres = null;
+
+    if (trespaqueteJSON) {
+        // Convertir la cadena JSON en un objeto JavaScript
+        const paquetetres = JSON.parse(trespaqueteJSON);
+
+        // Ahora puedes acceder a las propiedades del objeto
+        console.log("Corte3: " + paquetetres.corte);
+        console.log("Punto de Cocción3: " + paquetetres.puntoCoccion);
+        console.log("Sal3: " + paquetetres.sal);
+        console.log("Chimi3: " + paquetetres.chimi);
+        console.log("Smoked3: " + paquetetres.smoke);
+
+        document.getElementById("valueSal3").innerHTML = paquetetres.sal;
+        document.getElementById("valueChimi3").innerHTML = paquetetres.chimi;
+        document.getElementById("valueSmoke3").innerHTML = paquetetres.smoke;
+    } else {
+        console.log("No se encontró el valor para 'Corte2' en el localStorage.");
+    }
+
+
 
 
 }
+
+/*window.onload = function ValoresCondimento2() {
+
+    const dospaqueteJSON = localStorage.getItem("Corte2");
+    let paquetedos = null;
+
+    if (dospaqueteJSON) {
+        // Convertir la cadena JSON en un objeto JavaScript
+        const paquetedos = JSON.parse(dospaqueteJSON);
+
+        // Ahora puedes acceder a las propiedades del objeto
+        console.log("Corte2: " + paquetedos.corte);
+        console.log("Punto de Cocción2: " + paquetedos.puntoCoccion);
+        console.log("Sal2: " + paquetedos.sal);
+        console.log("Chimi2: " + paquetedos.chimi);
+        console.log("Smoked2: " + paquetedos.smoke);
+
+        document.getElementById("valueSal2").innerHTML = paquetedos.sal;
+        document.getElementById("valueChimi2").innerHTML = paquetedos.chimi;
+        document.getElementById("valueSmoke2").innerHTML = paquetedos.smoke;
+    } else {
+        console.log("No se encontró el valor para 'Corte2' en el localStorage.");
+    }
+
+}*/
 
 
 
