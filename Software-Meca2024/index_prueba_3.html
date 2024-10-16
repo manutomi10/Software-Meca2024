@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DASGRILL Home AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles_prueba.css">
+</head>
+<body>
+    <div class="container-fluid">
+        
+        <!-- Primera fila: Título -->
+        <div class="row my-3">
+            <div class="col text-center">
+                <h1 class="title_2">MÓDULO 3</h1>
+            </div>
+        </div>
+
+        <!-- Segunda y tercera fila: Columnas -->
+        <div class="row justify-content-center my-3">
+            <div class="col-4 d-flex align-items-center justify-content-center">
+                <div class="p-3">
+                    <div class="arrow-container">
+                        <div class="arrow prev" onclick="changeImageGroup1(-1)">
+                            &#10094;
+                        </div>
+                        <img src="images/CARNEBUENA.png" alt="Carne" class="middle-image" id="displayedImageGroup1">
+                        <div class="arrow next" onclick="changeImageGroup1(1)">
+                            &#10095;
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 d-flex align-items-center justify-content-center">
+                <div class="p-3">
+                    <div>
+                        <form style="--min: 0; --max: 100; --val: 25;">
+                            <input id="puntoCoccion" type="range" min="0" max="100" value="33.33" list="l" step="33.33">
+                            <datalist id="l">
+                                <option label="min" value="0"></option>
+                                <option label="max" value="100"></option>
+                            </datalist>
+                        </form>
+                    </div>     
+                </div>
+            </div>
+            <div class="col-2 text-center">
+                <div class="p-3"> - </div>
+            </div>
+        </div>
+        <div class="row justify-content-center my-3">
+            <div class="col-4 d-flex align-items-center justify-content-center">
+                <div class="p-3">
+
+                    <div class="arrow-container second">
+                        <div class="arrow prev" onclick="changeImageGroup2(-1)">
+                            &#10094;
+                        </div>
+                        <img src="images/SALBUENA.png" alt="Sal" class="middle-image" id="displayedImageGroup2">
+                        <div class="arrow next" onclick="changeImageGroup2(1)">
+                            &#10095;
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 d-flex align-items-center justify-content-center">
+                <div class="p-3">
+
+                    <div class="botones">
+                        <div class="myButton-first">
+                            <div class="myButton" onclick="updateStaticImageValue(-1)">
+                                −
+                            </div>
+                            <div class="myButton" onclick="updateStaticImageValue(1)">
+                                +
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-2 d-flex align-items-center justify-content-center">
+                <div class="p-3">
+
+                    <div class="image-static">
+                        <div class="image-item">
+                            <img src="images/SALBUENA.png" alt="Sal" class="static-image">
+                            <span id="valueSal">0</span>
+                        </div>
+                        <div class="image-item">
+                            <img src="images/LIMONBUENO.png" alt="Chimi" class="static-image">
+                            <span id="valueChimi">0</span>
+                        </div>
+                        <div class="image-item">
+                            <img src="images/HUMOBUENO.png" alt="Smoke" class="static-image">
+                            <span id="valueSmoke">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Última fila: Botones -->
+        <div class="row justify-content-center mt-auto">
+            <div class="col text-center">
+                <!-- <button class="btn btn-secondary mx-2">VOLVER</button>
+                <button class="btn btn-primary mx-2">CONTINUAR</button>
+                -->
+                <button class="btn btn-primary mx-2" onclick="GuardarCorte(3)"><strong>CONTINUAR</strong></button>
+                <button class="btn btn-secondary mx-2" onclick="Volver('index_prueba_2.html')">VOLVER</button>
+
+            </div>
+        </div>
+    </div>
+    <div class="conti">
+     
+    </div>
+    
+    <img src="images/png/holtersyahk.png" alt="ahkyholters" class="ahkyholters">
+    <script src="scripts_3 copy.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
