@@ -226,7 +226,7 @@ function enviarCortes() {
                 isEnabled = false; // Necesito nuevamente una "f" para enviar datos de nuevo
 
                 console.log("Confirmación 'f' elimnada. Enviar nuevamente señal 'f' ");
-                window.location.href = "index_9.html";
+                window.location.href = "pruebaxd.html";
                 
             }
            
@@ -236,7 +236,7 @@ function enviarCortes() {
 
 
 function Continuari(){
-    window.location.href = "index_9.html";
+    window.location.href = "pruebaxd.html";
  }
 
  function Ajuste(){
