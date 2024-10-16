@@ -208,24 +208,30 @@ function enviarCortes() {
                 alert("El envío no está habilitado. Espera a recibir 'f'.");
                 return; // No permite enviar si no está habilitado
             }
-            enviarCorte(1);
-            enviarCorte(2);
-            enviarCorte(3);
 
-            //Una vez enviado los datos, limpio el localStorage
+            if (termo == false){
+                alert("Recuerde Confirmar las termocuplas");
+            }
 
-            localStorage.removeItem('confirmacion_f');
-            
-            isEnabled = false; // Necesito nuevamente una "f" para enviar datos de nuevo
+            if (termo == true){
 
-            console.log("Confirmación 'f' elimnada. Enviar nuevamente señal 'f' ");
-            
-            if (termo==true){
+                enviarCorte(1);
+                enviarCorte(2);
+                enviarCorte(3);
+
+                //Una vez enviado los datos, limpio el localStorage
+
+                localStorage.removeItem('confirmacion_f');
+                
+                isEnabled = false; // Necesito nuevamente una "f" para enviar datos de nuevo
+
+                console.log("Confirmación 'f' elimnada. Enviar nuevamente señal 'f' ");
                 window.location.href = "index_9.html";
-                }
-                if (!termo){
-                    alert("Recuerde Confirmar las termocuplas");
-                }
+                
+            }
+           
+            return;
+           
         }
 
 
