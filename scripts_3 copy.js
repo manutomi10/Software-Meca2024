@@ -146,6 +146,8 @@ function changeImageGroup1(direction) {
     console.log(document.getElementById("puntoCoccion").value);
     // Cambia la imagen del primer grupo
     document.getElementById("displayedImageGroup1").src = imagesGroup1[currentIndexGroup1];
+
+    //
 }
 
 function changeImageGroup2(direction) {
@@ -172,16 +174,21 @@ function updateStaticImageValue(direction) {
         valueElement = document.getElementById("valueChimi");
     } else if (currentIndexGroup2 === 2) {
         valueElement = document.getElementById("valueSmoke");
-    }
-    else if (currentIndexGroup2 === 3) {
-    valueElement = document.getElementById("valueCruz");
+    } else if (currentIndexGroup2 === 3) {
+        valueElement = document.getElementById("valueCruz");
     }
 
     // Actualiza el valor dependiendo de la dirección
-    if (direction === 1) {
+    if (direction === 1 && currentIndexGroup2 != 3) {
         valueElement.textContent = "1";
     } else if (direction === -1) {
         valueElement.textContent = "0";
+    }
+
+    if (currentIndexGroup2 == 3){
+        document.getElementById("valueSal").textContent = "0";
+        document.getElementById("valueChimi").textContent = "0";
+        document.getElementById("valueSmoke").textContent = "0";
     }
 }
 
