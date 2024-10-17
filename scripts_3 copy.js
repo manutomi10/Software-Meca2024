@@ -161,11 +161,7 @@ function changeImageGroup2(direction) {
     }
 
     // Cambia la imagen del segundo grupo
-    if (currentIndexGroup2 == 3){
-        document.getElementById("valueSal").textContent = "0";
-        document.getElementById("valueChimi").textContent = "0";
-        document.getElementById("valueSmoke").textContent = "0";
-    }
+
 }
 
 function updateStaticImageValue(direction) {
@@ -187,6 +183,11 @@ function updateStaticImageValue(direction) {
         valueElement.textContent = "1";
     } else if (direction === -1) {
         valueElement.textContent = "0";
+    }
+    if (currentIndexGroup2 == 3){
+        document.getElementById("valueSal").textContent = "0";
+        document.getElementById("valueChimi").textContent = "0";
+        document.getElementById("valueSmoke").textContent = "0";
     }
 
 
