@@ -174,7 +174,7 @@ function updateStaticImageValue(direction) {
         valueElement = document.getElementById("valueSmoke");
     }
     else if (currentIndexGroup2 === 3) {
-        valueElement.textContent = "0";
+    valueElement = document.getElementById("valueCruz");
     }
 
     // Actualiza el valor dependiendo de la dirección
@@ -302,10 +302,10 @@ function Continuari(){
  /*function Ajuste(){
     window.location.href = "index_6.html";
  }
-*/
+
  function Volver(donde_volver){
     window.location.href = donde_volver;
- }
+ }*/
 
  function TermocuplasSI() {
    
