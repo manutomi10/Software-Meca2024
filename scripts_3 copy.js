@@ -276,8 +276,8 @@ function enviarCortes() {
             if (termo == true){
 
                 enviarCorte(1);
-                enviarCorte(2);
-                enviarCorte(3);
+                //enviarCorte(2);
+                //enviarCorte(3);
 
                 //Una vez enviado los datos, limpio el localStorage
 
