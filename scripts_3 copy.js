@@ -1,7 +1,7 @@
 
 // Grupo 1: Pollo, Carne, Cerdo
-let imagesGroup1 = ["images/CARNEBUENA.png", "images/POLLOBUENO.png", "images/CERDOBUENO.png"];
-let tipoCorte = ["carne","pollo","cerdo"];
+let imagesGroup1 = ["images/CARNEBUENA.png", "images/POLLOBUENO.png", "images/CERDOBUENO.png", "images/CRUZBUENA.png"];
+let tipoCorte = ["carne","pollo","cerdo", "cruz"];
 let corteSeleccionado = "carne";
 let puntoCoccion;
 let currentIndexGroup1 = 0;
@@ -11,7 +11,7 @@ let urlPort;
 let termo = false;
 
 // Grupo 2: Sal, Chimi, Humo
-let imagesGroup2 = ["images/SALBUENA.png", "images/LIMONBUENO.png", "images/HUMOBUENO.png"];
+let imagesGroup2 = ["images/SALBUENA.png", "images/LIMONBUENO.png", "images/HUMOBUENO.png", "images/CRUZBUENA.png"];
 let currentIndexGroup2 = 0;
 
 let isEnabled = false; // Variable de estado
@@ -128,30 +128,6 @@ window.onload = function ValoresCondimento1() {
 
 }
 
-/*window.onload = function ValoresCondimento2() {
-
-    const dospaqueteJSON = localStorage.getItem("Corte2");
-    let paquetedos = null;
-
-    if (dospaqueteJSON) {
-        // Convertir la cadena JSON en un objeto JavaScript
-        const paquetedos = JSON.parse(dospaqueteJSON);
-
-        // Ahora puedes acceder a las propiedades del objeto
-        console.log("Corte2: " + paquetedos.corte);
-        console.log("Punto de Cocción2: " + paquetedos.puntoCoccion);
-        console.log("Sal2: " + paquetedos.sal);
-        console.log("Chimi2: " + paquetedos.chimi);
-        console.log("Smoked2: " + paquetedos.smoke);
-
-        document.getElementById("valueSal2").innerHTML = paquetedos.sal;
-        document.getElementById("valueChimi2").innerHTML = paquetedos.chimi;
-        document.getElementById("valueSmoke2").innerHTML = paquetedos.smoke;
-    } else {
-        console.log("No se encontró el valor para 'Corte2' en el localStorage.");
-    }
-
-}*/
 
 
 
@@ -196,6 +172,9 @@ function updateStaticImageValue(direction) {
         valueElement = document.getElementById("valueChimi");
     } else if (currentIndexGroup2 === 2) {
         valueElement = document.getElementById("valueSmoke");
+    }
+    else if (currentIndexGroup2 === 3) {
+    valueElement = document.getElementById("valueCruz");
     }
 
     // Actualiza el valor dependiendo de la dirección
@@ -320,10 +299,10 @@ function Continuari(){
     window.location.href = "pruebaxd.html";
  }
 
- function Ajuste(){
+ /*function Ajuste(){
     window.location.href = "index_6.html";
  }
-
+*/
  function Volver(donde_volver){
     window.location.href = donde_volver;
  }
