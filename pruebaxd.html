@@ -163,7 +163,7 @@
             </div>
         </div>
 
-        <button id="finishButton" class="button">FINALIZAR</button>
+        <button id="finishButton" class="button" onclick="Volver('index_2.html')">FINALIZAR</button>
         <button id="pauseButton" class="button" onclick="pausar()">PAUSAR</button> <!-- Botón de pausa -->
         <div id="pauseMessage">PAUSADO</div>
 
@@ -259,6 +259,8 @@ function pausar() {
         socketLetras.onerror = (error) => {
             console.error('Error en WebSocket de letras:', error);
         };
+
+        
     </script>
     <script src="scripts_3 copy.js"></script>
 </body>
