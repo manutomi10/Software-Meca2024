@@ -137,10 +137,8 @@ function changeImageGroup1(direction) {
     // Cicla la selección de imágenes
     if (currentIndexGroup1 < 0) {
         currentIndexGroup1 = imagesGroup1.length - 1;
-        reevaluar();
     } else if (currentIndexGroup1 >= imagesGroup1.length) {
         currentIndexGroup1 = 0;
-        reevaluar();
     }
 
     corteSeleccionado = tipoCorte[currentIndexGroup1];
@@ -163,7 +161,11 @@ function changeImageGroup2(direction) {
     }
 
     // Cambia la imagen del segundo grupo
-    document.getElementById("displayedImageGroup2").src = imagesGroup2[currentIndexGroup2];
+    if (currentIndexGroup2 == 3){
+        document.getElementById("valueSal").textContent = "0";
+        document.getElementById("valueChimi").textContent = "0";
+        document.getElementById("valueSmoke").textContent = "0";
+    }
 }
 
 function updateStaticImageValue(direction) {
@@ -188,13 +190,6 @@ function updateStaticImageValue(direction) {
     }
 
 
-}
-function reevaluar(){
-if (currentIndexGroup2 == 3){
-    document.getElementById("valueSal").textContent = "0";
-    document.getElementById("valueChimi").textContent = "0";
-    document.getElementById("valueSmoke").textContent = "0";
-}
 }
 
 addEventListener('input', e => {
