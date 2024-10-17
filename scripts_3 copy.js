@@ -174,7 +174,7 @@ function updateStaticImageValue(direction) {
         valueElement = document.getElementById("valueSmoke");
     }
     else if (currentIndexGroup2 === 3) {
-    valueElement = document.getElementById("valueCruz");
+        valueElement.textContent = "0";
     }
 
     // Actualiza el valor dependiendo de la dirección
