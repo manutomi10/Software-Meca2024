@@ -308,11 +308,11 @@ function Continuari(){
 
  /*function Ajuste(){
     window.location.href = "index_6.html";
- }
+ }*/
 
  function Volver(donde_volver){
     window.location.href = donde_volver;
- }*/
+ }
 
  function TermocuplasSI() {
    
@@ -332,7 +332,6 @@ function confirmarTermocuplas() {
     button.classList.toggle('active'); // Cambia el estado del botón
     termo = true;
     // Lógica para confirmar la activación de las termocuplas
-    alert("Termocuplas activadas.");
     closeModal(); // Cierra el modal después de confirmar
     
 }
