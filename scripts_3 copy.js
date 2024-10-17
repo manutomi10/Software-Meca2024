@@ -185,7 +185,7 @@ function updateStaticImageValue(direction) {
         valueElement.textContent = "0";
     }
 
-    if (displayedImageGroup2 == 3){
+    if (currentIndexGroup2 == 3){
         document.getElementById("valueSal").textContent = "0";
         document.getElementById("valueChimi").textContent = "0";
         document.getElementById("valueSmoke").textContent = "0";
