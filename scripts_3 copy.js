@@ -185,7 +185,7 @@ function updateStaticImageValue(direction) {
         valueElement.textContent = "0";
     }
 
-    if (currentIndexGroup2 == 3){
+    if (document.getElementById("displayedImageGroup2").src == imagesGroup2["images/CRUZBUENA.png"]){
         document.getElementById("valueSal").textContent = "0";
         document.getElementById("valueChimi").textContent = "0";
         document.getElementById("valueSmoke").textContent = "0";
