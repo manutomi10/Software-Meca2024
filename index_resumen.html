@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -18,8 +17,7 @@
             line-height: 1.6;
             color: var(--text-color);
             background: url('https://images.pexels.com/photos/1171585/pexels-photo-1171585.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-    background-size: cover;
-            /*background-color: var(--secondary-color);*/
+            background-size: cover;
             margin: 0;
             padding: 0;
         }
@@ -89,6 +87,11 @@
             font-weight: bold;
         }
         
+        .punto-coccion {
+            text-align: center;
+            margin-top: 1rem;
+        }
+        
         .settings {
             display: flex;
             justify-content: center;
@@ -118,15 +121,6 @@
             opacity: 0.9;
         }
 
-        .TermoButton{
-            background-color: #da0000;
-        }
-        
-        .btn.active {
-            background-color: #4caf50; /* Color verde */
-            color: white; /* Cambia el texto a blanco si lo deseas */
-        }
-
         .ahkyholters {
             position: fixed;
             bottom: 10px;
@@ -134,62 +128,6 @@
             width: 80px;
             height: auto;
         }
-        
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-            
-            .module {
-                padding: 1rem;
-            }
-            
-            .settings {
-                flex-direction: column;
-            }
-            
-            .btn {
-                width: 100%;
-                margin-bottom: 0.5rem;
-            }
-        }
-
-        .modal {
-    display: none; /* Oculto por defecto */
-    position: fixed;
-    z-index: 1; /* Encima de todo */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Habilitar scroll si es necesario */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Color con transparencia */
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% desde la parte superior y centrado */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Puede ser más o menos */
-    border-radius: 8px;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
     </style>
 </head>
 <body>
@@ -198,11 +136,11 @@
     </header>
     
     <main class="container">
+        <!-- Módulo 1 -->
         <section class="module">
             <h2 class="module-title">Módulo 1</h2>
             <div class="meat-display">
-                <img src="images/CARNEBUENA.png" alt="Corte de carne seleccionado" class="meat-image" id="displayedImageGroup1"
-                style="width: 100px; height: auto;">
+                <img src="images/CARNEBUENA.png" alt="Corte de carne seleccionado" class="meat-image" id="displayedImageGroup1" style="width: 100px; height: auto;">
             </div>
             <div class="ingredients">
                 <div class="ingredient-item">
@@ -218,13 +156,16 @@
                     <span class="ingredient-value" id="valueSmoke1">0</span>
                 </div>
             </div>
+            <div class="punto-coccion">
+                <p>Punto de cocción seleccionado: <span id="puntoCoccion1">N/A</span></p>
+            </div>
         </section>
-        
+
+        <!-- Módulo 2 -->
         <section class="module">
             <h2 class="module-title">Módulo 2</h2>
             <div class="meat-display">
-                <img src="images/CARNEBUENA.png" alt="Corte de carne seleccionado" class="meat-image" id="displayedImageGroup2"
-                style="width: 100px; height: auto;">
+                <img src="images/CARNEBUENA.png" alt="Corte de carne seleccionado" class="meat-image" id="displayedImageGroup2" style="width: 100px; height: auto;">
             </div>
             <div class="ingredients">
                 <div class="ingredient-item">
@@ -240,13 +181,16 @@
                     <span class="ingredient-value" id="valueSmoke2">0</span>
                 </div>
             </div>
+            <div class="punto-coccion">
+                <p>Punto de cocción seleccionado: <span id="puntoCoccion2">N/A</span></p>
+            </div>
         </section>
-        
+
+        <!-- Módulo 3 -->
         <section class="module">
             <h2 class="module-title">Módulo 3</h2>
             <div class="meat-display">
-                <img src="images/CARNEBUENA.png" alt="Corte de carne seleccionado" class="meat-image" id="displayedImageGroup3"
-                style="width: 100px; height: auto;">
+                <img src="images/CARNEBUENA.png" alt="Corte de carne seleccionado" class="meat-image" id="displayedImageGroup3" style="width: 100px; height: auto;">
             </div>
             <div class="ingredients">
                 <div class="ingredient-item">
@@ -262,29 +206,14 @@
                     <span class="ingredient-value" id="valueSmoke3">0</span>
                 </div>
             </div>
-        </section>
-        
-        <section class="settings">
-            <button class="btn TermoButton" onclick="TermocuplasSI()">✓ TERMOCUPLAS</button>   
-            <button class="btn btn-warning" onclick="enviarCortes()">CONTINUAR</button> 
-            <button class="btn btn-warning" onclick="Volver('index_prueba_3.html')">VOLVER</button> 
+            <div class="punto-coccion">
+                <p>Punto de cocción seleccionado: <span id="puntoCoccion3">N/A</span></p>
+            </div>
         </section>
     </main>
 
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2>Confirmar</h2>
-            <p>RECUERDE DE PINCHAR CON EL TERMOMETRO LAS CARNES</p>
-            <button class="btn btn-primary" onclick="confirmarTermocuplas()">Confirmar</button>
-            <button class="btn btn-secondary" onclick="closeModal()">Cerrar</button>
-        </div>
-    </div>
-    
     <img src="images/png/holtersyahk.png" alt="ahkyholters" class="ahkyholters">
     
-    <script src="scripts_3 copy.js"></script>
     <script src="scripts_resumen.js"></script>
-
 </body>
 </html>
