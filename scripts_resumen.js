@@ -26,6 +26,10 @@ window.onload = function ValoresCondimento1() {
     else if (paquete.corte === "cerdo") {
     document.getElementById("displayedImageGroup1").src = 'images/CERDOBUENO.png';
     }
+    else if (paquete.corte === "cruz") {
+        document.getElementById("displayedImageGroup1").src = 'images/CRUZBUENA.png';
+        }
+    
 
 
     const dospaqueteJSON = localStorage.getItem("Corte2");
@@ -55,6 +59,9 @@ window.onload = function ValoresCondimento1() {
     else if (paquetedos.corte === "cerdo") {
     document.getElementById("displayedImageGroup2").src = 'images/CERDOBUENO.png';
     }
+    else if (paquetedos.corte === "cruz") {
+        document.getElementById("displayedImageGroup2").src = 'images/CRUZBUENA.png';
+        }
 
     const trespaqueteJSON = localStorage.getItem("Corte3");
     
@@ -83,4 +90,7 @@ window.onload = function ValoresCondimento1() {
     else if (paquetetres.corte === "cerdo") {
     document.getElementById("displayedImageGroup3").src = 'images/CERDOBUENO.png';
     }
+    else if (paquetetres.corte === "cruz") {
+        document.getElementById("displayedImageGroup3").src = 'images/CRUZBUENA.png';
+        }
 }
