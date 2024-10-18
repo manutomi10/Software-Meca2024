@@ -193,6 +193,18 @@ socketLS.onopen = () => {
                 slider.style.left = '-100%';
             }
         }
+
+               window.onload = function() {
+            if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
+                // Si la página fue recargada, forzar la caché a borrarse
+                caches.keys().then(function(cacheNames) {
+                    cacheNames.forEach(function(cacheName) {
+                        caches.delete(cacheName);
+                    });
+                });
+            }
+        };
+        
     </script>
 
 <script src="scripts_3 copy.js"></script>
