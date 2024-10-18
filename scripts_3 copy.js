@@ -335,3 +335,13 @@ function confirmarTermocuplas() {
     closeModal(); // Cierra el modal después de confirmar
     
 }
+               window.onload = function() {
+            if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
+                // Si la página fue recargada, forzar la caché a borrarse
+                caches.keys().then(function(cacheNames) {
+                    cacheNames.forEach(function(cacheName) {
+                        caches.delete(cacheName);
+                    });
+                });
+            }
+        };
