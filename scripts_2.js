@@ -4,8 +4,13 @@ const sliderText = document.querySelector('.slider-text');
 let isDragging = false;
 let startX;
 let currentX;
+let urlBase;
+let urlPort;
 const sliderWidth = slider.clientWidth;
 const textWidth = sliderText.clientWidth;
+
+urlBase = window.location.hostname;
+urlPort = 1880;
 
 const updateTransform = (moveX) => {
     sliderText.style.transform = `translateX(${moveX}px)`; // Fixed template literal syntax
@@ -89,7 +94,10 @@ document.getElementById('userForm').addEventListener('submit', function (event) 
     const telefono = document.getElementById('telefono').value;
 
     // Enviar los datos a Node-RED usando fetch y el método POST
-    fetch('http://localhost:1880/register_user', { // Asegúrate de que la URL coincida con tu configuración de Node-RED
+
+    const url = 'http://' + urlBase + ":" + urlPort + '/register_user' + numeroCorte;
+
+    fetch(url, { // Asegúrate de que la URL coincida con tu configuración de Node-RED
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
