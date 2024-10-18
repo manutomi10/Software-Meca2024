@@ -16,6 +16,10 @@ window.onload = function ValoresCondimento1() {
             document.getElementById("displayedImageGroup1").src = 'images/CERDOBUENO.png';
         } else if (paquete.corte === "cruz") {
             document.getElementById("displayedImageGroup1").src = 'images/CRUZBUENA.png';
+            document.getElementById("valueSal1").src = 'images/CRUZBUENA.png';
+            document.getElementById("valueSmoke1").src = 'images/CRUZBUENA.png';
+            document.getElementById("valueChimi1").src = 'images/CRUZBUENA.png';
+        
         }
     }
 
