@@ -11,23 +11,25 @@
             --accent-color: #ff6b6b;
             --text-color: #333;
         }
-        
+
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: var(--text-color);
             background: url('https://images.pexels.com/photos/1171585/pexels-photo-1171585.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+        /*  background-size: cover;
+            background-color: var(--secondary-color);*/
             background-size: cover;
             margin: 0;
             padding: 0;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
-        
+
         .header {
             background-color: var(--primary-color);
             color: rgb(0, 0, 0);
@@ -35,7 +37,7 @@
             padding: 1rem;
             margin-bottom: 2rem;
         }
-        
+
         .module {
             background-color: white;
             border-radius: 8px;
@@ -43,31 +45,31 @@
             margin-bottom: 2rem;
             padding: 1.5rem;
         }
-        
+
         .module-title {
             font-size: 1.5rem;
             color: rgb(0, 0, 0);
             margin-bottom: 1rem;
         }
-        
+
         .meat-display {
             text-align: center;
             margin-bottom: 1rem;
         }
-        
+
         .meat-image {
             max-width: 100%;
             height: auto;
             border-radius: 8px;
         }
-        
+
         .ingredients {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
             margin-bottom: 1rem;
         }
-        
+
         .ingredient-item {
             display: flex;
             align-items: center;
@@ -76,17 +78,17 @@
             padding: 0.5rem;
             border-radius: 4px;
         }
-        
+
         .ingredient-image {
             width: 30px;
             height: 30px;
             margin-right: 0.5rem;
         }
-        
+
         .ingredient-value {
             font-weight: bold;
         }
-        
+
         .punto-coccion {
             text-align: center;
             margin-top: 1rem;
@@ -98,7 +100,7 @@
             gap: 1rem;
             flex-wrap: wrap;
         }
-        
+
         .btn {
             padding: 0.5rem 1rem;
             border: none;
@@ -106,27 +108,19 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-        
+
         .btn-primary {
             background-color: #b3b3b3;
             color: rgb(0, 0, 0);
         }
-        
+
         .btn-secondary {
             background-color: #b3b3b3;
             color: rgb(0, 0, 0);
         }
-        
+
         .btn:hover {
             opacity: 0.9;
-        }
-
-        .ahkyholters {
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            width: 80px;
-            height: auto;
         }
 /*
         .TermoButton{
@@ -134,10 +128,17 @@
         }
         
         .btn.active {
-            background-color: #4caf50;  Color verde 
+            background-color: #4caf50; /* Color verde 
             color: white; 
+        }*/
+        .ahkyholters {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            width: 80px;
+            height: auto;
         }
-
+        /*
         @media (max-width: 768px) {
             .container {
                 padding: 10px;
@@ -157,7 +158,7 @@
             }
         }
         .modal {
-    display: none; 
+    display: none; /
     position: fixed;
     z-index: 1; 
     left: 0;
@@ -195,12 +196,14 @@
     <header class="header">
         <h1>DASGRILL Home AI</h1>
     </header>
-    
+
     <main class="container">
         <!-- Módulo 1 -->
         <section class="module">
             <h2 class="module-title">Módulo 1</h2>
             <div class="meat-display">
+              <!--   <img src="images/CARNEBUENA.png" alt="Corte de carne seleccionado" class="meat-image" id="displayedImageGroup1"
+                style="width: 100px; height: auto;"> -->
                 <img src="images/CARNEBUENA.png" alt="Corte de carne seleccionado" class="meat-image" id="displayedImageGroup1" style="width: 100px; height: auto;">
             </div>
             <div class="ingredients">
@@ -221,11 +224,13 @@
                 <p>Punto de cocción seleccionado: <span id="puntoCoccion1">N/A</span></p>
             </div>
         </section>
-
+        
         <!-- Módulo 2 -->
         <section class="module">
             <h2 class="module-title">Módulo 2</h2>
             <div class="meat-display">
+            <!--     <img src="images/CARNEBUENA.png" alt="Corte de carne seleccionado" class="meat-image" id="displayedImageGroup2"
+                style="width: 100px; height: auto;">-->
                 <img src="images/CARNEBUENA.png" alt="Corte de carne seleccionado" class="meat-image" id="displayedImageGroup2" style="width: 100px; height: auto;">
             </div>
             <div class="ingredients">
@@ -246,11 +251,13 @@
                 <p>Punto de cocción seleccionado: <span id="puntoCoccion2">N/A</span></p>
             </div>
         </section>
-
+        
         <!-- Módulo 3 -->
         <section class="module">
             <h2 class="module-title">Módulo 3</h2>
             <div class="meat-display">
+            <!--    <img src="images/CARNEBUENA.png" alt="Corte de carne seleccionado" class="meat-image" id="displayedImageGroup3"
+                style="width: 100px; height: auto;">-->
                 <img src="images/CARNEBUENA.png" alt="Corte de carne seleccionado" class="meat-image" id="displayedImageGroup3" style="width: 100px; height: auto;">
             </div>
             <div class="ingredients">
@@ -267,19 +274,19 @@
                     <span class="ingredient-value" id="valueSmoke3">0</span>
                 </div>
             </div>
+<!--          </section>
+        
+       <section class="settings">
+            <button class="btn TermoButton" onclick="TermocuplasSI()">✓ TERMOCUPLAS</button>   
+            <button class="btn btn-warning" onclick="enviarCortes()">CONTINUAR</button> 
+            <button class="btn btn-warning" onclick="Volver('index_prueba_3.html')">VOLVER</button> -->
             <div class="punto-coccion">
                 <p>Punto de cocción seleccionado: <span id="puntoCoccion3">N/A</span></p>
             </div>
         </section>
-<!--        
-        <section class="settings">
-            <button class="btn TermoButton" onclick="TermocuplasSI()">✓ TERMOCUPLAS</button>   
-            <button class="btn btn-warning" onclick="enviarCortes()">CONTINUAR</button> 
-            <button class="btn btn-warning" onclick="Volver('index_prueba_3.html')">VOLVER</button> 
-        </section>
     </main>
- 
-    <div id="myModal" class="modal">
+
+<!--    <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h2>Confirmar</h2>
@@ -288,11 +295,11 @@
             <button class="btn btn-secondary" onclick="closeModal()">Cerrar</button>
         </div>
     </div>
--->
+-->    
     <img src="images/png/holtersyahk.png" alt="ahkyholters" class="ahkyholters">
-    
-    <script src="scripts_resumen.js"></script>
-    <script src="scripts_3 copy.js"></script>
 
+ <!--   <script src="scripts_3 copy.js"></script>-->
+    <script src="scripts_resumen.js"></script>
 </body>
+<!-- </html> -->
 </html>
