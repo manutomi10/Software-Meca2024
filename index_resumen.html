@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <title>DASGRILL Home AI</title>
     <style>
         :root {
@@ -297,6 +300,15 @@
     </div>
 -->    
     <img src="images/png/holtersyahk.png" alt="ahkyholters" class="ahkyholters">
+        <script>
+        window.onload = function() {
+            caches.keys().then(function(cacheNames) {
+                cacheNames.forEach(function(cacheName) {
+                    caches.delete(cacheName);
+                });
+            });
+        };
+    </script>
 
  <!--   <script src="scripts_3 copy.js"></script>-->
     <script src="scripts_resumen.js"></script>
