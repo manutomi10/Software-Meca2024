@@ -2,10 +2,10 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DASGRILL Home AI</title>
     <style>
         :root {
@@ -20,8 +20,13 @@
             line-height: 1.6;
             color: var(--text-color);
             background: url('https://images.pexels.com/photos/1171585/pexels-photo-1171585.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-        /*  background-size: cover;
-            background-color: var(--secondary-color);*/
+
+            /**/
+
+            background-color: var(--secondary-color);
+
+            /**/
+
             background-size: cover;
             margin: 0;
             padding: 0;
@@ -125,15 +130,18 @@
         .btn:hover {
             opacity: 0.9;
         }
-/*
+/**/
         .TermoButton{
             background-color: #da0000;
         }
         
         .btn.active {
-            background-color: #4caf50; /* Color verde 
+            background-color: #4caf50; 
             color: white; 
-        }*/
+        }
+        
+/**/
+
         .ahkyholters {
             position: fixed;
             bottom: 10px;
@@ -141,7 +149,9 @@
             width: 80px;
             height: auto;
         }
-        /*
+
+/**/
+
         @media (max-width: 768px) {
             .container {
                 padding: 10px;
@@ -161,7 +171,7 @@
             }
         }
         .modal {
-    display: none; /
+    display: none; 
     position: fixed;
     z-index: 1; 
     left: 0;
@@ -192,7 +202,9 @@
     text-decoration: none;
     cursor: pointer;
 }
-*/
+
+/**/
+
     </style>
 </head>
 <body>
@@ -205,8 +217,8 @@
         <section class="module">
             <h2 class="module-title">Módulo 1</h2>
             <div class="meat-display">
-              <!--   <img src="images/CARNEBUENA.png" alt="Corte de carne seleccionado" class="meat-image" id="displayedImageGroup1"
-                style="width: 100px; height: auto;"> -->
+<!---->   <img src="images/CARNEBUENA.png" alt="Corte de carne seleccionado" class="meat-image" id="displayedImageGroup1"
+                style="width: 100px; height: auto;"> <!---->
                 <img src="images/CARNEBUENA.png" alt="Corte de carne seleccionado" class="meat-image" id="displayedImageGroup1" style="width: 100px; height: auto;">
             </div>
             <div class="ingredients">
@@ -232,8 +244,8 @@
         <section class="module">
             <h2 class="module-title">Módulo 2</h2>
             <div class="meat-display">
-            <!--     <img src="images/CARNEBUENA.png" alt="Corte de carne seleccionado" class="meat-image" id="displayedImageGroup2"
-                style="width: 100px; height: auto;">-->
+            <!---->     <img src="images/CARNEBUENA.png" alt="Corte de carne seleccionado" class="meat-image" id="displayedImageGroup2"
+                style="width: 100px; height: auto;"> <!---->
                 <img src="images/CARNEBUENA.png" alt="Corte de carne seleccionado" class="meat-image" id="displayedImageGroup2" style="width: 100px; height: auto;">
             </div>
             <div class="ingredients">
@@ -259,8 +271,8 @@
         <section class="module">
             <h2 class="module-title">Módulo 3</h2>
             <div class="meat-display">
-            <!--    <img src="images/CARNEBUENA.png" alt="Corte de carne seleccionado" class="meat-image" id="displayedImageGroup3"
-                style="width: 100px; height: auto;">-->
+<!---->    <img src="images/CARNEBUENA.png" alt="Corte de carne seleccionado" class="meat-image" id="displayedImageGroup3"
+                style="width: 100px; height: auto;">  <!---->
                 <img src="images/CARNEBUENA.png" alt="Corte de carne seleccionado" class="meat-image" id="displayedImageGroup3" style="width: 100px; height: auto;">
             </div>
             <div class="ingredients">
@@ -277,19 +289,19 @@
                     <span class="ingredient-value" id="valueSmoke3">0</span>
                 </div>
             </div>
-<!--          </section>
+<!---->        </section>
         
        <section class="settings">
             <button class="btn TermoButton" onclick="TermocuplasSI()">✓ TERMOCUPLAS</button>   
             <button class="btn btn-warning" onclick="enviarCortes()">CONTINUAR</button> 
-            <button class="btn btn-warning" onclick="Volver('index_prueba_3.html')">VOLVER</button> -->
+            <button class="btn btn-warning" onclick="Volver('index_prueba_3.html')">VOLVER</button> <!---->
             <div class="punto-coccion">
                 <p>Punto de cocción seleccionado: <span id="puntoCoccion3">N/A</span></p>
             </div>
         </section>
     </main>
 
-<!--    <div id="myModal" class="modal">
+<!---->    <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <h2>Confirmar</h2>
@@ -298,9 +310,10 @@
             <button class="btn btn-secondary" onclick="closeModal()">Cerrar</button>
         </div>
     </div>
--->    
+<!---->    
     <img src="images/png/holtersyahk.png" alt="ahkyholters" class="ahkyholters">
-        <script>
+    
+    <script>
         window.onload = function() {
             caches.keys().then(function(cacheNames) {
                 cacheNames.forEach(function(cacheName) {
@@ -310,8 +323,8 @@
         };
     </script>
 
- <!--   <script src="scripts_3 copy.js"></script>-->
+ <!---->    <script src="scripts_3 copy.js"></script> <!---->
     <script src="scripts_resumen.js"></script>
 </body>
-<!-- </html> -->
+
 </html>
