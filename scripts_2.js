@@ -95,7 +95,7 @@ document.getElementById('userForm').addEventListener('submit', function (event) 
 
     // Enviar los datos a Node-RED usando fetch y el método POST
 
-    const url = 'http://' + urlBase + ":" + urlPort + '/register_user' + numeroCorte;
+    const url = 'http://' + urlBase + ":" + urlPort + '/register_user';
 
     fetch(url, { // Asegúrate de que la URL coincida con tu configuración de Node-RED
         method: 'POST',
