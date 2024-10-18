@@ -3,45 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-
     <title>DASGRILL Home AI</title>
     <link rel="stylesheet" href="styles_2.css">
 </head>
 <body>
- <hoja_2>
     <div class="container-fluid">
         <div class="screen_2">
             <div class="title_2">INGRESE</div>
             <div class="title_2">USUARIO</div>
-            <BR><BR><BR>
-            <input type="text" id="name" name="name" placeholder="👤 Ingrese su nombre" required>
-            <br>
-            <input type="tel" id="phone" name="phone" placeholder="📞 Ingrese su teléfono" required>
-            <BR>
-                <BR>
-                    <BR>
-                        <BR>
-                            <BR>
-                                <BR>
-                                    
-        </diV class=>
-        <button onclick="Continuanaremo()">CONTINUAR</button>
-</div>
+            <br><br><br>
+
+            <!-- Formulario para capturar nombre y teléfono -->
+            <form id="userForm">
+                <input type="text" id="nombre" name="nombre" placeholder="👤 Ingrese su nombre" required>
+                <br><br>
+                <input type="tel" id="telefono" name="telefono" placeholder="📞 Ingrese su teléfono" required>
+                <br><br>
+                <button type="submit">CONTINUAR</button>
+            </form>
+
+            <div id="response"></div> <!-- Área para mostrar mensajes de respuesta del servidor -->
         </div>
     </div>
- </hoja_2>
-    <script>
-        window.onload = function() {
-            caches.keys().then(function(cacheNames) {
-                cacheNames.forEach(function(cacheName) {
-                    caches.delete(cacheName);
-                });
-            });
-        };
-    </script>
 
     <script src="scripts_2.js"></script>
 </body>

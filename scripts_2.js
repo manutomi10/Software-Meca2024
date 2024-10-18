@@ -78,3 +78,27 @@ function Continuamo() {
 function Continuanaremo() {
     window.location.href = "index_prueba_1.html";
 }
+
+// scripts_2.js
+
+document.getElementById('userForm').addEventListener('submit', function (event) {
+    event.preventDefault(); // Evita que el formulario se envíe de la manera tradicional
+
+    // Captura los valores del formulario
+    const nombre = document.getElementById('nombre').value;
+    const telefono = document.getElementById('telefono').value;
+
+    // Enviar los datos a Node-RED usando fetch y el método POST
+    fetch('http://localhost:1880/register_user', { // Asegúrate de que la URL coincida con tu configuración de Node-RED
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ nombre: nombre, telefono: telefono })
+    })
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('response').innerText = data; // Muestra la respuesta del servidor
+    })
+    .catch(error => console.error('Error:', error));
+});
