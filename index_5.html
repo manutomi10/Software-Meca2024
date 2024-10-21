@@ -71,14 +71,7 @@ function enviarUser() {
         },
         body: JSON.stringify({ nombre: nombre, telefono: telefono })
     })
-    //.then(response => response.json()) // Asumimos que la respuesta es JSON
-    .then(data => {
-        window.location.href = "index_prueba_1.html";
-        console.log('Éxito:', data);
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
+    window.location.href = "index_prueba_1.html";
 }
 
 </script>
