@@ -27,13 +27,12 @@
     </div>
 
     <script>
+        
 function enviarUser() {
-    // Captura los valores del formulario
     const nombre = document.getElementById('nombre').value;
     const telefono = document.getElementById('telefono').value;
 
-    // Enviar los datos a Node-RED usando fetch y el método POST
-    fetch("http://192.168.3.5:1880/hola", { // Asegúrate de que la URL coincida con tu configuración de Node-RED
+    fetch("http://192.168.3.5:1880/hola", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -48,13 +47,14 @@ function enviarUser() {
     })
     .then(data => {
         document.getElementById('response').innerText = data; // Muestra la respuesta del servidor
-        // Redirige después de un pequeño retraso para que el usuario pueda ver la respuesta
+        // Redirige a index_prueba_1.html
         setTimeout(() => {
             window.location.href = "index_prueba_1.html";
-        }, 2000); // Espera 2 segundos antes de redirigir
+        }, 2000);
     })
     .catch(error => console.error('Error:', error));
 }
+
 
     </script>
 </body>
