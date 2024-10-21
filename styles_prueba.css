@@ -4,7 +4,7 @@
 
 
 body, html {
-    background: url('https://images.pexels.com/photos/1171585/pexels-photo-1171585.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-image: url("images/fondogrill.png");
     background-size: cover;
     font-family: Arial, sans-serif;
     width: 100%;
@@ -32,7 +32,7 @@ body, html {
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    background-image: url('https://img.freepik.com/free-photo/half-grilled-half-ready-raw-steaks-grill_114579-1980.jpg?t=st=1728525689~exp=1728529289~hmac=bc9879cb7b31c5e55ff85c3d993bfdd54536c573a3f9ff5ca2a38eb079362c3b&w=826'); /* Puedes agregar una imagen de fondo aquí si lo deseas */
+    background-image: url("images/fondogrill.png");
     background-size: cover;
     background-position: center;
 }

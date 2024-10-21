@@ -2,8 +2,6 @@ window.onload = function ValoresCondimento1() {
     const paqueteJSON = localStorage.getItem("Corte1");
     const paquete = JSON.parse(paqueteJSON);
 
-    console.log(paquete);
-
     if (paquete) {
         document.getElementById("valueSal1").innerHTML = paquete.sal;
         document.getElementById("valueChimi1").innerHTML = paquete.chimi;
@@ -18,10 +16,6 @@ window.onload = function ValoresCondimento1() {
             document.getElementById("displayedImageGroup1").src = 'images/CERDOBUENO.png';
         } else if (paquete.corte === "cruz") {
             document.getElementById("displayedImageGroup1").src = 'images/CRUZBUENA.png';
-            document.getElementById("imgSal1").src = 'images/CRUZBUENA.png';
-            document.getElementById("imgSmoke1").src = 'images/CRUZBUENA.png';
-            document.getElementById("imgChimi1").src = 'images/CRUZBUENA.png';
-
         }
     }
 
@@ -42,9 +36,6 @@ window.onload = function ValoresCondimento1() {
             document.getElementById("displayedImageGroup2").src = 'images/CERDOBUENO.png';
         } else if (paquetedos.corte === "cruz") {
             document.getElementById("displayedImageGroup2").src = 'images/CRUZBUENA.png';
-            document.getElementById("imgSal2").src = 'images/CRUZBUENA.png';
-            document.getElementById("imgSmoke2").src = 'images/CRUZBUENA.png';
-            document.getElementById("imgChimi2").src = 'images/CRUZBUENA.png';
         }
     }
 
@@ -65,9 +56,6 @@ window.onload = function ValoresCondimento1() {
             document.getElementById("displayedImageGroup3").src = 'images/CERDOBUENO.png';
         } else if (paquetetres.corte === "cruz") {
             document.getElementById("displayedImageGroup3").src = 'images/CRUZBUENA.png';
-            document.getElementById("imgSal3").src = 'images/CRUZBUENA.png';
-            document.getElementById("imgSmoke3").src = 'images/CRUZBUENA.png';
-            document.getElementById("imgChimi3").src = 'images/CRUZBUENA.png';
         }
     }
 }

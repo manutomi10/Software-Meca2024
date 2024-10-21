@@ -55,8 +55,9 @@ body, html {
     font-size: 300%;
     color: #000000;
 }
-.title_2 {
+.title_2{
     font-size: 200%;
+    margin-top: -60%;
     color: #000000;
 }
 
