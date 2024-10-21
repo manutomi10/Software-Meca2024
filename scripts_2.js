@@ -1,4 +1,4 @@
-const slider = document.querySelector('.slider');
+/*const slider = document.querySelector('.slider');
 const sliderText = document.querySelector('.slider-text');
 
 let isDragging = false;
@@ -83,7 +83,7 @@ function Continuamo() {
 function Continuanaremo() {
     window.location.href = "index_prueba_1.html";
 }
-
+/*
 // scripts_2.js
 
 /*
