@@ -97,84 +97,63 @@ height: 100%;
         font-size: 1.2rem;
     }
 
-    .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh; /* Ajusta para centrar verticalmente en la pantalla */
-      }
-      
-      .form {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transform-style: preserve-3d;
-        transition: all 1s ease;
-        position: relative;
-      }
-      
-      .form_front, .form_back {
+    * {
+        box-sizing: border-box;
+    }
+    
+    #userForm {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
-        gap: 20px;
-        padding: 20px; /* Ajusta según necesites */
+        justify-content: center;
+        width: 100%;
+        max-width: 400px; /* Limitar el ancho del formulario */
+        margin: auto; /* Centrar el formulario horizontalmente */
+        padding: 20px;
         border-radius: 15px;
-        box-shadow: inset 2px 2px 10px rgba(0, 0, 0, 1),
-                    inset -1px -1px 5px rgba(255, 255, 255, 0.6);
-        background-color: #212121; /* Fondo para el formulario */
-      }
-      
-      .input {
-        width: 100%; /* Asegura que los inputs ocupen todo el ancho */
-        max-width: 245px; /* Limita el ancho máximo */
+        background-color: #212121; /* Fondo del formulario */
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Sombra del formulario */
+    }
+    
+    input {
+        width: 100%;
         min-height: 45px;
         color: #fff;
-        outline: none;
-        transition: 0.35s;
-        padding: 0px 7px;
-        background-color: #212121;
-        border-radius: 6px;
-        border: 2px solid #212121;
-        box-shadow: 6px 6px 10px rgba(0, 0, 0, 1),
-                    1px 1px 10px rgba(255, 255, 255, 0.6);
-      }
-      
-      .input::placeholder {
-        color: #999;
-      }
-      
-      .input:focus::placeholder {
-        transition: 0.3s;
-        opacity: 0;
-      }
-      
-      .input:focus {
-        transform: scale(1.05);
-        box-shadow: 6px 6px 10px rgba(0, 0, 0, 1),
-                    inset 2px 2px 10px rgba(0, 0, 0, 1),
-                    inset -1px -1px 5px rgba(255, 255, 255, 0.6);
-      }
-      
-      .btn {
-        padding: 10px 35px;
+        background-color: #333; /* Fondo de los inputs */
+        border: 2px solid #555; /* Color del borde de los inputs */
+        border-radius: 10px; /* Bordes redondeados */
+        padding: 0 10px; /* Espaciado interno */
+        margin-bottom: 15px; /* Espacio entre inputs */
+        transition: all 0.3s ease; /* Transición suave */
+    }
+    
+    input::placeholder {
+        color: #999; /* Color del placeholder */
+    }
+    
+    input:focus {
+        border-color: #888; /* Color del borde al hacer foco */
+        background-color: #444; /* Cambio de fondo al hacer foco */
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.3); /* Sombra al hacer foco */
+    }
+    
+    .botonUser {
+        padding: 10px 20px;
         cursor: pointer;
-        background-color: #212121;
-        border-radius: 6px;
-        border: 2px solid #212121;
-        box-shadow: 6px 6px 10px rgba(0, 0, 0, 1),
-                    1px 1px 10px rgba(255, 255, 255, 0.6);
-        color: #fff;
-        font-size: 15px;
+        background-color: #555; /* Fondo del botón */
+        border: none; /* Sin borde */
+        border-radius: 10px; /* Bordes redondeados */
+        color: #fff; /* Color del texto */
+        font-size: 16px;
         font-weight: bold;
-        transition: 0.35s;
-      }
-      
-      .btn:hover, .btn:focus {
-        transform: scale(1.05);
-        box-shadow: 6px 6px 10px rgba(0, 0, 0, 1),
-                    inset 2px 2px 10px rgba(0, 0, 0, 1),
-                    inset -1px -1px 5px rgba(255, 255, 255, 0.6);
-      }
+        transition: all 0.3s ease; /* Transición suave */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra del botón */
+    }
+    
+    .botonUser:hover {
+        background-color: #666; /* Fondo del botón al pasar el mouse */
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6); /* Sombra al pasar el mouse */
+        transform: translateY(-2px); /* Efecto de levantamiento al pasar el mouse */
+    }
+    
 }
