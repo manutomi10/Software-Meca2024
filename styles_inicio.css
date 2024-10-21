@@ -128,13 +128,13 @@ height: 100%;
     
     input[type="text"]:focus,
     input[type="tel"]:focus {
-        border-color: #0056b3; /* Cambia el borde al enfocar */
+        border-color: #0f161ec2; /* Cambia el borde al enfocar */
         box-shadow: 0 0 8px rgba(0, 91, 187, 0.5); /* Sombra al enfocar */
         outline: none; /* Elimina el contorno predeterminado */
     }
     
     .botonUser {
-        background-color: #007BFF; /* Color de fondo azul */
+        background-color: #0f161ec2; /* Color de fondo azul */
         color: white; /* Texto blanco */
         padding: 10px 20px;
         border: none;
@@ -146,7 +146,7 @@ height: 100%;
     }
     
     .botonUser:hover {
-        background-color: #0056b3; /* Color más oscuro al pasar el mouse */
+        background-color: #0f161ec2; /* Color más oscuro al pasar el mouse */
         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Sombra más intensa al pasar el mouse */
     }
     
