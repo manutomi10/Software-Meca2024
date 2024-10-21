@@ -10,21 +10,6 @@ let urlPort;
 
 let termo = false;
 
-const audioElement1 = document.getElementById('audioElement1');
-const audioElement2 = document.getElementById('audioElement2');
-
-// Reproduce la primera pista
-audioElement1.play();
-
-// Agrega un listener para cuando la primera pista termine
-audioElement1.addEventListener('ended', () => {
-    // Reproduce la segunda pista
-    audioElement2.play();
-});
-
-
-
-
 
 // Grupo 2: Sal, Chimi, Humo
 let imagesGroup2 = ["images/SALBUENA.png", "images/LIMONBUENO.png", "images/HUMOBUENO.png", "images/CRUZBUENA.png"];
