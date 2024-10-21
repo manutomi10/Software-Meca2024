@@ -27,7 +27,7 @@
     </div>
 
     <script>
-        
+    /*    
 function enviarUser() {
     const nombre = document.getElementById('nombre').value;
     const telefono = document.getElementById('telefono').value;
@@ -54,8 +54,33 @@ function enviarUser() {
     })
     .catch(error => console.error('Error:', error));
 }
+*/
 
 
-    </script>
+
+function enviarUser() {
+
+    const nombre = document.getElementById('nombre').value;
+    const telefono = document.getElementById('telefono').value;
+
+    // Hacer la solicitud POST
+    fetch("http://192.168.3.5:1880/hola", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ nombre: nombre, telefono: telefono })
+    })
+    //.then(response => response.json()) // Asumimos que la respuesta es JSON
+    .then(data => {
+        window.location.href = "index_prueba_1.html";
+        console.log('Éxito:', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+}
+
+</script>
 </body>
 </html>
