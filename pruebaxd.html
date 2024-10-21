@@ -3,9 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
     <title>DASGRILL - Cocción en Progreso</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -172,7 +169,7 @@
 
     </div>
 
-    <audio id="audioElement" src="audios/fabriMalo.mp3" preload="auto"></audio>
+    <audio id="audioElement" src="audios/Chamame1.mp3" preload="auto"></audio>
 
     <script>
         document.body.addEventListener('click', function() {
@@ -263,14 +260,16 @@ function pausar() {
             console.error('Error en WebSocket de letras:', error);
         };
 
-        window.onload = function() {
-            caches.keys().then(function(cacheNames) {
-                cacheNames.forEach(function(cacheName) {
-                    caches.delete(cacheName);
+               window.onload = function() {
+            if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
+                // Si la página fue recargada, forzar la caché a borrarse
+                caches.keys().then(function(cacheNames) {
+                    cacheNames.forEach(function(cacheName) {
+                        caches.delete(cacheName);
+                    });
                 });
-            });
+            }
         };
-
     </script>
     <script src="scripts_3 copy.js"></script>
 </body>
