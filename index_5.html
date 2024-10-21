@@ -11,20 +11,24 @@
         <div class="screen_2">
             <div class="title">INGRESE</div>
             <div class="title">USUARIO</div>
-            <br><br><br><br><br><br><br><br><br><br><br><br>
-            <div class="login">
-                <form class="form">
+            <br><br><br>
+
+            <!-- Formulario para capturar nombre y teléfono -->
+            <div class="container">
+                <div class="form">
                     <div class="form_front">
-                        <div class="form_details"></div>
-                <input type="text" id="nombre" class="input" name="nombre" placeholder="👤 Ingrese su nombre">
-                        <br>
-                        <span></span>
-                <input type="tel" id="telefono" class="input" name="telefono" placeholder="📞 Ingrese su teléfono" required>
-                        <br>
-                        <span></span>
-                        <button class="btn" onclick="enviarUser()">Continuar</button>
+                        <div id="userForm">
+                            <input type="text" id="nombre" class="input" name="nombre" placeholder="👤 Ingrese su nombre" required>
+                            <br>
+                            <input type="tel" id="telefono" class="input" name="telefono" placeholder="📞 Ingrese su teléfono" required>
+                            <br>
+                            <button class="btn" onclick="enviarUser()">CONTINUAR</button>
+                        </div>
                     </div>
-                </form>
+                    <div class="form_back">
+                        <!-- Aquí puedes agregar contenido para la parte de atrás si es necesario -->
+                    </div>
+                </div>
             </div>
         </div>
     </div>
