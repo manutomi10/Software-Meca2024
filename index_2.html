@@ -28,10 +28,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-
     <title>DASGRILL - Sistema de Parrilla Inteligente</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -198,14 +194,16 @@ socketLS.onopen = () => {
             }
         }
 
-window.onload = function() {
-    caches.keys().then(function(cacheNames) {
-        cacheNames.forEach(function(cacheName) {
-            caches.delete(cacheName);
-        });
-    });
-};
-
+               window.onload = function() {
+            if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
+                // Si la página fue recargada, forzar la caché a borrarse
+                caches.keys().then(function(cacheNames) {
+                    cacheNames.forEach(function(cacheName) {
+                        caches.delete(cacheName);
+                    });
+                });
+            }
+        };
         
     </script>
 
