@@ -1,28 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DASGRILL Home AI</title>
-    <link rel="stylesheet" href="styles_2.css">
-</head>
-<body>
- <hoja_1>
-    <div class="container-fluid">
-            <h1 class="title">DASGRILL</h1>
-            <div class="subtitle2">HOME AI</div>
-            <div class="slider-container">
-              <div class="slider">
-                <span class="slider-text">Slide to open &gt;&gt;</span>
-              </div>
-            </div>
-        </div>
-    </div>
- </hoja_1>
-    <script src="scripts_2.js"></script>
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -30,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DASGRILL - Sistema de Parrilla Inteligente</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
         :root {
             --primary-color: #000000;
@@ -43,13 +19,16 @@
         }
 
         body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            height: 100%;
-        }
+        margin: 0;
+        padding: 0;
+        font-family: 'Montserrat', sans-serif;
+        background-image: url("images/fondogrill.png");
+        background-size: cover; /* O "contain", según lo que necesites */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        color: var(--text-color);
+        height: 100%;
+}
+
 
         .container-fluid {
             display: flex;
@@ -59,6 +38,8 @@
             height: 100%;
             padding: 1rem;
             text-align: center;
+            background-image: url("images\fondogrill.png");
+
         }
 
         .title {
@@ -127,12 +108,12 @@
     </style>
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid align-items-center justify-content-center d-flex">
         <h1 class="title">DASGRILL</h1>
         <div class="subtitle">HOME AI</div>
         <br><br><br>
         <div class="slider-container" id="slider-container">
-          Deslizar para abrir >>
+          Desliza para continuar >>>
             <div class="slider" id="slider">
                 <span class="slider-text"></span>
             </div>
