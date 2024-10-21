@@ -62,7 +62,7 @@ function enviarUser() {
 
     const nombre = document.getElementById('nombre').value;
     const telefono = document.getElementById('telefono').value;
-
+alert("voy a redireccionar:");
     // Hacer la solicitud POST
     fetch("http://192.168.3.5:1880/hola", {
         method: 'POST',
@@ -71,6 +71,7 @@ function enviarUser() {
         },
         body: JSON.stringify({ nombre: nombre, telefono: telefono })
     })
+    alert("redireccionando...");
     window.location.href = "index_prueba_1.html";
 }
 
