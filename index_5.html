@@ -40,15 +40,22 @@ function enviarUser() {
         },
         body: JSON.stringify({ nombre: nombre, telefono: telefono })
     })
-    .then(response => response.text())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.text();
+    })
     .then(data => {
         document.getElementById('response').innerText = data; // Muestra la respuesta del servidor
+        // Redirige después de un pequeño retraso para que el usuario pueda ver la respuesta
+        setTimeout(() => {
+            window.location.href = "index_prueba_1.html";
+        }, 2000); // Espera 2 segundos antes de redirigir
     })
     .catch(error => console.error('Error:', error));
+}
 
-    window.location.href = "index_prueba_1.html";
-
-    }
     </script>
 </body>
 </html>
