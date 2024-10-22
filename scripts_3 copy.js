@@ -57,7 +57,6 @@ function confi_f(){
 
 function ValoresCondimento1() {
     console.log("cargue pestaña");
-    alert("cargue lol");
     const paqueteJSON = localStorage.getItem("Corte1");
     let paquete = null;
 
