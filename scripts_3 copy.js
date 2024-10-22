@@ -77,6 +77,9 @@ function confi_f(){
                 document.getElementById("valueSal1").innerHTML = paquete.sal;
                 document.getElementById("valueChimi1").innerHTML = paquete.chimi;
                 document.getElementById("valueSmoke1").innerHTML = paquete.smoke;
+
+                console.log("funciono", paquete);
+                
             } else {
                 console.log("No se encontró el valor para 'Corte1' en el localStorage.");
             }
