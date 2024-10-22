@@ -184,9 +184,9 @@ function changeImageGroup3() {
     const imagenPunto = parseFloat(slider.value);
 
     let newSrc;
-    if (imagenPunto < 50.11) {
+    if (imagenPunto < 66.66) {
         newSrc = imagesGroup3.crudo;
-    } else if (imagenPunto >= 50.11 && imagenPunto < 88.11) {
+    } else if (imagenPunto >= 66.66 && imagenPunto < 100) {
         newSrc = imagesGroup3.termoestato;
     } else {
         newSrc = imagesGroup3.cocido;
@@ -203,7 +203,7 @@ function changeImageGroup3() {
 
     console.log("Slider value:", imagenPunto, "Current image:", imageElement.src);
 }
-
+/*
 function initializeApp() {
     const slider = document.getElementById("puntoCoccion");
     if (slider) {
@@ -223,7 +223,7 @@ document.getElementById("displayedImageGroup3").addEventListener('error', functi
     // Optionally set a fallback image
     // e.target.src = 'path/to/fallback/image.png';
 });
-
+*/
 function updateStaticImageValue(direction) {
     let valueElement;
 
