@@ -46,21 +46,16 @@ let isEnabled = false; // Variable de estado
             console.error('Error en WebSocket:', error);
         };
 
- // Verifico si lleego la confirmación previa en el localStorage
+function confi_f(){
+        if(localStorage.getItem('confirmacion_f') == 'true')
 
-window.onload = function() {
- // Verifico si la confirmación esta guardada
+            {
+            isEnabled = true;
+            console.log("confirmación previa f. Envió detectado");
+            }
+        }
 
-    if(localStorage.getItem('confirmacion_f') == 'true')
-
-    {
-    isEnabled = true;
-    console.log("confirmación previa f. Envió detectado");
-    }
-
-};
-
-window.onload = function ValoresCondimento1() {
+function ValoresCondimento1() {
     console.log("cargue pestaña");
     alert("cargue lol");
     const paqueteJSON = localStorage.getItem("Corte1");
@@ -398,3 +393,8 @@ function confirmarTermocuplas() {
     
 }
 
+
+window.onload = function() {
+confi_f();
+ValoresCondimento1();
+};
