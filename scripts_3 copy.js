@@ -82,6 +82,7 @@ window.onload = function ValoresCondimento1() {
     } else {
         console.log("No se encontró el valor para 'Corte1' en el localStorage.");
     }
+    console.log("paqueteJSON");
 
     const dospaqueteJSON = localStorage.getItem("Corte2");
     let paquetedos = null;
