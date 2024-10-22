@@ -55,98 +55,81 @@ function confi_f(){
             }
         }
 
-function ValoresCondimento1() {
-    console.log("cargue pestaña");
-    const paqueteJSON = localStorage.getItem("Corte1");
-    let paquete = null;
-
-    console.log("ddddddddddddddddddddddddddd");
-    console.log("--------------------------------");
-    console.log("JSON_1", paqueteJSON);
-    console.log("cccccccccccccccccccccccccccc");
-    console.log("paqueteJSON");
-    console.log("--------------------------------");
-
-    if (paqueteJSON) {
-        // Convertir la cadena JSON en un objeto JavaScript
-        const paquete = JSON.parse(paqueteJSON);
-
-        // Ahora puedes acceder a las propiedades del objeto
-        console.log("Corte1: " + paquete.corte);
-        console.log("Punto de Cocción1: " + paquete.puntoCoccion);
-        console.log("Sal1: " + paquete.sal);
-        console.log("Chimi1: " + paquete.chimi);
-        console.log("Smoked1: " + paquete.smoke);
-
-        document.getElementById("valueSal1").innerHTML = paquete.sal;
-        document.getElementById("valueChimi1").innerHTML = paquete.chimi;
-        document.getElementById("valueSmoke1").innerHTML = paquete.smoke;
-
-        return;
-    } else {
-        console.log("No se encontró el valor para 'Corte1' en el localStorage.");
-    }
-
-    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-    console.log("--------------------------------");
-    console.log("JSON_1", paqueteJSON);
-    console.log("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
-    console.log("paqueteJSON");
-    console.log("--------------------------------");
-
-
-    const dospaqueteJSON = localStorage.getItem("Corte2");
-    let paquetedos = null;
-
-    if (dospaqueteJSON) {
-        // Convertir la cadena JSON en un objeto JavaScript
-        const paquetedos = JSON.parse(dospaqueteJSON);
-
-        // Ahora puedes acceder a las propiedades del objeto
-        console.log("Corte2: " + paquetedos.corte);
-        console.log("Punto de Cocción2: " + paquetedos.puntoCoccion);
-        console.log("Sal2: " + paquetedos.sal);
-        console.log("Chimi2: " + paquetedos.chimi);
-        console.log("Smoked2: " + paquetedos.smoke);
-
-        document.getElementById("valueSal2").innerHTML = paquetedos.sal;
-        document.getElementById("valueChimi2").innerHTML = paquetedos.chimi;
-        document.getElementById("valueSmoke2").innerHTML = paquetedos.smoke;
-    } else {
-        console.log("No se encontró el valor para 'Corte2' en el localStorage.");
-    }
-
-    const trespaqueteJSON = localStorage.getItem("Corte2");
-    let paquetetres = null;
-
-    if (trespaqueteJSON) {
-        // Convertir la cadena JSON en un objeto JavaScript
-        const paquetetres = JSON.parse(trespaqueteJSON);
-
-        // Ahora puedes acceder a las propiedades del objeto
-        console.log("Corte3: " + paquetetres.corte);
-        console.log("Punto de Cocción3: " + paquetetres.puntoCoccion);
-        console.log("Sal3: " + paquetetres.sal);
-        console.log("Chimi3: " + paquetetres.chimi);
-        console.log("Smoked3: " + paquetetres.smoke);
-
-        document.getElementById("valueSal3").innerHTML = paquetetres.sal;
-        document.getElementById("valueChimi3").innerHTML = paquetetres.chimi;
-        document.getElementById("valueSmoke3").innerHTML = paquetetres.smoke;
-    } else {
-        console.log("No se encontró el valor para 'Corte2' en el localStorage.");
-    }
-
-
-   /* console.log("--------------------------------");
-    console.log("JSON_1", paqueteJSON);
-    console.log("--------------------------------");
-    console.log("JSON_2", dospaqueteJSON);
-    console.log("--------------------------------");
-    console.log("JSON_3", trespaqueteJSON);
-    console.log("--------------------------------");
-*/
-}
+        function ValoresCondimento1() {
+            console.log("Cargue pestaña");
+        
+            // Obtener Corte1
+            const paqueteJSON = localStorage.getItem("Corte1");
+        
+            console.log("JSON_1", paqueteJSON);
+        
+            if (paqueteJSON) {
+                // Convertir la cadena JSON en un objeto JavaScript
+                let paquete = JSON.parse(paqueteJSON);
+        
+                // Ahora puedes acceder a las propiedades del objeto
+                console.log("Corte1: " + paquete.corte);
+                console.log("Punto de Cocción1: " + paquete.puntoCoccion);
+                console.log("Sal1: " + paquete.sal);
+                console.log("Chimi1: " + paquete.chimi);
+                console.log("Smoked1: " + paquete.smoke);
+        
+                document.getElementById("valueSal1").innerHTML = paquete.sal;
+                document.getElementById("valueChimi1").innerHTML = paquete.chimi;
+                document.getElementById("valueSmoke1").innerHTML = paquete.smoke;
+            } else {
+                console.log("No se encontró el valor para 'Corte1' en el localStorage.");
+            }
+        
+            // Obtener Corte2
+            const dospaqueteJSON = localStorage.getItem("Corte2");
+        
+            console.log("JSON_2", dospaqueteJSON);
+        
+            if (dospaqueteJSON) {
+                // Convertir la cadena JSON en un objeto JavaScript
+                let paquetedos = JSON.parse(dospaqueteJSON);
+        
+                // Ahora puedes acceder a las propiedades del objeto
+                console.log("Corte2: " + paquetedos.corte);
+                console.log("Punto de Cocción2: " + paquetedos.puntoCoccion);
+                console.log("Sal2: " + paquetedos.sal);
+                console.log("Chimi2: " + paquetedos.chimi);
+                console.log("Smoked2: " + paquetedos.smoke);
+        
+                document.getElementById("valueSal2").innerHTML = paquetedos.sal;
+                document.getElementById("valueChimi2").innerHTML = paquetedos.chimi;
+                document.getElementById("valueSmoke2").innerHTML = paquetedos.smoke;
+            } else {
+                console.log("No se encontró el valor para 'Corte2' en el localStorage.");
+            }
+        
+            // Obtener Corte3 (había un error al usar Corte2 aquí de nuevo)
+            const trespaqueteJSON = localStorage.getItem("Corte3");
+        
+            console.log("JSON_3", trespaqueteJSON);
+        
+            if (trespaqueteJSON) {
+                // Convertir la cadena JSON en un objeto JavaScript
+                let paquetetres = JSON.parse(trespaqueteJSON);
+        
+                // Ahora puedes acceder a las propiedades del objeto
+                console.log("Corte3: " + paquetetres.corte);
+                console.log("Punto de Cocción3: " + paquetetres.puntoCoccion);
+                console.log("Sal3: " + paquetetres.sal);
+                console.log("Chimi3: " + paquetetres.chimi);
+                console.log("Smoked3: " + paquetetres.smoke);
+        
+                document.getElementById("valueSal3").innerHTML = paquetetres.sal;
+                document.getElementById("valueChimi3").innerHTML = paquetetres.chimi;
+                document.getElementById("valueSmoke3").innerHTML = paquetetres.smoke;
+            } else {
+                console.log("No se encontró el valor para 'Corte3' en el localStorage.");
+            }
+        
+            console.log("Proceso completado.");
+        }
+        
 
 
 
