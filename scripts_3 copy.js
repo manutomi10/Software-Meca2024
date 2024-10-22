@@ -60,6 +60,13 @@ function ValoresCondimento1() {
     const paqueteJSON = localStorage.getItem("Corte1");
     let paquete = null;
 
+    console.log("ddddddddddddddddddddddddddd");
+    console.log("--------------------------------");
+    console.log("JSON_1", paqueteJSON);
+    console.log("cccccccccccccccccccccccccccc");
+    console.log("paqueteJSON");
+    console.log("--------------------------------");
+
     if (paqueteJSON) {
         // Convertir la cadena JSON en un objeto JavaScript
         const paquete = JSON.parse(paqueteJSON);
@@ -77,7 +84,14 @@ function ValoresCondimento1() {
     } else {
         console.log("No se encontró el valor para 'Corte1' en el localStorage.");
     }
+
+    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+    console.log("--------------------------------");
+    console.log("JSON_1", paqueteJSON);
+    console.log("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
     console.log("paqueteJSON");
+    console.log("--------------------------------");
+
 
     const dospaqueteJSON = localStorage.getItem("Corte2");
     let paquetedos = null;
@@ -122,14 +136,14 @@ function ValoresCondimento1() {
     }
 
 
-    console.log("--------------------------------");
+   /* console.log("--------------------------------");
     console.log("JSON_1", paqueteJSON);
     console.log("--------------------------------");
     console.log("JSON_2", dospaqueteJSON);
     console.log("--------------------------------");
     console.log("JSON_3", trespaqueteJSON);
     console.log("--------------------------------");
-
+*/
 }
 
 
