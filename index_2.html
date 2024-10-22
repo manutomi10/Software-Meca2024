@@ -17,12 +17,25 @@
         <h1 class="title">DASGRILL</h1>
         <div class="subtitle">HOME AI</div>
         <br><br><br>
-        <div class="slider-container" id="slider-container">
+
+        <div class="slider-container">
+            <div id="slider" class="slider">
+                <div class="slider-text"></div>
+                <div class="slider-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14"></path>
+                        <path d="M12 5l7 7-7 7"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+ <!--      <div class="slider-container" id="slider-container">
           Desliza para continuar ➡️
             <div class="slider" id="slider">
                 <span class="slider-text"></span>
             </div>
-        </div>
+        </div>--> 
     </div>
 
     <script>
@@ -35,51 +48,6 @@ socketLS.onopen = () => {
     console.log('Enviando (S) al puerto serie');
 
 };
-
-        const sliderContainer = document.getElementById('slider-container');
-        const slider = document.getElementById('slider');
-        let isDragging = false;
-        let startX;
-        let sliderLeft;
-
-        sliderContainer.addEventListener('mousedown', startDragging);
-        sliderContainer.addEventListener('touchstart', startDragging);
-
-        document.addEventListener('mousemove', drag);
-        document.addEventListener('touchmove', drag);
-
-        document.addEventListener('mouseup', stopDragging);
-        document.addEventListener('touchend', stopDragging);
-
-        function startDragging(e) {
-            isDragging = true;
-            startX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-            sliderLeft = slider.offsetLeft;
-        }
-
-        function drag(e) {
-            if (!isDragging) return;
-            e.preventDefault();
-            const x = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-            const walk = x - startX;
-            let newLeft = sliderLeft + walk;
-            newLeft = Math.max(-sliderContainer.offsetWidth, Math.min(0, newLeft));
-            slider.style.left = newLeft + 'px';
-
-            if (newLeft > -10) {
-                window.location.href = 'index_5.html';
-            }
-        }
-
-        function stopDragging() {
-            isDragging = false;
-            if (slider.offsetLeft > -sliderContainer.offsetWidth / 2) {
-                slider.style.left = '0';
-            } else {
-                slider.style.left = '-100%';
-            }
-        }
-
                window.onload = function() {
             if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
                 // Si la página fue recargada, forzar la caché a borrarse
@@ -92,7 +60,7 @@ socketLS.onopen = () => {
         };
         
     </script>
-
+<script src="barra.js"></script>
 <script src="scripts_3 copy.js"></script>
 
 </body>
