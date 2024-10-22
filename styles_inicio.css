@@ -18,6 +18,8 @@ background-size: cover; /* O "contain", según lo que necesites */
 background-repeat: no-repeat; /* Evita que la imagen se repita */
 color: var(--text-color);
 height: 100%;
+overflow-x: hidden;
+overflow-y: hidden;
 }
 
 

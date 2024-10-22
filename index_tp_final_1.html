@@ -12,10 +12,10 @@
 </head>
 <body class="justify-content-center align-items-center d-flex row">
     <div class="m-0 p-0">
-        <button class="btn btn-secondary bg-black border-0 rounded-3 volver p-1" onclick="Volver('index_prueba_1.html')">
+        <button class="btn btn-secondary bg-black border-0 rounded-3 volver p-1" onclick="Volver('index_5.html')">
             <i class="bi bi-arrow-left text-white fs-2"></i>
         </button>
-        <h1 class="text-center fw-bolder">MÓDULO 2 <br> <br></h1>
+        <h1 class="text-center fw-bolder">MÓDULO 1 <br> <br></h1>
         <div class="justify-content-center align-items-center d-flex row">
             <div class="container-secundario justify-content-center d-flex m-0 py-4">
                 <button class="btn rounded" onclick="changeImageGroup1(-1)">
@@ -27,8 +27,8 @@
                 </button>
                 <div class="container-tres d-flex justify-content-center align-content-center row">
                     <h2 class="p-0 m-0 text-center">Punto de Cocción</h2>
-                    <form class="d-flex justify-content-center align-items-center" style="--min: 33.33; --max: 100; --val: 66.66;">
-                        <input id="puntoCoccion" type="range" min="33.33" max="100" value="66.66" list="l" step="0.01" oninput="changeImageGroup3()">
+                    <form class="d-flex justify-content-center align-items-center" style="--min: 33.33; --max: 100; --val: 25;">
+                        <input id="puntoCoccion" type="range" min="33.33" max="100" value="66.66" list="l" step="33.33">
                         <datalist id="l">
                             <option label="min" value="33.33"></option>
                             <option label="max" value="100"></option>
@@ -56,26 +56,26 @@
                     </div>
                 </div>
             </div>
-            <h2><br><br></h2>
-            <div class="container-final d-flex flex-row py-4 px-0 rounded-5">
+            <h2><br></h2>
+            <div class="container-final d-flex flex-row py-4 px-0">
                 <div class="image-item d-flex justify-content-evenly align-content-center col">
                     <img src="images/SALBUENA.png" alt="Sal" class="static-image">
-                    <span id="valueSal" class="text-center p-0 m-0 fs-2 fw-bold">0</span>
+                    <span id="valueSal" class="text-center p-0 m-0 fs-2 fw-bold"><br>0</span>
                 </div>
                 <div class="image-item d-flex justify-content-evenly align-content-center col">
                     <img src="images/LIMONBUENO.png" alt="Chimi" class="static-image">
-                    <span id="valueChimi" class="text-center p-0 m-0 fs-2 fw-bold">0</span>
+                    <span id="valueChimi" class="text-center p-0 m-0 fs-2 fw-bold"><br>0</span>
                 </div>
                 <div class="image-item d-flex justify-content-evenly align-content-between col">
                     <img src="images/HUMOBUENO.png" alt="Smoke" class="static-image">
-                    <span id="valueSmoke" class="text-center p-0 m-0 fs-2 fw-bold">0</span>
+                    <span id="valueSmoke" class="text-center p-0 m-0 fs-2 fw-bold"><br>0</span>
                 </div>
                 <div class="image-item d-flex justify-content-center align-content-between col">
-                    <img src="images\termoestato.png" alt="Punto de cocción" class="termostato" id="displayedImageGroup3">
+                    <img src="images\termoestato.png" alt="termostato" class="termostato">
                 </div>
             </div>
             <div class="justify-content-center d-flex">
-                <button type="button" class="btn btn-dark" id="continuar" onclick="GuardarCorte(2)"><strong>CONFIRMAR</strong></button>
+                <button type="button" class="btn btn-dark" onclick="GuardarCorte(1)"><strong>CONTINUAR</strong></button>
             </div>
         
         </div>

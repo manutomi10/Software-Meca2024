@@ -15,6 +15,7 @@ let termo = false;
 let imagesGroup2 = ["images/SALBUENA.png", "images/LIMONBUENO.png", "images/HUMOBUENO.png", "images/CRUZBUENA.png"];
 let currentIndexGroup2 = 0;
 
+
 let isEnabled = false; // Variable de estado
 
         urlBase = window.location.hostname;
@@ -165,6 +166,64 @@ function changeImageGroup2(direction) {
     document.getElementById("displayedImageGroup2").src = imagesGroup2[currentIndexGroup2];
 }
 
+const imagesGroup3 = {
+    crudo: "images/crudo.png",
+    termoestato: "images/termoestato.png",
+    cocido: "images/cocido.png"
+};
+
+function changeImageGroup3() {
+    const slider = document.getElementById("puntoCoccion");
+    const imageElement = document.getElementById("displayedImageGroup3");
+
+    if (!slider || !imageElement) {
+        console.error("Required elements not found. Slider:", slider, "Image:", imageElement);
+        return;
+    }
+
+    const imagenPunto = parseFloat(slider.value);
+
+    let newSrc;
+    if (imagenPunto < 50.11) {
+        newSrc = imagesGroup3.crudo;
+    } else if (imagenPunto >= 50.11 && imagenPunto < 88.11) {
+        newSrc = imagesGroup3.termoestato;
+    } else {
+        newSrc = imagesGroup3.cocido;
+    }
+
+    // Check if the image source is changing
+    if (imageElement.src !== newSrc) {
+        imageElement.src = newSrc;
+        console.log("Image updated to:", newSrc);
+    }
+
+    // Update custom property for styling (if needed)
+    slider.style.setProperty('--val', imagenPunto);
+
+    console.log("Slider value:", imagenPunto, "Current image:", imageElement.src);
+}
+
+function initializeApp() {
+    const slider = document.getElementById("puntoCoccion");
+    if (slider) {
+        slider.addEventListener('input', changeImageGroup3);
+        changeImageGroup3(); // Initial call to set the correct image
+    } else {
+        console.error("Slider element not found");
+    }
+}
+
+// Wait for the DOM to be fully loaded before initializing
+document.addEventListener('DOMContentLoaded', initializeApp);
+
+// Additional check for image loading errors
+document.getElementById("displayedImageGroup3").addEventListener('error', function(e) {
+    console.error("Error loading image:", e.target.src);
+    // Optionally set a fallback image
+    // e.target.src = 'path/to/fallback/image.png';
+});
+
 function updateStaticImageValue(direction) {
     let valueElement;
 
@@ -301,12 +360,6 @@ function enviarCortes() {
             return;
            
         }
-
-
-       
-        
-
-
 
 
 function Continuari(){
