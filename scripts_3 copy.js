@@ -61,7 +61,8 @@ window.onload = function() {
 };
 
 window.onload = function ValoresCondimento1() {
-    
+    console.log("cargue pestaña");
+    alert("cargue lol");
     const paqueteJSON = localStorage.getItem("Corte1");
     let paquete = null;
 
@@ -203,8 +204,6 @@ function changeImageGroup3() {
     slider.style.setProperty('--val', imagenPunto);
 
     console.log("Slider value:", imagenPunto, "Current image:", imageElement.src);
-
-    return;
 }
 /*
 function initializeApp() {
