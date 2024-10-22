@@ -203,6 +203,8 @@ function changeImageGroup3() {
     slider.style.setProperty('--val', imagenPunto);
 
     console.log("Slider value:", imagenPunto, "Current image:", imageElement.src);
+
+    return;
 }
 /*
 function initializeApp() {
