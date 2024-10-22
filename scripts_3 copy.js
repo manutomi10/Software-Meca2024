@@ -58,14 +58,6 @@ function confi_f(){
 function ValoresCondimento1() {
     console.log("cargue pestaña");
     const paqueteJSON = localStorage.getItem("Corte1");
-
-    console.log("--------------------------------");
-    console.log(paqueteJSON);
-    console.log("--------------------------------");
-    console.log("paqueteJSON");
-    console.log("--------------------------------");
-
-
     let paquete = null;
 
     if (paqueteJSON) {
@@ -130,7 +122,13 @@ function ValoresCondimento1() {
     }
 
 
-
+    console.log("--------------------------------");
+    console.log("JSON_1", paqueteJSON);
+    console.log("--------------------------------");
+    console.log("JSON_2", dospaqueteJSON);
+    console.log("--------------------------------");
+    console.log("JSON_3", trespaqueteJSON);
+    console.log("--------------------------------");
 
 }
 
