@@ -190,7 +190,7 @@ function changeImageGroup3() {
     let newSrc;
     if (imagenPunto < 66.66) {
         newSrc = imagesGroup3.crudo;
-    } else if (imagenPunto >= 66.66 && imagenPunto < 100) {
+    } else if (imagenPunto >= 66.66 && imagenPunto < 99.98) {
         newSrc = imagesGroup3.termoestato;
     } else {
         newSrc = imagesGroup3.cocido;
