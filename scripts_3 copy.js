@@ -74,16 +74,16 @@ function confi_f(){
                 console.log("Chimi1: " + paquete.chimi);
                 console.log("Smoked1: " + paquete.smoke);
         
-          //      document.getElementById("valueSal1").innerHTML = paquete.sal;
-            //    document.getElementById("valueChimi1").innerHTML = paquete.chimi;
-              //  document.getElementById("valueSmoke1").innerHTML = paquete.smoke;
+                document.getElementById("valueSal").innerHTML = paquete.sal;
+                document.getElementById("valueChimi").innerHTML = paquete.chimi;
+                document.getElementById("valueSmoke").innerHTML = paquete.smoke;
 
                 console.log("funciono");
                 
             } else {
                 console.log("No se encontró el valor para 'Corte1' en el localStorage.");
             }
-        /*
+        
             // Obtener Corte2
             const dospaqueteJSON = localStorage.getItem("Corte2");
         
@@ -100,9 +100,9 @@ function confi_f(){
                 console.log("Chimi2: " + paquetedos.chimi);
                 console.log("Smoked2: " + paquetedos.smoke);
         
-                document.getElementById("valueSal2").innerHTML = paquetedos.sal;
-                document.getElementById("valueChimi2").innerHTML = paquetedos.chimi;
-                document.getElementById("valueSmoke2").innerHTML = paquetedos.smoke;
+                document.getElementById("valueSal").innerHTML = paquetedos.sal;
+                document.getElementById("valueChimi").innerHTML = paquetedos.chimi;
+                document.getElementById("valueSmoke").innerHTML = paquetedos.smoke;
             } else {
                 console.log("No se encontró el valor para 'Corte2' en el localStorage.");
             }
@@ -123,14 +123,14 @@ function confi_f(){
                 console.log("Chimi3: " + paquetetres.chimi);
                 console.log("Smoked3: " + paquetetres.smoke);
         
-                document.getElementById("valueSal3").innerHTML = paquetetres.sal;
-                document.getElementById("valueChimi3").innerHTML = paquetetres.chimi;
-                document.getElementById("valueSmoke3").innerHTML = paquetetres.smoke;
+                document.getElementById("valueSal").innerHTML = paquetetres.sal;
+                document.getElementById("valueChimi").innerHTML = paquetetres.chimi;
+                document.getElementById("valueSmoke").innerHTML = paquetetres.smoke;
             } else {
                 console.log("No se encontró el valor para 'Corte3' en el localStorage.");
             }
         
-            console.log("Proceso completado."); */
+            console.log("Proceso completado.");
         }
        
 
