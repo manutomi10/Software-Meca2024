@@ -60,12 +60,12 @@ function confi_f(){
         
             // Obtener Corte1
             const paqueteJSON = localStorage.getItem("Corte1");
-        
+            let paquete = JSON.parse(paqueteJSON);
+
             console.log("JSON_1", paqueteJSON);
         
             if (true) {
                 // Convertir la cadena JSON en un objeto JavaScript
-                const paquete = JSON.parse(paqueteJSON);
         
                 // Ahora puedes acceder a las propiedades del objeto
                 console.log("Corte1: " + paquete.corte);
