@@ -154,7 +154,15 @@ function changeImageGroup1(direction) {
     // Cambia la imagen del primer grupo
     document.getElementById("displayedImageGroup1").src = imagesGroup1[currentIndexGroup1];
 
-    //
+    //Si es X que deshabilite el condimento y cantidades
+
+    if (currentIndexGroup1 == 3){ //es una X
+        document.getElementById("displayedImageGroup2").src = "images/CRUZBUENA.png";
+        currentIndexGroup2 = 3;
+        document.getElementById("valueSal").textContent = "0";
+        document.getElementById("valueChimi").textContent = "0";
+        document.getElementById("valueSmoke").textContent = "0";
+    } 
 }
 
 function changeImageGroup2(direction) {
