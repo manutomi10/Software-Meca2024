@@ -64,7 +64,7 @@ function confi_f(){
 
             console.log("JSON_1", paqueteJSON);
         
-            if (true) {
+            if (paqueteJSON) {
                 // Convertir la cadena JSON en un objeto JavaScript
         
                 // Ahora puedes acceder a las propiedades del objeto
@@ -78,7 +78,7 @@ function confi_f(){
                 document.getElementById("valueChimi1").innerHTML = paquete.chimi;
                 document.getElementById("valueSmoke1").innerHTML = paquete.smoke;
 
-                console.log("funciono", paquete);
+                console.log("funciono");
                 
             } else {
                 console.log("No se encontró el valor para 'Corte1' en el localStorage.");
