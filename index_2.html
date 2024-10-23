@@ -42,12 +42,14 @@
         urlBase = window.location.hostname;
         urlPort = 1880;
 
-        const socketLS = new WebSocket('ws://' +  urlBase + ':' + urlPort + '/ws/f'); // Cambia esto
+        const socketLS = new WebSocket('ws://' +  urlBase + ':' + urlPort + '/ws/f'); 
 
-socketLS.onopen = () => {
-    console.log('Conectado al servidor WebSocket de LS');
-    socketlS.send(JSON.stringify({ payload: 'S' })); // Enviar 'S' al WebSocket
-    console.log('Enviando (S) al puerto serie');
+        //const socketLS = new WebSocket('ws://192.168.0.174:1880/ws/f');
+
+        socketLS.onopen = () => {
+            console.log('Conectado al servidor WebSocket de LS');
+            socketlS.send(JSON.stringify({ payload: 'S' })); // Enviar 'S' al WebSocket
+            console.log('Enviando (S) al puerto serie');
 
 };
                window.onload = function() {
