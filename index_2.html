@@ -39,8 +39,10 @@
     </div>
 
     <script>
+        urlBase = window.location.hostname;
+        urlPort = 1880;
 
-const socketLS = new WebSocket('ws://192.168.3.5:1880/ws/f');
+        const socketLS = new WebSocket('ws://' +  urlBase + ':' + urlPort + '/ws/f'); // Cambia esto
 
 socketLS.onopen = () => {
     console.log('Conectado al servidor WebSocket de LS');
