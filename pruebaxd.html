@@ -184,8 +184,12 @@
             }
         });
 
+        urlBase = window.location.hostname;
+        urlPort = 1880;
+
+        const socketTemperaturas = new WebSocket('ws://' +  urlBase + ':' + urlPort + '/ws/temperatura'); // Cambia esto
         // Código del WebSocket para recibir las temperaturas
-        const socketTemperaturas = new WebSocket('ws://192.168.3.5:1880/ws/temperatura');
+       // const socketTemperaturas = new WebSocket('ws://192.168.3.5:1880/ws/temperatura');
 
         socketTemperaturas.onopen = () => {
             console.log('Conectado al servidor WebSocket de temperaturas');
@@ -207,7 +211,13 @@
         };
 
         // Código del WebSocket para recibir letras
-        const socketLetras = new WebSocket('ws://192.168.3.5:1880/ws/f');
+
+        urlBase = window.location.hostname;
+        urlPort = 1880;
+
+        const socketLetras = new WebSocket('ws://' +  urlBase + ':' + urlPort + '/ws/f'); // Cambia esto
+
+       // const socketLetras = new WebSocket('ws://192.168.3.5:1880/ws/f');
 
         socketLetras.onopen = () => {
             console.log('Conectado al servidor WebSocket de letras');
