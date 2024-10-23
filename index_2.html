@@ -48,7 +48,7 @@
 
         socketLS.onopen = () => {
             console.log('Conectado al servidor WebSocket de LS');
-            socketlS.send(JSON.stringify({ payload: 'S' })); // Enviar 'S' al WebSocket
+            socketLS.send(JSON.stringify({ payload: 'S' })); // Enviar 'S' al WebSocket
             console.log('Enviando (S) al puerto serie');
 
 };
