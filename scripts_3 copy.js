@@ -63,7 +63,7 @@ function confi_f(){
         
             console.log("JSON_1", paqueteJSON);
         
-            if (paqueteJSON) {
+            if (true) {
                 // Convertir la cadena JSON en un objeto JavaScript
                 let paquete = JSON.parse(paqueteJSON);
         
