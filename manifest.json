@@ -1,7 +1,7 @@
 {
     "name": "Das Grill",
     "short_name": "Das Grill",
-    "start_url": "index.html",
+    "start_url": "index_2.html",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#000000",
