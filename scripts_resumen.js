@@ -1,4 +1,4 @@
-window.onload = function ValoresCondimento1() {
+function ValoresCondimento1() {
     const paqueteJSON = localStorage.getItem("Corte1");
     const paquete = JSON.parse(paqueteJSON);
 
@@ -15,8 +15,29 @@ window.onload = function ValoresCondimento1() {
         } else if (paquete.corte === "cerdo") {
             document.getElementById("displayedImageGroup1").src = 'images/CERDOBUENO.png';
         } else if (paquete.corte === "cruz") {
+            document.getElementById("imgSal1").src = 'images/CRUZBUENA.png';
+            document.getElementById("imgChimi1").src = 'images/CRUZBUENA.png';
+            document.getElementById("imgSmoke1").src = 'images/CRUZBUENA.png';
             document.getElementById("displayedImageGroup1").src = 'images/CRUZBUENA.png';
+            document.getElementById("valueSal1").innerHTML = 0;
+            document.getElementById("valueChimi1").innerHTML = 0;
+            document.getElementById("valueSmoke1").innerHTML = 0;
+
+        
+
         }
+        if (paquete.puntoCoccion == "crudo")
+            {
+                document.getElementById("imagenPuntoCoccion1").src = "images/crudo.png";
+            }
+            if (paquete.puntoCoccion == "a punto")
+                {
+                    document.getElementById("imagenPuntoCoccion1").src = "images/termoestato.png";
+                }
+                if (paquete.puntoCoccion == "cocido")
+                    {
+                        document.getElementById("imagenPuntoCoccion1").src = "images/cocido.png";
+                    }
     }
 
     const dospaqueteJSON = localStorage.getItem("Corte2");
@@ -36,7 +57,30 @@ window.onload = function ValoresCondimento1() {
             document.getElementById("displayedImageGroup2").src = 'images/CERDOBUENO.png';
         } else if (paquetedos.corte === "cruz") {
             document.getElementById("displayedImageGroup2").src = 'images/CRUZBUENA.png';
+            document.getElementById("imgSal2").src = 'images/CRUZBUENA.png';
+            document.getElementById("imgChimi2").src = 'images/CRUZBUENA.png';
+            document.getElementById("imgSmoke2").src = 'images/CRUZBUENA.png';
+            document.getElementById("valueSal2").innerHTML = 0;
+            document.getElementById("valueChimi2").innerHTML = 0;
+            document.getElementById("valueSmoke2").innerHTML = 0;
+
         }
+
+        if (paquetedos.puntoCoccion == "crudo")
+            {
+                document.getElementById("imagenPuntoCoccion2").src = "images/crudo.png";
+            }
+        if (paquetedos.puntoCoccion == "a punto")
+        {
+           document.getElementById("imagenPuntoCoccion2").src = "images/termoestato.png";
+        }
+        if (paquetedos.puntoCoccion == "cocido")
+         {
+         document.getElementById("imagenPuntoCoccion2").src = "images/cocido.png";
+         }
+
+
+
     }
 
     const trespaqueteJSON = localStorage.getItem("Corte3");
@@ -56,6 +100,36 @@ window.onload = function ValoresCondimento1() {
             document.getElementById("displayedImageGroup3").src = 'images/CERDOBUENO.png';
         } else if (paquetetres.corte === "cruz") {
             document.getElementById("displayedImageGroup3").src = 'images/CRUZBUENA.png';
+            document.getElementById("imgSal3").src = 'images/CRUZBUENA.png';
+            document.getElementById("imgChimi3").src = 'images/CRUZBUENA.png';
+            document.getElementById("imgSmoke3").src = 'images/CRUZBUENA.png';
+            document.getElementById("valueSal3").innerHTML = 0;
+            document.getElementById("valueChimi3").innerHTML = 0;
+            document.getElementById("valueSmoke3").innerHTML = 0;
+
         }
+
+
+        if (paquetetres.puntoCoccion == "crudo")
+            {
+            document.getElementById("imagenPuntoCoccion3").src = "images/crudo.png";
+            }
+        if (paquetetres.puntoCoccion == "a punto")
+        {
+           document.getElementById("imagenPuntoCoccion3").src = "images/termoestato.png";
+        }
+        if (paquetetres.puntoCoccion == "cocido")
+         {
+         document.getElementById("imagenPuntoCoccion3").src = "images/cocido.png";
+         }
     }
+}
+
+
+
+window.onload = function (){
+ValoresCondimento1();
+ActualizarPunto1();
+
+
 }
