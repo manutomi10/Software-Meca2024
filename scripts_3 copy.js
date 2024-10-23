@@ -65,7 +65,7 @@ function confi_f(){
         
             if (true) {
                 // Convertir la cadena JSON en un objeto JavaScript
-                let paquete = JSON.parse(paqueteJSON);
+                const paquete = JSON.parse(paqueteJSON);
         
                 // Ahora puedes acceder a las propiedades del objeto
                 console.log("Corte1: " + paquete.corte);
