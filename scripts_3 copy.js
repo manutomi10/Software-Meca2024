@@ -47,6 +47,7 @@ let isEnabled = false; // Variable de estado
         };
 
 function confi_f(){
+        console.log(localStorage.getItem('confirmacion_f'));
         if(localStorage.getItem('confirmacion_f') == 'true')
 
             {
@@ -335,6 +336,7 @@ function enviarCorte(numeroCorte){
 }
 
 function enviarCortes() {
+            confi_f();
             if (!isEnabled) {
                 alert("El envío no está habilitado. Espera a recibir 'f'.");
                 return; // No permite enviar si no está habilitado
@@ -402,6 +404,6 @@ function confirmarTermocuplas() {
 
 
 window.onload = function() {
-confi_f();
+
 ValoresCondimento1();
 };
