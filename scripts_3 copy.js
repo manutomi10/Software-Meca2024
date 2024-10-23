@@ -56,24 +56,24 @@ function confi_f(){
             }
         }
 
-        function ValoresCondimento1() {
+        function ValoresCondimento(nroCorte) {
             console.log("Cargue pestaña");
         
             // Obtener Corte1
-            const paqueteJSON = localStorage.getItem("Corte1");
+            const paqueteJSON = localStorage.getItem("Corte" + nroCorte);
             let paquete = JSON.parse(paqueteJSON);
 
-            console.log("JSON_1", paqueteJSON);
+            console.log("JSON: " +nroCorte, paqueteJSON);
         
             if (paqueteJSON) {
                 // Convertir la cadena JSON en un objeto JavaScript
         
                 // Ahora puedes acceder a las propiedades del objeto
-                console.log("Corte1: " + paquete.corte);
-                console.log("Punto de Cocción1: " + paquete.puntoCoccion);
-                console.log("Sal1: " + paquete.sal);
-                console.log("Chimi1: " + paquete.chimi);
-                console.log("Smoked1: " + paquete.smoke);
+                console.log("Corte: " + paquete.corte);
+                console.log("Punto de Cocción: " + paquete.puntoCoccion);
+                console.log("Sal: " + paquete.sal);
+                console.log("Chimi: " + paquete.chimi);
+                console.log("Smoked: " + paquete.smoke);
         
                 document.getElementById("valueSal").innerHTML = paquete.sal;
                 document.getElementById("valueChimi").innerHTML = paquete.chimi;
@@ -82,53 +82,7 @@ function confi_f(){
                 console.log("funciono");
                 
             } else {
-                console.log("No se encontró el valor para 'Corte1' en el localStorage.");
-            }
-        
-            // Obtener Corte2
-            const dospaqueteJSON = localStorage.getItem("Corte2");
-        
-            console.log("JSON_2", dospaqueteJSON);
-        
-            if (dospaqueteJSON) {
-                // Convertir la cadena JSON en un objeto JavaScript
-                let paquetedos = JSON.parse(dospaqueteJSON);
-        
-                // Ahora puedes acceder a las propiedades del objeto
-                console.log("Corte2: " + paquetedos.corte);
-                console.log("Punto de Cocción2: " + paquetedos.puntoCoccion);
-                console.log("Sal2: " + paquetedos.sal);
-                console.log("Chimi2: " + paquetedos.chimi);
-                console.log("Smoked2: " + paquetedos.smoke);
-        
-                document.getElementById("valueSal").innerHTML = paquetedos.sal;
-                document.getElementById("valueChimi").innerHTML = paquetedos.chimi;
-                document.getElementById("valueSmoke").innerHTML = paquetedos.smoke;
-            } else {
-                console.log("No se encontró el valor para 'Corte2' en el localStorage.");
-            }
-        
-            // Obtener Corte3 (había un error al usar Corte2 aquí de nuevo)
-            const trespaqueteJSON = localStorage.getItem("Corte3");
-        
-            console.log("JSON_3", trespaqueteJSON);
-        
-            if (trespaqueteJSON) {
-                // Convertir la cadena JSON en un objeto JavaScript
-                let paquetetres = JSON.parse(trespaqueteJSON);
-        
-                // Ahora puedes acceder a las propiedades del objeto
-                console.log("Corte3: " + paquetetres.corte);
-                console.log("Punto de Cocción3: " + paquetetres.puntoCoccion);
-                console.log("Sal3: " + paquetetres.sal);
-                console.log("Chimi3: " + paquetetres.chimi);
-                console.log("Smoked3: " + paquetetres.smoke);
-        
-                document.getElementById("valueSal").innerHTML = paquetetres.sal;
-                document.getElementById("valueChimi").innerHTML = paquetetres.chimi;
-                document.getElementById("valueSmoke").innerHTML = paquetetres.smoke;
-            } else {
-                console.log("No se encontró el valor para 'Corte3' en el localStorage.");
+                console.log("No se encontró el valor para 'Corte' en el localStorage.");
             }
         
             console.log("Proceso completado.");
@@ -409,9 +363,3 @@ function confirmarTermocuplas() {
     closeModal(); // Cierra el modal después de confirmar
     
 }
-
-
-window.onload = function() {
-
-ValoresCondimento1();
-};
