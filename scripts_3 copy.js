@@ -74,16 +74,16 @@ function confi_f(){
                 console.log("Chimi1: " + paquete.chimi);
                 console.log("Smoked1: " + paquete.smoke);
         
-                document.getElementById("valueSal1").innerHTML = paquete.sal;
-                document.getElementById("valueChimi1").innerHTML = paquete.chimi;
-                document.getElementById("valueSmoke1").innerHTML = paquete.smoke;
+          //      document.getElementById("valueSal1").innerHTML = paquete.sal;
+            //    document.getElementById("valueChimi1").innerHTML = paquete.chimi;
+              //  document.getElementById("valueSmoke1").innerHTML = paquete.smoke;
 
                 console.log("funciono");
                 
             } else {
                 console.log("No se encontró el valor para 'Corte1' en el localStorage.");
             }
-        
+        /*
             // Obtener Corte2
             const dospaqueteJSON = localStorage.getItem("Corte2");
         
@@ -130,9 +130,9 @@ function confi_f(){
                 console.log("No se encontró el valor para 'Corte3' en el localStorage.");
             }
         
-            console.log("Proceso completado.");
+            console.log("Proceso completado."); */
         }
-        
+       
 
 
 
