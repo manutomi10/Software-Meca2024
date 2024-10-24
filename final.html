@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #c7c7c7;
+            --primary-color: #ffffff;
             --secondary-color: #ffffff;
             --accent-color: #17bebb;
             --background-color: #f7f7f7;
@@ -102,10 +102,11 @@
         #pauseMessage {
             display: none; /* Oculto por defecto */
             position: fixed;
-            top: 50%;
+            top: 48%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 3rem; /* Tamaño grande */
+            font-size: 6rem; /* Tamaño grande */
+            font-weight: 600;
             color: rgba(255, 0, 0, 0.7); /* Color rojo transparente */
             z-index: 1000; /* Asegurarse de que esté sobre otros elementos */
         }
@@ -139,6 +140,7 @@
                 transform: scale(1);
             }
         }
+        
     </style>
 </head>
 <body>
@@ -166,7 +168,7 @@
 
         <button id="finishButton" class="button" onclick="Volver('index_2.html')">FINALIZAR</button>
         <button id="pauseButton" class="button" onclick="pausar()">PAUSAR</button> <!-- Botón de pausa -->
-        <div id="pauseMessage">PAUSADO</div>
+        <div id="pauseMessage">PAUSADO ⏸️</div>
 
     </div>
 
