@@ -1,0 +1,29 @@
+[
+    {
+        "id": "3ba01b8bea912929",
+        "type": "delay",
+        "z": "56f529e3ca0347d0",
+        "g": "0d9b22b0a4899a06",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 940,
+        "y": 1300,
+        "wires": [
+            [
+                "526879361f9e2261",
+                "7b9286a26ad69857"
+            ]
+        ]
+    }
+]
