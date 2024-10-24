@@ -241,6 +241,15 @@
     width: 80%; 
     border-radius: 8px;
 }
+.modal-text {
+    text-align: center; /* Centrar el texto */
+    text-transform: uppercase; /* Convertir el texto a mayúsculas */
+    margin: 3rem 0; /* Ajustar el margen según sea necesario */
+    font-size: 200%;
+    font-weight: 600;
+    
+}
+
 .close {
     color: #aaa;
     float: right;
@@ -438,7 +447,7 @@ i{
 <!---->    <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <h1 class="text-align-center d-flex">No olvide colocar los elementos de medicion en los respectivos cortes a cocinar</h1>
+            <p class="modal-text">NO OLVIDE COLOCAR LOS ELEMENTOS DE MEDICIÓN EN LOS RESPECTIVOS CORTES A COCINAR</p>
             <button class="btn btn-primary" id="modal-continuar" onclick="confirmarTermocuplas()">CONFIRMAR</button>
             <div class="espaciado2"></div>
             <button class="btn btn-secondary" id="modal-cerrar" onclick="closeModal()">CERRAR</button>
