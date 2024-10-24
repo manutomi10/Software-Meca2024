@@ -74,13 +74,28 @@ function confi_f(){
                 console.log("Sal: " + paquete.sal);
                 console.log("Chimi: " + paquete.chimi);
                 console.log("Smoked: " + paquete.smoke);
-        
+                
+                //Corte Carne
+                if (paquete.corte === "pollo") {
+                    document.getElementById("displayedImageGroup1").src = imagesGroup1[1];
+                } else if (paquete.corte === "carne") {
+                    document.getElementById("displayedImageGroup1").src = imagesGroup1[0];
+                } else if (paquete.corte === "cerdo") {
+                    document.getElementById("displayedImageGroup1").src = imagesGroup1[2];
+                } else if (paquete.corte === "cruz") {
+                    document.getElementById("displayedImageGroup1").src = imagesGroup1[3];
+                }
+
+                //Punto de Cocción
+                document.getElementById("puntoCoccion").value = obtenerValorPuntoCoccion(paquete.puntoCoccion);
+                changeImageGroup3(); //Cambio Imagen de Medidor
+
+                //Condimentos
                 document.getElementById("valueSal").innerHTML = paquete.sal;
                 document.getElementById("valueChimi").innerHTML = paquete.chimi;
                 document.getElementById("valueSmoke").innerHTML = paquete.smoke;
 
-                console.log("funciono");
-                
+                            
             } else {
                 console.log("No se encontró el valor para 'Corte' en el localStorage.");
             }
@@ -239,7 +254,23 @@ function obtenerPuntoCoccion(valor){
     
     return puntoCoccion
     
-    }
+}
+
+function obtenerValorPuntoCoccion(nombre){
+    let puntoCoccion;
+    
+        if ((nombre == "crudo")){
+            puntoCoccion = 33.33;
+        }
+        if ((nombre == "a punto")){
+            puntoCoccion = 66.66 ;
+        }
+        if ((nombre == "cocido")){
+            puntoCoccion = 100;
+        }
+    
+    return puntoCoccion   
+}
 
 function GuardarCorte(numeroCorte){
 
