@@ -224,7 +224,7 @@
         .modal {
     display: none; 
     position: fixed;
-    z-index: 1; 
+    z-index: 10; 
     left: 0;
     top: 0;
     width: 100%; 
@@ -257,6 +257,10 @@
 .espaciado1{
     width: 10%;
 }
+.espaciado2{
+    width: 50%;
+    height: 20%;
+}
 
 .volver{
     position: absolute;
@@ -288,8 +292,31 @@ i{
         inset 1px 1px 1px #000,
         inset -1px -1px 1px #ffffff16;
             }
-/**/
-
+#modal-continuar{
+    margin-bottom: 3%;
+    background-color: #49da00;
+            padding: 0.7em 1.7em;  
+            color: white; 
+            font-size: 18px;
+            border-radius: 0.5em;
+            border: 1px solid #000000a4;
+            transition: all 0.3s;
+            box-shadow:
+            inset 4px 4px 4px #000000a4,
+            inset -4px -4px 4px #000000a4;
+}
+#modal-cerrar{
+    background-color: #da0000;
+            padding: 0.7em 1.7em;  
+            color: white; 
+            font-size: 18px;
+            border-radius: 0.5em;
+            border: 1px solid #000000a4;
+            transition: all 0.3s;
+            box-shadow:
+            inset 4px 4px 4px #000000a4,
+            inset -4px -4px 4px #000000a4;
+}
     </style>
 </head>
 <body>
@@ -411,10 +438,10 @@ i{
 <!---->    <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
-            <h2>Confirmar</h2>
-            <p>RECUERDE DE PINCHAR CON EL TERMOMETRO LAS CARNES</p>
-            <button class="btn btn-primary" onclick="confirmarTermocuplas()">Confirmar</button>
-            <button class="btn btn-secondary" onclick="closeModal()">Cerrar</button>
+            <h1 class="text-align-center d-flex">No olvide colocar los elementos de medicion en los respectivos cortes a cocinar</h1>
+            <button class="btn btn-primary" id="modal-continuar" onclick="confirmarTermocuplas()">CONFIRMAR</button>
+            <div class="espaciado2"></div>
+            <button class="btn btn-secondary" id="modal-cerrar" onclick="closeModal()">CERRAR</button>
         </div>
     </div>
 <!---->    
