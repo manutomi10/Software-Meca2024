@@ -326,6 +326,31 @@ i{
             inset 4px 4px 4px #000000a4,
             inset -4px -4px 4px #000000a4;
 }
+
+.texto-modal2{
+    text-transform: uppercase; /* Convertir el texto a mayúsculas */
+    margin: 3rem 0; /* Ajustar el margen según sea necesario */
+    font-size: 200%;
+    font-weight: 600;
+}
+
+#closeModal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Centrar el texto */
+    text-transform: uppercase; /* Convertir el texto a mayúsculas */
+            background-color: #da0000;
+            padding: 0.7em 1.7em;  
+            color: white; 
+            font-size: 18px;
+            border-radius: 0.5em;
+            border: 1px solid #000000a4;
+            transition: all 0.3s;
+            box-shadow:
+            inset 4px 4px 4px #000000a4,
+            inset -4px -4px 4px #000000a4;
+}
     </style>
 </head>
 <body>
@@ -454,6 +479,19 @@ i{
         </div>
     </div>
 <!---->    
+
+    <div id="confirmModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); z-index: 1000; width: 400px; padding: 20px;">
+        <div style="padding: 40px;">
+            <div class="texto-modal2">RECUERDE CONFIRMAR LAS TERMOCUPLAS</div>
+            <div style="display: flex; justify-content: center; margin-top: 10px;">
+                <button id="closeModal">Cerrar</button>
+            </div>        
+        </div>
+    </div>
+
+    <div id="overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999;"></div>
+
+
     <img src="images/png/holtersyahk.png" alt="ahkyholters" class="ahkyholters">
 
     <script>

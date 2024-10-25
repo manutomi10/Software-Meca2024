@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DASGRILL - Cocción en Progreso</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
         :root {
             --primary-color: #ffffff;
@@ -30,9 +32,9 @@
 
         .container_2 {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column; 
+            justify-content: center; 
+          align-items: center; 
             height: 100%;
             padding: 1rem;
             text-align: center;
@@ -44,6 +46,7 @@
             padding: 2rem;
             box-shadow: var(--box-shadow);
             animation: pulse 2s infinite;
+            margin-bottom: 10%;
         }
 
         .title {
@@ -59,20 +62,26 @@
         }
 
         .temperatures {
-            display: flex;
+           display: flex;
             flex-wrap: wrap;
+            align-items: center;
             justify-content: center;
-            gap: 4rem;
-            margin-top: 8rem;
+            gap: 2rem;
+            margin-top: 4rem;
+            margin-bottom: 10%;
+            
         }
 
         .temperature-item {
-            font-size: 1.5rem;
-            font-weight: 600;
+            
+            font-size: 1rem;
+            font-weight: 900;
             color: var(--light-text);
+            padding: 0;
+
         }
 
-        .temperature-label {
+       .temperature-label {
             font-weight: 800;
             color: var(--accent-color);
             box-shadow: var(--box-shadow);
@@ -81,6 +90,25 @@
             padding: 0.5rem;
             display: block;
         }
+
+        .music-label {
+    font-weight: 800;
+    color: #FFFFFF;
+    background-color: #1DB954;
+    border: 2px solid #000000;
+    border-radius: var(--border-radius);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    width: 150px; /* Tamaño adecuado para el botón de música */
+}
+
+            .music-nav {
+            font-size: 1.5rem;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            }
+
 
         .button {
             margin-top: 2rem;
@@ -140,17 +168,59 @@
                 transform: scale(1);
             }
         }
-        
+    .musica{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;         
+    }
+
+    #cancion{
+        font-size: 1.5rem;
+        font-weight: 900;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+    }
+.fila0{
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+.fila1{
+    display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+
+}
+.fila2{
+    display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+
+}
+.fila3{
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+
+
+}
     </style>
 </head>
 <body>
     <div class="container_2">
+        <div class="fila0">
         <div class="screen_2">
             <div class="title">DASGRILL</div>
             <div class="subtitle">ESTÁ COCINANDO</div>
         </div>
-
+    </div>
         <!-- Sección para mostrar las temperaturas -->
+         <div class="fila1">
         <div class="temperatures">
             <div class="temperature-item">
                 <span class="temperature-label">TEMPERATURA 1</span>
@@ -164,27 +234,104 @@
                 <span class="temperature-label">TEMPERATURA 3</span>
                 <span id="temp3">-</span>
             </div>
+         </div>
         </div>
+    <div class="fila2">
+            <div class="musica">
+                <!-- Botón para la canción anterior -->
+                <button id="prev" class="music-nav" onclick="previousSong()">⬅️</button>
+                
+                <!-- Botón principal de Música que reproduce la canción actual -->
+                <button id="musica" class="music-label" onclick="playmusica()">Música</button>
+                
+                <!-- Botón para la siguiente canción -->
+                <button id="next" class="music-nav" onclick="nextSong()">➡️</button>
+                
+                <span id="cancion">-</span> <!-- Aquí mostramos el nombre de la canción actual -->
+            
 
+        <audio id="audioElement" src="audios\tango.mp3" preload="auto"></audio>
+        <audio id="audioElement" src="audios\ChaqueñoPalavecinoChacareradelOlvido.mp3" preload="auto"></audio>
+        <audio id="audioElement" src="audios/ChaqueñoPalavecinoLaYapa.mp3" preload="auto"></audio> 
+        <audio id="audioElement" src="audios/LaLeyyLaTrampa.mp3" preload="auto"></audio>
+        <audio id="audioElement" src="audios/AntesyDespués.mp3" preload="auto"></audio>
+        <audio id="audioElement" src="audios/AmorClasificado.mp3" preload="auto"></audio>
+        <audio id="audioElement" src="audios/CiroEspejosInsisto.mp3" preload="auto"></audio>
+        <audio id="audioElement" src="audios/PorunaCabeza.mp3" preload="auto"></audio>   
+        <audio id="audioElement" src="audios/LosdelFuegoTengoMuchasAlas.mp3" preload="auto"></audio>   
+        <audio id="audioElement" src="audios/LaChampionsLiga.mp3" preload="auto"></audio>   
+        <audio id="audioElement" src="audios/UnaCerveza.mp3" preload="auto"></audio>  
+        <audio id="audioElement" src="audios/YoMeEnamore.mp3" preload="auto"></audio>   
+        <audio id="audioElement" src="audios/Gilda.mp3" preload="auto"></audio>   
+
+
+
+            </div>
+    </div>
+    <div class="fila3">
         <button id="finishButton" class="button" onclick="Volver('index_2.html')">FINALIZAR</button>
         <button id="pauseButton" class="button" onclick="pausar()">PAUSAR</button> <!-- Botón de pausa -->
-        <div id="pauseMessage">PAUSADO ⏸️</div>
+        <div id="pauseMessage">PAUSADO ⏸️</div>  
 
     </div>
-
-    <audio id="audioElement" src="audios\tango.mp3" preload="auto"></audio>
-
+</div>
     <script>
-        document.body.addEventListener('click', function() {
-            var audio = document.getElementById('audioElement');
-            if (audio) {
-                audio.play().catch(function(error) {
-                    console.error('Error al reproducir el audio:', error);
-                });
-            } else {
-                console.error('Elemento de audio no encontrado.');
-            }
+
+// Lista de canciones (nombre y ruta)
+const canciones = [
+    { nombre: "Chacarera del olvido", src: "audios/ChaqueñoPalavecinoChacareradelOlvido.mp3"},
+    { nombre: "La Yapa Chaqueño", src: "audios/ChaqueñoPalavecinoLaYapa.mp3" },
+    { nombre: "La ley y la trampa", src: "audios/LaLeyyLaTrampa.mp3" },
+    { nombre: "Amor Clasificado", src: "audios/AmorClasificado.mp3" },
+    { nombre: "Antes y Después", src: "audios/AntesyDespués.mp3" },
+    { nombre: "Insisto Ciro", src: "audios/CiroEspejosInsisto.mp3" },
+    { nombre: "Por Una Cabeza", src: "audios/PorunaCabeza.mp3" },
+    { nombre: "Tengo Muchas Alas", src: "audios/LosdelFuegoTengoMuchasAlas.mp3" },
+    { nombre: "La Champions Liga", src: "audios/LaChampionsLiga.mp3" },
+    { nombre: "Una Cerveza", src: "audios/UnaCerveza.mp3" },
+    { nombre: "Gilda", src: "audios/Gilda.mp3" },
+    { nombre: "Yo Me Enamore", src: "audios/YoMeEnamore.mp3" },
+
+
+];
+
+let currentSongIndex = 0; // Índice de la canción actual
+
+// Función para reproducir la canción actual
+function playmusica() {
+    var audio = document.getElementById('audioElement');
+    var cancion = canciones[currentSongIndex];
+
+    if (audio && cancion) {
+        audio.src = cancion.src; // Actualizar la fuente del audio
+        audio.play().catch(function(error) {
+            console.error('Error al reproducir el audio:', error);
         });
+        document.getElementById('cancion').textContent = cancion.nombre; // Mostrar el nombre de la canción
+    } else {
+        console.error('Elemento de audio o canción no encontrado.');
+    }
+}
+
+// Función para avanzar a la siguiente canción
+function nextSong() {
+    currentSongIndex = (currentSongIndex + 1) % canciones.length; // Avanzar al siguiente índice y ciclar
+    playmusica(); // Reproducir la nueva canción
+}
+
+// Función para retroceder a la canción anterior
+function previousSong() {
+    currentSongIndex = (currentSongIndex - 1 + canciones.length) % canciones.length; // Retroceder y ciclar
+    playmusica(); // Reproducir la nueva canción
+}
+
+// Mostrar la primera canción al cargar la página
+window.onload = function() {
+    document.getElementById('cancion').textContent = canciones[currentSongIndex].nombre;
+};
+        
+
+
 
         urlBase = window.location.hostname;
         urlPort = 1880;
@@ -255,12 +402,26 @@
     let isPaused = false; // Variable para rastrear el estado de pausa
 
 function pausar() {
+
+    const audio = document.getElementById('audioElement');
+
+
     if (!isPaused) {
+
         socketLetras.send(JSON.stringify({ payload: 'L' })); // Enviar 'L' al WebSocket
         console.log('Enviando pausa (L) al puerto serie');
+
+        audio.pause();
+
+
         document.getElementById('pauseMessage').style.display = 'block'; // Mostrar mensaje de pausa
     } else {
         document.getElementById('pauseMessage').style.display = 'none'; // Ocultar mensaje de pausa
+        
+        audio.play().catch(function(error) {
+            console.error('Error al reanudar el audio:', error);
+        });
+
     }
     isPaused = !isPaused; // Alternar estado de pausa
 }

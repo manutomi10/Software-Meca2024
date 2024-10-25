@@ -336,7 +336,7 @@ function enviarCortes() {
             }
 
             if (termo == false){
-                alert("Recuerde Confirmar las termocuplas");
+                showModal();            
             }
 
             if (termo == true){
@@ -385,6 +385,18 @@ function openModal() {
 function closeModal() {
     document.getElementById("myModal").style.display = "none";
 }
+
+function showModal() {
+    if (!termo) {
+        document.getElementById('confirmModal').style.display = 'block';
+        document.getElementById('overlay').style.display = 'block';
+    }
+}
+
+document.getElementById('closeModal').addEventListener('click', function() {
+    document.getElementById('confirmModal').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
+});
 
 function confirmarTermocuplas() {
     const button = document.querySelector('.TermoButton');
