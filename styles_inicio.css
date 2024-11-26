@@ -211,7 +211,7 @@ overflow-y: hidden;
         transform: translateY(2px); /* Efecto de presión */
     }
 }
-
+/**/
 .config-image {
     position: absolute;
     top: 20px;
