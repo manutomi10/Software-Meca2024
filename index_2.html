@@ -12,6 +12,10 @@
 
 </head>
 <body>
+
+
+    <img src="images/png/cnfg.png" alt="Configuración" class="config-image" onclick="redirectToConfig()">
+
     <div class="container-fluid align-items-center justify-content-center d-flex">
         <div class="fuego">     
             <img src="images/png/fuego.png" alt="fuego" class="static-image" style="width: 24%; margin-left: 78.9%;">
@@ -47,6 +51,14 @@
         urlBase = window.location.hostname;
         urlPort = 1880;
 
+ const socketX = new WebSocket('ws://' +  urlBase + ':' + urlPort + '/ws/X'); 
+
+        socketX.onopen = () => {
+            console.log('Conectado al servidor WebSocket de X');
+            socketX.send(JSON.stringify({ payload: 'X' })); // Enviar 'X' al WebSocket
+            console.log('Enviando (X) al puerto serie');
+
+};
         const socketLS = new WebSocket('ws://' +  urlBase + ':' + urlPort + '/ws/s'); 
 
         //const socketLS = new WebSocket('ws://192.168.0.174:1880/ws/f');
@@ -57,17 +69,12 @@
             console.log('Enviando (S) al puerto serie');
 
 };
-              /* window.onload = function() {
-            if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
-                // Si la página fue recargada, forzar la caché a borrarse
-                caches.keys().then(function(cacheNames) {
-                    cacheNames.forEach(function(cacheName) {
-                        caches.delete(cacheName);
-                    });
-                });
-            }
-        };*/
-        
+
+
+
+        function redirectToConfig() {
+            window.location.href = 'configurzione.html';
+        }
     </script>
 <script src="barra.js"></script>
 

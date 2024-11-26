@@ -202,6 +202,10 @@
                 font-size: 1rem;
             }
         }
+        #warning-modal-cerrar {
+    background-color: #da0000;
+}
+
     </style>
 </head>
 <body>
@@ -234,6 +238,15 @@
         </div>
     </div>
 
+    <!-- Modal de advertencia (cuando el proceso no ha terminado) -->
+<div id="warningModal" class="modal">
+    <div class="modal-content">
+        <p class="modal-text">No terminó el proceso de limpieza. Por favor, espere hasta que termine.</p>
+        <button class="modal-button" id="warning-modal-cerrar" onclick="cerrarWarningModal()">Cerrar</button>
+    </div>
+</div>
+
+
     <script>
         let waterContainersConfirmed = false;
 
@@ -252,8 +265,24 @@
             document.getElementById('poweredCheckbox').disabled = false;
         }
 
+// Mostrar el modal de advertencia
+function mostrarWarningModal() {
+    document.getElementById('warningModal').style.display = 'block';
+}
+
+// Cerrar el modal de advertencia
+function cerrarWarningModal() {
+    document.getElementById('warningModal').style.display = 'none';
+}
+
+        let verif_R = false;
+
         function volver() {
-            window.location.href = 'index_2.html';
+             if(verif_R == true) {
+                window.location.href = 'index_2.html';
+            } else {
+                mostrarWarningModal();  // Muestra el modal si el proceso no ha terminado
+            }
         }
 
         window.onload = function() {
@@ -309,6 +338,29 @@
             console.log('Enviando (R) al puerto serie');
 
 };
+
+const socketLetras = new WebSocket('ws://' +  urlBase + ':' + urlPort + '/ws/f'); // Cambia esto
+
+// const socketLetras = new WebSocket('ws://192.168.3.5:1880/ws/f');
+
+ socketLetras.onopen = () => {
+     console.log('Conectado al servidor WebSocket de letras');
+ };
+
+socketLetras.onmessage = (event) => {
+     const data = JSON.parse(event.data); // Parseamos el mensaje
+     const command = data.payload; // Extraemos el comando
+
+     if (command === 'R') {
+        verif_R = true;  // Se actualiza 'verif_R' cuando llega el comando 'R'
+        console.log("Comando 'R' recibido. El botón de volver estará habilitado.");
+    } else {
+        console.log('Comando no reconocido:', command); // Si llega cualquier otro comando, lo puedes registrar.
+    }
+};
+
+
+
     </script>
 </body>
 </html>

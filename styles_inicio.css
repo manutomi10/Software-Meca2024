@@ -212,5 +212,19 @@ overflow-y: hidden;
     }
 }
 
+.config-image {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 50px; /* Ajusta el tamaño de la imagen */
+    height: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Agrega una animación de transformación */
+    z-index: 1000; /* Para asegurarse de que la imagen quede encima de otros elementos */
+}
+
+.config-image:hover {
+    transform: scale(1.1); /* Efecto al pasar el cursor */
+}
 
 
