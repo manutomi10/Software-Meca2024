@@ -40,7 +40,7 @@
         }
 
         .title {
-            font-size: 7rem;
+            font-size: 5rem;
             font-weight: 900;
             color: #242121;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -87,6 +87,7 @@
             background-size: 75px;
             background-position: center;
             background-repeat: no-repeat;
+            background-color: #da0000; /* Default red background */
         }
 
         .checkbox-container input[type="checkbox"]:checked {
@@ -95,7 +96,7 @@
                         inset -10px -10px 15px rgba(255, 255, 255, 0.5),
                         inset 10px 10px 15px rgba(70, 70, 70, 0.12);
             border: 12px solid #388e3c;
-            background-color: #4caf50;
+            background-color: #4caf50; /* Green when checked */
         }
 
         .settings {
@@ -114,6 +115,10 @@
             box-shadow: inset 4px 4px 4px #000000a4,
                         inset -4px -4px 4px #000000a4;
             cursor: pointer;
+        }
+
+        .TermoButton.confirmed {
+            background-color: #4caf50; /* Green when confirmed */
         }
 
         .modal {
@@ -230,6 +235,8 @@
     </div>
 
     <script>
+        let waterContainersConfirmed = false;
+
         function abrirModal() {
             document.getElementById('myModal').style.display = 'block';
         }
@@ -240,26 +247,68 @@
 
         function confirmarModal() {
             cerrarModal();
-            // Aquí puedes agregar la lógica adicional después de confirmar
+            waterContainersConfirmed = true;
+            document.querySelector('.TermoButton').classList.add('confirmed');
+            document.getElementById('poweredCheckbox').disabled = false;
         }
 
         function volver() {
-            window.location.href = 'index_prueba_3.html';
-        }
-
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('myModal')) {
-                cerrarModal();
-            }
+            window.location.href = 'index_2.html';
         }
 
         window.onload = function() {
+            const checkbox = document.getElementById('poweredCheckbox');
+            const termoButton = document.querySelector('.TermoButton');
+
+            checkbox.checked = false;
+            checkbox.disabled = true;
+
+            checkbox.addEventListener('change', function() {
+                if (!waterContainersConfirmed) {
+                    this.checked = false;
+                    alert('Por favor, confirme los recipientes de agua primero.');
+                }
+            });
+
+            termoButton.addEventListener('click', function() {
+                if (!waterContainersConfirmed) {
+                    abrirModal();
+                }
+            });
+
             caches.keys().then(function(cacheNames) {
                 cacheNames.forEach(function(cacheName) {
                     caches.delete(cacheName);
                 });
             });
         };
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('myModal')) {
+                cerrarModal();
+            }
+        }
+            // Obtén el checkbox por su ID
+        const checkbox = document.getElementById("poweredCheckbox");
+
+        // Agrega un evento "change" para detectar cuando se cambie el estado del checkbox
+        checkbox.addEventListener("change", function() {
+            if (checkbox.checked) {
+             // Si el checkbox está marcado, imprime el mensaje en la consola
+
+            }
+            });
+    urlBase = window.location.hostname;
+    urlPort = 1880;
+
+        const socketR = new WebSocket('ws://' +  urlBase + ':' + urlPort + '/ws/R'); 
+
+        socketR.onopen = () => {
+            console.log('Conectado al servidor WebSocket de R');
+            socketR.send(JSON.stringify({ payload: 'R' })); // Enviar 'S' al WebSocket
+            console.log('Enviando (R) al puerto serie');
+
+};
     </script>
 </body>
 </html>
