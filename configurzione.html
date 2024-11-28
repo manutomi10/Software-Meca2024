@@ -317,6 +317,10 @@ function cerrarWarningModal() {
                 cerrarModal();
             }
         }
+
+        urlBase = window.location.hostname;
+        urlPort = 1880;
+
 // Conexión al WebSocket
 const socketR = new WebSocket('ws://' +  urlBase + ':' + urlPort + '/ws/R'); 
 
@@ -325,10 +329,9 @@ const checkbox = document.getElementById("poweredCheckbox");
 
 // Maneja el evento cuando cambia el estado del checkbox
 checkbox.addEventListener("change", function() {
+    console.log("Estado del checkbox:", checkbox.checked);  // Para depuración
     if (checkbox.checked) {
-        // Verifica si la conexión WebSocket está abierta
         if (socketR.readyState === WebSocket.OPEN) {
-            // Si está abierto, envía el mensaje 'R' al servidor WebSocket
             socketR.send(JSON.stringify({ payload: 'R' }));
             console.log('Enviando (R) al servidor WebSocket');
         } else {
