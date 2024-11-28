@@ -317,38 +317,36 @@ function cerrarWarningModal() {
                 cerrarModal();
             }
         }
+// Conexión al WebSocket
+const socketR = new WebSocket('ws://' +  urlBase + ':' + urlPort + '/ws/R'); 
 
-    urlBase = window.location.hostname;
-    urlPort = 1880;
+// Obtén el checkbox por su ID
+const checkbox = document.getElementById("poweredCheckbox");
 
-        const socketR = new WebSocket('ws://' +  urlBase + ':' + urlPort + '/ws/R'); 
+// Maneja el evento cuando cambia el estado del checkbox
+checkbox.addEventListener("change", function() {
+    if (checkbox.checked) {
+        // Verifica si la conexión WebSocket está abierta
+        if (socketR.readyState === WebSocket.OPEN) {
+            // Si está abierto, envía el mensaje 'R' al servidor WebSocket
+            socketR.send(JSON.stringify({ payload: 'R' }));
+            console.log('Enviando (R) al servidor WebSocket');
+        } else {
+            console.log('El WebSocket no está abierto. No se puede enviar el mensaje.');
+        }
+    }
+});
 
-            // Obtén el checkbox por su ID
-        const checkbox = document.getElementById("poweredCheckbox");
-
-        // Agrega un evento "change" para detectar cuando se cambie el estado del checkbox
-        checkbox.addEventListener("change", function() {
-            if (checkbox.checked) {
-             // Si el checkbox está marcado, imprime el mensaje en la consola
-             socketR.onopen = () => {
-            console.log('Conectado al servidor WebSocket de R');
-            socketR.send(JSON.stringify({ payload: 'R' })); // Enviar 'S' al WebSocket
-            console.log('Enviando (R) al puerto serie');
-            console.log('RRRRRRRRRR');
-
+// Abrir WebSocket
+socketR.onopen = () => {
+    console.log('Conectado al servidor WebSocket de R');
 };
-            }
-            });
 
+// Manejo de errores en WebSocket
+socketR.onerror = (error) => {
+    console.error('Error en WebSocket: ', error);
+};
 
-
-const socketLetras = new WebSocket('ws://' +  urlBase + ':' + urlPort + '/ws/f'); // Cambia esto
-
-// const socketLetras = new WebSocket('ws://192.168.3.5:1880/ws/f');
-
- socketLetras.onopen = () => {
-     console.log('Conectado al servidor WebSocket de letras');
- };
 
 socketLetras.onmessage = (event) => {
      const data = JSON.parse(event.data); // Parseamos el mensaje
