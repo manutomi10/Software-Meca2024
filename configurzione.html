@@ -289,16 +289,6 @@ function cerrarWarningModal() {
             const checkbox = document.getElementById('poweredCheckbox');
             const termoButton = document.querySelector('.TermoButton');
 
-            checkbox.checked = false;
-            checkbox.disabled = true;
-
-            checkbox.addEventListener('change', function() {
-                if (!waterContainersConfirmed) {
-                    this.checked = false;
-                    alert('Por favor, confirme los recipientes de agua primero.');
-                }
-            });
-
             termoButton.addEventListener('click', function() {
                 if (!waterContainersConfirmed) {
                     abrirModal();
@@ -329,6 +319,12 @@ const checkbox = document.getElementById("poweredCheckbox");
 
 // Maneja el evento cuando cambia el estado del checkbox
 checkbox.addEventListener("change", function() {
+    if (!waterContainersConfirmed) {
+                    this.checked = false;
+                    alert('Por favor, confirme los recipientes de agua primero.');
+                    return;
+    }
+    
     console.log("Estado del checkbox:", checkbox.checked);  // Para depuración
     if (checkbox.checked) {
         if (socketR.readyState === WebSocket.OPEN) {
