@@ -416,6 +416,9 @@ function pausar() {
 
         document.getElementById('pauseMessage').style.display = 'block'; // Mostrar mensaje de pausa
     } else {
+        socketLetras.send(JSON.stringify({ payload: 'L' })); // Enviar 'L' al WebSocket
+        console.log('Enviando pausa (L) al puerto serie');
+
         document.getElementById('pauseMessage').style.display = 'none'; // Ocultar mensaje de pausa
         
         audio.play().catch(function(error) {
