@@ -55,7 +55,8 @@
 
         socketX.onopen = () => {
             console.log('Conectado al servidor WebSocket de X');
-            socketX.send(JSON.stringify({ 'X' })); // Enviar 'X' al WebSocket
+            //socketX.send(JSON.stringify({ payload: 'X' })); // Enviar 'X' al WebSocket
+            socketX.send(JSON.stringify({ payload: 'X' })); // Enviar 'X' al WebSocket
             console.log('Enviando (X) al puerto serie');
 
 };
@@ -69,7 +70,6 @@
             console.log('Enviando (S) al puerto serie');
 
 };
-console.log('XXXXX');
 
 
 
