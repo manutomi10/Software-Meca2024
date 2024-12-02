@@ -281,7 +281,7 @@ function GuardarCorte(numeroCorte){
         return;
     }
 
-    window.location.href = "index_prueba_" + (numeroCorte + 1) + ".html";
+    window.location.href = "parametrizacionModulo" + (numeroCorte + 1) + ".html";
 }
 
 function enviarCorte(numeroCorte){
