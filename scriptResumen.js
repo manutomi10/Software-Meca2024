@@ -129,7 +129,4 @@ function ValoresCondimento1() {
 
 window.onload = function (){
 ValoresCondimento1();
-ActualizarPunto1();
-
-
 }
