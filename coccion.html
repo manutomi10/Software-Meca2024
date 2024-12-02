@@ -269,7 +269,7 @@ flex-direction: column;
             </div>
     </div>
     <div class="fila3">
-        <button id="finishButton" class="button" onclick="Volver('inicializacion.html')">FINALIZAR</button>
+        <button id="finishButton" class="button" onclick="Volver()">FINALIZAR</button>
         <button id="pauseButton" class="button" onclick="pausar()">PAUSAR</button> <!-- Botón de pausa -->
         <div id="pauseMessage">PAUSADO ⏸️</div>  
 
@@ -433,6 +433,10 @@ function pausar() {
         socketLetras.onerror = (error) => {
             console.error('Error en WebSocket de letras:', error);
         };
+
+        function FINALIZAR(){
+    window.location.href = "inicializacion.html";
+ }
 
     </script>
     <script src="scriptsFinal.js"></script>
