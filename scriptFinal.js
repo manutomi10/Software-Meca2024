@@ -185,27 +185,7 @@ function changeImageGroup3() {
 
     console.log("Slider value:", imagenPunto, "Current image:", imageElement.src);
 }
-/*
-function initializeApp() {
-    const slider = document.getElementById("puntoCoccion");
-    if (slider) {
-        slider.addEventListener('input', changeImageGroup3);
-        changeImageGroup3(); // Initial call to set the correct image
-    } else {
-        console.error("Slider element not found");
-    }
-}
 
-// Wait for the DOM to be fully loaded before initializing
-document.addEventListener('DOMContentLoaded', initializeApp);
-
-// Additional check for image loading errors
-document.getElementById("displayedImageGroup3").addEventListener('error', function(e) {
-    console.error("Error loading image:", e.target.src);
-    // Optionally set a fallback image
-    // e.target.src = 'path/to/fallback/image.png';
-});
-*/
 function updateStaticImageValue(direction) {
     let valueElement;
 
@@ -364,10 +344,6 @@ function enviarCortes() {
 function Continuari(){
     window.location.href = "coccion.html";
  }
-
- /*function Ajuste(){
-    window.location.href = "index_6.html";
- }*/
 
  function Volver(donde_volver){
     window.location.href = donde_volver;

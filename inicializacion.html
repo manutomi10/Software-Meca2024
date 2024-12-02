@@ -36,12 +36,6 @@
             </div>
         </div>
 
- <!--      <div class="slider-container" id="slider-container">
-          Desliza para continuar ➡️
-            <div class="slider" id="slider">
-                <span class="slider-text"></span>
-            </div>
-        </div>--> 
     </div>
     <script src="scriptFinal.js"></script>
     <script>
@@ -56,13 +50,10 @@
         socketX.onopen = () => {
             console.log('Conectado al servidor WebSocket de X');
             socketX.send(JSON.stringify({ payload: 'X' }));
-           // socketX.send(JSON.stringify({ payload: 'X' })); // Enviar 'X' al WebSocket
             console.log('Enviando (X) al puerto serie');
 
 };
         const socketLS = new WebSocket('ws://' +  urlBase + ':' + urlPort + '/ws/s'); 
-
-        //const socketLS = new WebSocket('ws://192.168.0.174:1880/ws/f');
 
         socketLS.onopen = () => {
             console.log('Conectado al servidor WebSocket de LS');

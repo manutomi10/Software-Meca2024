@@ -337,9 +337,7 @@ window.onload = function() {
         urlPort = 1880;
 
         const socketTemperaturas = new WebSocket('ws://' +  urlBase + ':' + urlPort + '/ws/temperatura'); // Cambia esto
-        // Código del WebSocket para recibir las temperaturas
-       // const socketTemperaturas = new WebSocket('ws://192.168.3.5:1880/ws/temperatura');
-//hola
+
         socketTemperaturas.onopen = () => {
             console.log('Conectado al servidor WebSocket de temperaturas');
         };
@@ -366,7 +364,6 @@ window.onload = function() {
 
         const socketLetras = new WebSocket('ws://' +  urlBase + ':' + urlPort + '/ws/f'); // Cambia esto
 
-       // const socketLetras = new WebSocket('ws://192.168.3.5:1880/ws/f');
 
         socketLetras.onopen = () => {
             console.log('Conectado al servidor WebSocket de letras');
@@ -437,16 +434,6 @@ function pausar() {
             console.error('Error en WebSocket de letras:', error);
         };
 
-         /*      window.onload = function() {
-            if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
-                // Si la página fue recargada, forzar la caché a borrarse
-                caches.keys().then(function(cacheNames) {
-                    cacheNames.forEach(function(cacheName) {
-                        caches.delete(cacheName);
-                    });
-                });
-            }
-        };*/
     </script>
     <script src="scriptsTotal.js"></script>
 </body>
