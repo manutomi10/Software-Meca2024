@@ -12,10 +12,10 @@
 </head>
 <body class="justify-content-center align-items-center d-flex row">
     <div class="m-0 p-0">
-        <button class="btn btn-secondary bg-black border-0 rounded-3 volver p-1" onclick="Volver('index_prueba_1.html')">
+        <button class="btn btn-secondary bg-black border-0 rounded-3 volver p-1" onclick="Volver('notificacion.html')">
             <i class="bi bi-arrow-left text-white fs-2"></i>
         </button>
-        <h1 class="text-center fw-bolder">MÓDULO 2 <br> <br></h1>
+        <h1 class=" text-center fw-bolder">MÓDULO 1 <br><br></h1>
         <div class="justify-content-center align-items-center d-flex row">
             <div class="container-secundario justify-content-center d-flex m-0 py-4">
                 <button class="btn rounded" onclick="changeImageGroup1(-1)">
@@ -58,31 +58,31 @@
             </div>
             <h2><br><br></h2>
             <div class="container-final d-flex flex-row py-4 px-0 rounded-5">
-                <div class="image-item d-flex justify-content-evenly align-content-center col">
+                <div class="image-item d-flex justify-content-evenly align-items-center col">
                     <img src="images/SALBUENA.png" alt="Sal" class="static-image">
                     <span id="valueSal" class="text-center p-0 m-0 fs-2 fw-bold">0</span>
                 </div>
-                <div class="image-item d-flex justify-content-evenly align-content-center col">
+                <div class="image-item d-flex justify-content-evenly align-items-center col">
                     <img src="images/LIMONBUENO.png" alt="Chimi" class="static-image">
                     <span id="valueChimi" class="text-center p-0 m-0 fs-2 fw-bold">0</span>
                 </div>
-                <div class="image-item d-flex justify-content-evenly align-content-between col">
+                <div class="image-item d-flex justify-content-evenly align-items-center col">
                     <img src="images/HUMOBUENO.png" alt="Smoke" class="static-image">
                     <span id="valueSmoke" class="text-center p-0 m-0 fs-2 fw-bold">0</span>
                 </div>
-                <div class="image-item d-flex justify-content-center align-content-between col">
+                <div class="image-item d-flex justify-content-center align-items-center col">
                     <img src="images\termoestato.png" alt="Punto de cocción" class="termostato" id="displayedImageGroup3">
                 </div>
             </div>
-            <div class="justify-content-center d-flex">
-                <button type="button" class="btn btn-dark" id="continuar" onclick="GuardarCorte(2)"><strong>CONFIRMAR</strong></button>
+            <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-dark btn-lg" id="continuar" onclick="GuardarCorte(1)"><strong>CONFIRMAR</strong></button>
             </div>
         
         </div>
         <img src="images/png/holtersyahk.png" alt="ahkyholters" class="ahkyholters">
-        <script src="scripts_3 copy.js"></script>
+        <script src="scriptFinal.js"></script>
         <script>
-            ValoresCondimento(2);
+            ValoresCondimento(1);
         </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 

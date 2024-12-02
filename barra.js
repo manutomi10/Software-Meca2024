@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         container.classList.add('unlocked');
         slider.style.left = '0';
         setTimeout(() => {
-            window.location.href = 'index_5.html';
+            window.location.href = 'notificacion.html';
             reset();
         }, 500);
     }
