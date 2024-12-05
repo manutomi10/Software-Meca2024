@@ -276,6 +276,9 @@ flex-direction: column;
     </div>
 </div>
     <script>
+       let flagA = true; // Controla la actualización de temperatura 1
+        let flagB = true; // Controla la actualización de temperatura 2
+        let flagC = true; // Controla la actualización de temperatura 3
 
 // Lista de canciones (nombre y ruta)
 const canciones = [
@@ -344,9 +347,16 @@ window.onload = function() {
 
         socketTemperaturas.onmessage = (event) => {
             const data = JSON.parse(event.data);
+            if (flagA) {
             document.getElementById('temp1').textContent = `${data.temperatura1}`;
+            }
+            if (flagB) {        
             document.getElementById('temp2').textContent = `${data.temperatura2}`;
+             }
+             if (flagC) {
             document.getElementById('temp3').textContent = `${data.temperatura3}`;
+            }
+        
         };
 
         socketTemperaturas.onclose = () => {
@@ -369,6 +379,9 @@ window.onload = function() {
             console.log('Conectado al servidor WebSocket de letras');
         };
 
+
+ 
+
     socketLetras.onmessage = (event) => {
             const data = JSON.parse(event.data); // Parseamos el mensaje
             const command = data.payload; // Extraemos el comando
@@ -376,12 +389,15 @@ window.onload = function() {
     switch (command) {
         case 'A':
             document.getElementById('temp1').textContent = "FINALIZADO";
+            flagA = false; 
             break;
         case 'B':
             document.getElementById('temp2').textContent = "FINALIZADO";
+            flagB = false; 
             break;
         case 'C':
             document.getElementById('temp3').textContent = "FINALIZADO";
+            flagC = false; 
             break;
         case 'D':
             document.getElementById('finishButton').style.display = 'block'; // Mostrar botón
@@ -395,6 +411,13 @@ window.onload = function() {
             console.log('Comando no reconocido:', command);
         }
     };
+
+
+
+
+
+
+    
 
     let isPaused = false; // Variable para rastrear el estado de pausa
 
