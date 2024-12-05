@@ -327,7 +327,7 @@ function enviarCortes() {
 
                 //Una vez enviado los datos, limpio el localStorage
 
-                localStorage.removeItem('confirmacion_f');
+               // localStorage.removeItem('confirmacion_f');
                 
                 isEnabled = false; // Necesito nuevamente una "f" para enviar datos de nuevo
 
