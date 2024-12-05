@@ -306,6 +306,7 @@ function enviarCorte(numeroCorte){
     .catch((error) => {
         console.error('Error:', error);
     });
+
 }
 
 function enviarCortes() {
@@ -332,7 +333,10 @@ function enviarCortes() {
                 isEnabled = false; // Necesito nuevamente una "f" para enviar datos de nuevo
 
                 console.log("Confirmación 'f' elimnada. Enviar nuevamente señal 'f' ");
+
+                setTimeout(() => {
                 window.location.href = "coccion.html";
+                }, 1000);
                 
             }
            
