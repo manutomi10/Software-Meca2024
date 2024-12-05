@@ -368,11 +368,10 @@ function showModal() {
         document.getElementById('overlay').style.display = 'block';
     }
 }
-
-document.getElementById('closeModal').addEventListener('click', function() {
+function closeModalButton(){
     document.getElementById('confirmModal').style.display = 'none';
     document.getElementById('overlay').style.display = 'none';
-});
+}
 
 function confirmarTermocuplas() {
     const button = document.querySelector('.TermoButton');
