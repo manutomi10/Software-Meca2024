@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DASGRILL Home AI</title>
+    <title>Vincular Usuario</title>
     <style>
         :root {
             --primary-color: #000000;
@@ -116,6 +117,22 @@
             transform: translateY(2px);
         }
 
+        #qr-section {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #qr-code {
+            max-width: 200px;
+            margin: 0 auto;
+        }
+
+        #status {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
         @media (min-width: 768px) {
             .user-input {
                 max-width: 500px;
@@ -133,124 +150,76 @@
                 font-size: 20px;
             }
         }
-        #qr-section{
-            display: none;
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="user-input" id="userInput">
-            <div class="form_details">INGRESE USUARIO</div>
-            <br>
-            <input type="text" id="nombre" name="nombre" value="Mecatrónica" placeholder="👤 Ingrese su nombre" required class="input">
+            <div class="form_details">VINCULAR USUARIO</div>
+            <input type="text" id="username" name="username" placeholder="👤 Ingrese su nombre de usuario" required class="input">
+            <button class="botonUser" onclick="registerUser()">REGISTRAR</button>
+            <p id="status"></p>
             <div id="qr-section">
-                <div id="textoQR">
-                  <h3>Escanea el QR para<br>confirmar en Telegram</h3>
-                </div>
-                  <img id="qr-code" src="/QRCODE.png" alt="QR del bot de Telegram">
-                </div>
-            <button class="botonUser" onclick="registerUser(event)">CONTINUAR</button>
+                <h3>Escanea el QR para confirmar en Telegram</h3>
+                <img id="qr-code" src="/QRCODE.png" alt="QR del bot de Telegram">
+            </div>
         </div>
     </div>
 
     <script>
-        
-    urlBase = window.location.hostname;
-    
-    urlPort = 1880;
+        const urlBase = window.location.hostname;
+        const urlPort = 1880;
 
-    const url = 'http://' + urlBase + ":" + urlPort + '/hola';
+        async function registerUser() {
+            const username = document.getElementById('username').value;
 
-    async function registerUser(event) {
-      event.preventDefault();
+            if (!username) {
+                alert("Por favor, ingresa un usuario.");
+                return;
+            }
 
-      // Capturar el usuario ingresado
-      const username = document.getElementById('nombre').value;
+            try {
+                const response = await fetch('http://' + urlBase + ':' + urlPort + '/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name: username })
+                });
 
-      if (!username) {
-        alert("Por favor, ingresa un usuario.");
-        return;
-      }
-
-      console.log("Username sent: ", username);
-
-      console.log("URL being used: ", url);
-
-
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: username })
-      });
-
-      const result = await response.json();
-
-      console.log("Response received: ", result); // Log después del POST
-
-
-      if (result.message === "Registro exitoso") {
-        // Mostrar el mensaje y el QR para Telegram
-        console.log("Mostrando sección QR");
-        document.getElementById('qr-section').style.display = 'block';
-      } else {
-        alert(result.message);
-      }
-      
-    }
-/*
-    function redirectToSuccessPage() {
-      // Redirigir a otra página si la vinculación es exitosa
-      window.location.href = "parametrizacionModulo1.html";
-    }
-
-
-        function enviarUser() {
-        
-            const nombre = document.getElementById('nombre').value;
-            const telefono = document.getElementById('telefono').value;
-        
-            // Hacer la solicitud POST
-            fetch(url, {
-                method: 'POST',
-                headers: {
-            'Content-Type': 'application/json'
-             },
-                body: JSON.stringify({ nombre: nombre, telefono: telefono })
-            })
-            .then(response => {
-                window.location.href = "parametrizacionModulo1.html";
-            })
-            .catch((error) => {
+                const result = await response.json();
+                if (result.message === "Registro exitoso") {
+                    document.getElementById('status').textContent = "Usuario registrado. Por favor, escanea el QR para confirmar en Telegram.";
+                    document.getElementById('qr-section').style.display = 'block';
+                } else {
+                    alert(result.message);
+                }
+            } catch (error) {
                 console.error('Error:', error);
-            })
-
+                alert('Hubo un error al registrar el usuario.');
+            }
         }
-*/
-        const socket = new WebSocket('ws://' +  urlBase + ':' + urlPort + '/ws/H'); // Cambia esto
 
-socket.onopen = () => {
-    console.log('Conectado al servidor H WebSocket');
-};
+        const socket = new WebSocket('ws://' + urlBase + ':' + urlPort + '/ws/H');
 
-socket.onmessage = (event) => {
-    const data = event.data;
-    console.log(event.data);
-    // Verificamos si el mensaje contiene "H"
-    if (data.includes("H")) {
-        console.log("usuario registrado con exito");
-        window.location.href = 'parametrizacionModulo1.html';
-    }
-};
+        socket.onopen = () => {
+            console.log('Conectado al servidor H WebSocket');
+        };
 
-socket.onclose = () => {
-    console.log('Desconectado del servidor H WebSocket');
-};
+        socket.onmessage = (event) => {
+            const data = event.data;
+            console.log(event.data);
+            if (data.includes("H")) {
+                console.log("usuario registrado con exito");
+                window.location.href = 'parametrizacionModulo1.html';
+            }
+        };
 
-socket.onerror = (error) => {
-    console.error('Error en H WebSocket:', error);
-};
+        socket.onclose = () => {
+            console.log('Desconectado del servidor H WebSocket');
+        };
 
-        </script>
+        socket.onerror = (error) => {
+            console.error('Error en H WebSocket:', error);
+        };
+    </script>
 </body>
 </html>
