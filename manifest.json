@@ -1,7 +1,7 @@
 {
     "name": "Das Grill 2",
     "short_name": "Das Grill 2",
-    "start_url": "inicializacion.html",
+    "start_url": "index.html",
     "display": "fullscreen",
     "background_color": "#ffffff",
     "theme_color": "#000000",
