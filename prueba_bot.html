@@ -173,6 +173,8 @@
         return;
       }
 
+      console.log("Username sent: ", username);
+
       const response = await fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -180,8 +182,13 @@
       });
 
       const result = await response.json();
+
+      console.log("Response received: ", result); // Log después del POST
+
+
       if (result.message === "Registro exitoso") {
         // Mostrar el mensaje y el QR para Telegram
+        console.log("Mostrando sección QR");
         document.getElementById('qr-section').style.display = 'block';
       } else {
         alert(result.message);
