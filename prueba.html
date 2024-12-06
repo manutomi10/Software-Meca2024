@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>DERGRILL Home AI</title>
+    <style>
+        :root {
+            --primary-color: #b3b3b3;
+            --secondary-color: #f0f0f0;
+            --accent-color: #ff6b6b;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-image: url("images/fondogrill.png");
+            background-color: var(--secondary-color);
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .title {
+            margin-top: 5%;
+            font-size: 3rem;
+            font-weight: 900;
+            color: #242121;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #4b4848;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .header {
+            text-align: center;
+        }
+
+        .module {
+            background-color: rgba(255, 255, 255, 0.589);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+            padding: 1rem;
+        }
+
+        .module-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: #242121;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .meat-display {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        .grill-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            z-index: 1;
+        }
+
+        .meat-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            z-index: 2;
+        }
+
+        .ingredients {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+            background-color: #d1cfcfa1;
+        }
+
+        .ingredient-item {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            padding: 1rem;
+        }
+
+        .ingredient-image {
+            width: 25px;
+            height: 25px;
+            margin-right: 0.5rem;
+        }
+
+        .ingredient-value {
+            font-weight: bold;
+        }
+
+        .punto-coccion {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .settings {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #b3b3b3;
+            color: rgb(0, 0, 0);
+        }
+
+        .btn-secondary {
+            background-color: #b3b3b3;
+            color: rgb(0, 0, 0);
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .TermoButton {
+            background-color: #da0000;
+            padding: 0.7em 1.7em;
+            color: white;
+            font-size: 16px;
+            border-radius: 0.5em;
+            border: 1px solid #000000a4;
+            transition: all 0.3s;
+            box-shadow:
+                inset 4px 4px 4px #000000a4,
+                inset -4px -4px 4px #000000a4;
+        }
+
+        .btn.active {
+            background-color: #4caf50;
+            color: white;
+            border: 1px solid #000000a4;
+        }
+
+        .ahkyholters {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            width: 60px;
+            height: auto;
+        }
+
+        @media (max-width: 800px) {
+            .module-title {
+                font-size: 1.5rem;
+            }
+
+            .meat-display {
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .grill-image {
+                width: 250px;
+                height: auto;
+            }
+
+            .meat-image {
+                width: 80px;
+                height: auto;
+            }
+
+            .ingredient-image {
+                width: 20px;
+                height: 20px;
+            }
+
+            .btn {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+
+            .TermoButton {
+                font-size: 14px;
+            }
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 8px;
+        }
+
+        .modal-text {
+            text-align: center;
+            text-transform: uppercase;
+            margin: 3rem 0;
+            font-size: 200%;
+            font-weight: 600;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .texto-modal2 {
+            text-transform: uppercase;
+            margin: 3rem 0;
+            font-size: 200%;
+            font-weight: 600;
+        }
+
+        #closeModal {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            text-transform: uppercase;
+            background-color: #da0000;
+            padding: 0.7em 1.7em;
+            color: white;
+            font-size: 18px;
+            border-radius: 0.5em;
+            border: 1px solid #000000a4;
+            transition: all 0.3s;
+            box-shadow:
+                inset 4px 4px 4px #000000a4,
+                inset -4px -4px 4px #000000a4;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <!--<h1 class="title">DERGRILL</h1> 
+        <div class="subtitle">HOME AI</div>-->
+    </header>
+
+    <button class="btn btn-secondary bg-black border-0 rounded-3 volver p-1" onclick="Volver('parametrizacionModulo3.html')">
+        <i class="bi bi-arrow-left text-white fs-2"></i>
+    </button>
+
+    <main class="container">
+        <!-- Módulo 1 -->
+        <section class="module">
+            <h2 class="module-title"><strong>MÓDULO 1</strong></h2>
+            <div class="m1-display justify-content-center align-items-center d-flex">
+            <div class="meat-display">
+                <img src="images/grill.png" alt="Corte de carne seleccionado" class="grill-image" style="width: 300px; height: auto;">
+                <img src="images/CARNEBUENA.png" alt="Corte de carne seleccionado" class="meat-image" id="displayedImageGroup1" style="width: 100px; height: auto;">
+            </div>
+
+            <div class="espaciado1"></div>
+
+            <div class="punto-coccion">
+                <span id="puntoCoccion1" style="display:none;"></span> <!-- Oculta el texto -->
+                <img src="images/termoestato.png" alt="imagenPuntoCoccion1" class="punto-image" id="imagenPuntoCoccion1">
+            </div>
+            </div>
+            <div class="ingredients">
+                <div class="ingredient-item">
+                    <img src="images/SALBUENA.png" alt="Sal" class="ingredient-image" id="imgSal1">
+                    <span class="ingredient-value" id="valueSal1">0</span>
+                </div>
+                <div class="ingredient-item">
+                    <img src="images/LIMONBUENO.png" alt="Chimichurri" class="ingredient-image" id="imgChimi1">
+                    <span class="ingredient-value" id="valueChimi1">0</span>
+                </div>
+                <div class="ingredient-item">
+                    <img src="images/HUMOBUENO.png" alt="Ahumado" class="ingredient-image" id="imgSmoke1">
+                    <span class="ingredient-value" id="valueSmoke1">0</span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Módulo 2 -->
+        <section class="module">
+            <h2 class="module-title"><strong>MÓDULO 2</strong></h2>
+            <div class="m1-display justify-content-center align-items-center d-flex">
+            <div class="meat-display">
+                <img src="images/grill.png" alt="Corte de carne seleccionado" class="grill-image" style="width: 300px; height: auto;">
+                <img src="images/CARNEBUENA.png" alt="Corte de carne seleccionado" class="meat-image" id="displayedImageGroup2" style="width: 100px; height: auto;">
+            </div>            
+                <div class="espaciado1"></div>
+
+                <div class="punto-coccion">
+                    <span id="puntoCoccion2" style="display:none;"></span> <!-- Oculta el texto -->
+                    <img src="images/termoestato.png" alt="imagenPuntoCoccion2" class="punto-image" id="imagenPuntoCoccion2">
+                </div>
+
+        </div>
+            <div class="ingredients">
+                <div class="ingredient-item">
+                    <img src="images/SALBUENA.png" alt="Sal" class="ingredient-image" id="imgSal2">
+                    <span class="ingredient-value" id="valueSal2">0</span>
+                </div>
+                <div class="ingredient-item">
+                    <img src="images/LIMONBUENO.png" alt="Chimichurri" class="ingredient-image" id="imgChimi2">
+                    <span class="ingredient-value" id="valueChimi2">0</span>
+                </div>
+                <div class="ingredient-item">
+                    <img src="images/HUMOBUENO.png" alt="Ahumado" class="ingredient-image" id="imgSmoke2">
+                    <span class="ingredient-value" id="valueSmoke2">0</span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Módulo 3 -->
+        <section class="module">
+            <h2 class="module-title"><strong>MÓDULO 3</strong></h2>
+            <div class="m1-display justify-content-center align-items-center d-flex">
+            <div class="meat-display">
+                <img src="images/grill.png" alt="Corte de carne seleccionado" class="grill-image" style="width: 300px; height: auto;">
+                <img src="images/CARNEBUENA.png" alt="Corte de carne seleccionado" class="meat-image" id="displayedImageGroup3" style="width: 100px; height: auto;">
+            </div>
+
+            <div class="espaciado1"></div>
+
+            <div class="punto-coccion">
+                <span id="puntoCoccion3" style="display:none;"></span> <!-- Oculta el texto -->
+                <img src="images/termoestato.png" alt="imagenPuntoCoccion3" class="punto-image" id="imagenPuntoCoccion3">
+            </div>
+            
+            </div>
+
+            <div class="ingredients">
+                <div class="ingredient-item">
+                    <img src="images/SALBUENA.png" alt="Sal" class="ingredient-image" id="imgSal3">
+                    <span class="ingredient-value" id="valueSal3">0</span>
+                </div>
+                <div class="ingredient-item">
+                    <img src="images/LIMONBUENO.png" alt="Chimichurri" class="ingredient-image" id="imgChimi3">
+                    <span class="ingredient-value" id="valueChimi3">0</span>
+                </div>
+                <div class="ingredient-item">
+                    <img src="images/HUMOBUENO.png" alt="Ahumado" class="ingredient-image" id="imgSmoke3">
+                    <span class="ingredient-value" id="valueSmoke3">0</span>
+                </div>
+            </div>
+
+<!---->        </section>
+        
+       <section class="settings">
+            <button class="btn TermoButton" onclick="TermocuplasSI()">✓ TERMOCUPLAS</button>   
+            <button class="btn btn-warning" id="continuar" onclick="enviarCortes()">CONTINUAR</button> 
+        </section>
+    </main>
+
+<!---->    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p class="modal-text">NO OLVIDE COLOCAR LOS ELEMENTOS DE MEDICIÓN EN LOS RESPECTIVOS CORTES A COCINAR</p>
+            <button class="btn btn-primary" id="modal-continuar" onclick="confirmarTermocuplas()">CONFIRMAR</button>
+            <div class="espaciado2"></div>
+            <button class="btn btn-secondary" id="modal-cerrar" onclick="closeModal()">CERRAR</button>
+        </div>
+    </div>
+<!---->    
+
+    <div id="confirmModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); z-index: 1000; width: 400px; padding: 20px;">
+        <div style="padding: 40px;">
+            <div class="texto-modal2">RECUERDE CONFIRMAR LAS TERMOCUPLAS</div>
+            <div style="display: flex; justify-content: center; margin-top: 10px;">
+                <button id="closeModal" onclick="closeModalButton();">Cerrar</button>
+            </div>        
+        </div>
+    </div>
+
+    <div id="overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999;"></div>
+
+
+    <img src="images/png/holtersyahk.png" alt="ahkyholters" class="ahkyholters">
+
+
+ <!---->    <script src="scriptFinal.js"></script> <!---->
+    <script src="scriptResumen.js"></script>
+</body>
+
+</html>
