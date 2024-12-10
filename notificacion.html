@@ -187,7 +187,6 @@
 
                 const result = await response.json();
                 if (result.message === "Registro exitoso") {
-                    document.getElementById('status').textContent = "Usuario registrado. Por favor, escanea el QR para confirmar en Telegram.";
                     document.getElementById('qr-section').style.display = 'block';
                 } else {
                     alert(result.message);
