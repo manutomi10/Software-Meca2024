@@ -347,6 +347,12 @@ socketR.onerror = (error) => {
     console.error('Error en WebSocket: ', error);
 };
 
+const socketLetras = new WebSocket('ws://' +  urlBase + ':' + urlPort + '/ws/f'); // Cambia esto
+
+
+socketLetras.onopen = () => {
+    console.log('Conectado al servidor WebSocket de letras');
+};
 
 socketLetras.onmessage = (event) => {
      const data = JSON.parse(event.data); // Parseamos el mensaje
