@@ -171,9 +171,12 @@
         const urlPort = 1880;
 
         async function registerUser() {
-            const username = document.getElementById('username').value;
 
-            if (!username) {
+            window.location.href = 'parametrizacionModulo1.html';
+        }
+          //  const username = document.getElementById('username').value;
+
+       /*     if (!username) {
                 alert("Por favor, ingresa un usuario.");
                 return;
             }
@@ -219,6 +222,8 @@
         socket.onerror = (error) => {
             console.error('Error en H WebSocket:', error);
         };
+
+        */
     </script>
 </body>
 </html>
